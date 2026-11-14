@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Answers to common questions regarding genuine warranties, White-Glove delivery, custom fitting, and trade-in valuations.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .faq-accordion-item {
+      background: #ffffff;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--color-primary);
+    }
+    .faq-question:hover {
+      background: var(--color-bg-alt);
+    }
+    .faq-answer {
+      padding: 0 24px 20px;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      display: none;
+      border-top: 1px solid var(--border-line);
+      padding-top: 14px;
+    }
+    .faq-accordion-item.active .faq-answer {
+      display: block;
+    }
+    .faq-icon {
+      font-size: 18px;
+      transition: transform 0.25s;
+    }
+    .faq-accordion-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Knowledge Base:</strong> Everything you need to know about tour clubs, fitting &amp; White-Glove delivery</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">FAQ</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="max-width: 800px; text-align: center;">
+      <span class="eyebrow" style="color: var(--color-gold);">HELP &amp; CONCIERGE DESK</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Frequently Asked Questions</h1>
+      <p style="color: #cadfd4; font-size: 16px; line-height: 1.6;">
+        Find clear answers regarding equipment authenticity, White-Glove delivery coverage, custom fitting protocols, and certified pre-owned valuations.
+      </p>
+
+      <div style="margin-top: 24px; max-width: 500px; margin-left: auto; margin-right: auto;">
+        <input 
+          type="text" 
+          id="faq-search" 
+          placeholder="Search questions (e.g. warranty, delivery, serial number)..." 
+          class="form-control"
+          style="background: #ffffff; color: #111; font-size: 14px;"
+          oninput="filterFaq(this.value)"
+        >
+      </div>
+    </div>
+  </div>
+
+  <main class="container section-padding" style="max-width: 900px;">
+    
+    <!-- Category 1: Equipment Authenticity -->
+    <div class="faq-category-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 22px; margin-bottom: 16px; color: var(--color-primary); display: flex; align-items: center; gap: 10px;">
+        <span>🛡</span> Equipment Authenticity &amp; Warranty
+      </h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Are all golf clubs and equipment 100% genuine and authentic?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes, absolutely. Royal Fairway Golf Co. is an authorized retail distributor for Titleist, TaylorMade, Callaway, Ping, Mizuno, FootJoy, Bushnell, and Scotty Cameron. Every club features verifiable manufacturer laser-etched serial numbers that can be registered directly with the brand for warranty.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What manufacturer warranty is included with new golf clubs?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          All brand-new golf equipment includes the full official 2-year manufacturer warranty covering head structural integrity, carbon composite face delamination, and shaft defects. Royal Fairway facilitates all warranty claims locally through our Gurugram and Bengaluru studios.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I verify the serial number on my club?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Each wood and iron hosel contains a micro-engraved serial number. Upon delivery, your physical receipt and digital certificate list this exact serial code, verified by our master clubmaker prior to dispatch.
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 2: White-Glove Fleet Delivery -->
+    <div class="faq-category-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 22px; margin-bottom: 16px; color: var(--color-primary); display: flex; align-items: center; gap: 10px;">
+        <span>🚐</span> White-Glove Delivery Fleet
+      </h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What makes Royal Fairway White-Glove Delivery unique?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Unlike ordinary third-party couriers who stack golf bags roughly in cargo trucks, our deliveries are carried in dedicated climate-controlled Fairway EV Vans by uniformed golf technicians. Your equipment remains upright, cushioned in velvet travel cases, and is inspected with you upon arrival.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Which cities are covered by the dedicated White-Glove fleet?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We operate our in-house fleet across all of Delhi NCR (Gurugram, New Delhi, Noida, Greater Noida, Faridabad) and Bengaluru (Indiranagar, Whitefield, Koramangala, Sadashivanagar). For other cities including Mumbai, Pune, Hyderabad, Chandigarh, and Kolkata, orders are dispatched via expedited insured air freight.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Can you deliver directly to my golf course locker or pro shop?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes! Simply select "Golf Club Locker" at checkout and indicate your club (e.g. DLF Golf & Country Club, Delhi Golf Club, KGA, or Prestige Golfshire) and locker number or caddie master desk. Our fleet specialists have verified access credentials.
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3: Certified Pre-Owned & Trade-Ins -->
+    <div class="faq-category-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 22px; margin-bottom: 16px; color: var(--color-primary); display: flex; align-items: center; gap: 10px;">
+        <span>🔄</span> Certified Pre-Owned &amp; Trade-In
+      </h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How does the 10-Point Pre-Owned condition grading work?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Inspired by Golf Garage's benchmark standards, every pre-owned club is rated from 10/10 Mint (Unhit/Like New) down to 7/10 Good. We inspect crown condition, face grooves, sole wear, shaft frequency/straightness, grip tackiness, and headcover authenticity.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How do I trade-in my old clubs for store credit?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Visit our Trade-In Valuation Tool, choose your club brand, model, and condition. You will receive an instant rupee quote. Once approved, our White-Glove fleet will pick up the clubs from your doorstep for free, and issue store credit instantly.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the 30-Day Playability Guarantee?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          If your certified pre-owned driver or iron set does not fit your swing on the golf course, you may exchange it for 100% store credit toward any other equipment within 30 days of delivery.
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4: Returns & Payments -->
+    <div class="faq-category-section">
+      <h2 style="font-size: 22px; margin-bottom: 16px; color: var(--color-primary); display: flex; align-items: center; gap: 10px;">
+        <span>💳</span> Returns &amp; Payments
+      </h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What payment methods are supported?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We accept UPI (Google Pay, PhonePe, Paytm, BHIM), RuPay, Visa, Mastercard, American Express, Net Banking across all top Indian banks, and Cash/UPI on Delivery (COD) via our fleet couriers.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the return and exchange timeline?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          We offer a 7-day hassle-free return policy on brand-new apparel, shoes, and unhit clubs in original shrinkwrap. You can also try shoes for size during your White-Glove delivery and hand them back immediately if an alternate size is preferred.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership for Titleist, TaylorMade, Callaway, Ping and Scotty Cameron.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Support</h6>
+          <ul>
+            <li><a href="faq.html">FAQ Knowledge Base</a></li>
+            <li><a href="support.html">Submit Ticket</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Policies</h6>
+          <ul>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+    });
+
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function filterFaq(query) {
+      const q = query.toLowerCase().trim();
+      document.querySelectorAll('.faq-accordion-item').forEach(el => {
+        const text = el.textContent.toLowerCase();
+        if (text.includes(q)) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

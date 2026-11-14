@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Book — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Manage your delivery addresses including residences and golf club locker rooms.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Clubhouse Delivery:</strong> Seamless delivery directly to your home course pro shop or locker</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="account.html" class="nav-link">Account</a></li>
+          <li class="nav-item"><a href="addresses.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Addresses</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div style="background: var(--color-bg-alt); padding: 16px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; gap: 8px; font-size: 13.5px; color: var(--color-text-muted);">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="account.html">Account</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 600;">Saved Delivery Destinations</span>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 14px; border-bottom: 1px solid var(--border-line); padding-bottom: 16px;">
+      <div>
+        <h1 style="font-size: 28px; margin: 0 0 4px;">Delivery Address Book</h1>
+        <span class="text-muted">Manage your villas, golf club lockers, and corporate addresses for White-Glove dispatch.</span>
+      </div>
+
+      <button class="btn btn-primary" onclick="openAddAddressModal()">+ Add New Destination</button>
+    </div>
+
+    <!-- Address Cards Grid -->
+    <div id="addresses-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- Add Address Modal -->
+    <div id="address-modal" class="modal-overlay" style="display: none;" onclick="closeAddressModal()">
+      <div class="modal-content-box" style="max-width: 520px; padding: 32px;" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closeAddressModal()">✕</button>
+        <h3 style="font-size: 20px; margin-bottom: 6px;">Add Delivery Destination</h3>
+        <p class="text-muted" style="font-size: 13px; margin-bottom: 20px;">Save a new residence, golf club pro shop, or office for swift checkout.</p>
+
+        <form id="new-address-form" onsubmit="saveNewAddress(event)">
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Destination Tag / Label</label>
+            <input type="text" id="addr-label" class="form-control" placeholder="e.g. DLF Golf Club Locker / Main Residence" required>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Recipient Name</label>
+            <input type="text" id="addr-name" class="form-control" placeholder="e.g. Major General Ranvijay Singh" required>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Street Address &amp; Suite</label>
+            <input type="text" id="addr-street" class="form-control" placeholder="e.g. Locker #44, DLF Club House, Golf Course Rd" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+            <div>
+              <label class="form-label">City</label>
+              <input type="text" id="addr-city" class="form-control" placeholder="Gurugram" required>
+            </div>
+            <div>
+              <label class="form-label">Pincode</label>
+              <input type="text" id="addr-pin" class="form-control" placeholder="122002" required maxlength="6">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Save Address</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership for Titleist, TaylorMade, Callaway, Ping and Scotty Cameron.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="shipping-policy.html">Fleet Delivery Policy</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    const INITIAL_ADDRESSES = [
+      {
+        id: 'addr-1',
+        label: 'Primary Residence (DLF Phase 5)',
+        name: 'Major General Ranvijay Singh',
+        street: 'Villa 14, The Magnolias, Golf Course Road',
+        city: 'Gurugram',
+        pincode: '122002',
+        isDefault: true,
+      },
+      {
+        id: 'addr-2',
+        label: 'Golf Club Locker',
+        name: 'Major General Ranvijay Singh',
+        street: 'Locker #88, Caddie Master Desk, DLF Golf & Country Club',
+        city: 'Gurugram',
+        pincode: '122002',
+        isDefault: false,
+      },
+      {
+        id: 'addr-3',
+        label: 'Bengaluru Links Suite',
+        name: 'Major General Ranvijay Singh',
+        street: 'No. 4, Windmills of Your Mind, Whitefield',
+        city: 'Bengaluru',
+        pincode: '560066',
+        isDefault: false,
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      if (!localStorage.getItem('rfg_addresses')) {
+        localStorage.setItem('rfg_addresses', JSON.stringify(INITIAL_ADDRESSES));
+      }
+
+      renderAddressCards();
+    });
+
+    function getSavedAddresses() {
+      try {
+        return JSON.parse(localStorage.getItem('rfg_addresses')) || INITIAL_ADDRESSES;
+      } catch (e) {
+        return INITIAL_ADDRESSES;
+      }
+    }
+
+    function renderAddressCards() {
+      const list = getSavedAddresses();
+      const grid = document.getElementById('addresses-grid');
+
+      grid.innerHTML = list.map(addr => `
+        <div style="background: #ffffff; border: ${addr.isDefault ? '2px solid var(--color-primary)' : '1px solid var(--border-line)'}; border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-sm);">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="badge ${addr.isDefault ? 'badge-mint' : 'badge-gold'}" style="font-size: 11px;">
+                ${addr.isDefault ? 'Default Destination' : 'Saved Destination'}
+              </span>
+              <span style="font-size: 18px;">${addr.label.includes('Club') ? '⛳' : '🏡'}</span>
+            </div>
+
+            <h3 style="font-size: 17px; margin-bottom: 6px; color: var(--color-primary);">${addr.label}</h3>
+            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">${addr.name}</div>
+            <div style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 18px;">
+              ${addr.street}<br>${addr.city} - ${addr.pincode}
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; border-top: 1px solid var(--border-line); padding-top: 14px;">
+            ${!addr.isDefault ? `<button class="btn btn-outline btn-sm" onclick="setDefaultAddress('${addr.id}')" style="flex: 1;">Set Default</button>` : ''}
+            <button class="btn btn-secondary btn-sm" onclick="deleteAddress('${addr.id}')" style="color: #dc2626;">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openAddAddressModal() {
+      document.getElementById('address-modal').style.display = 'flex';
+    }
+
+    function closeAddressModal() {
+      document.getElementById('address-modal').style.display = 'none';
+    }
+
+    function saveNewAddress(e) {
+      e.preventDefault();
+      const list = getSavedAddresses();
+      const newAddr = {
+        id: 'addr-' + Date.now(),
+        label: document.getElementById('addr-label').value,
+        name: document.getElementById('addr-name').value,
+        street: document.getElementById('addr-street').value,
+        city: document.getElementById('addr-city').value,
+        pincode: document.getElementById('addr-pin').value,
+        isDefault: list.length === 0,
+      };
+
+      list.push(newAddr);
+      localStorage.setItem('rfg_addresses', JSON.stringify(list));
+      closeAddressModal();
+      renderAddressCards();
+      Store.showToast('New delivery address saved to book!');
+    }
+
+    function setDefaultAddress(id) {
+      const list = getSavedAddresses().map(a => ({
+        ...a,
+        isDefault: a.id === id,
+      }));
+      localStorage.setItem('rfg_addresses', JSON.stringify(list));
+      renderAddressCards();
+      Store.showToast('Default delivery address updated.');
+    }
+
+    function deleteAddress(id) {
+      let list = getSavedAddresses();
+      list = list.filter(a => a.id !== id);
+      localStorage.setItem('rfg_addresses', JSON.stringify(list));
+      renderAddressCards();
+      Store.showToast('Address removed.', 'info');
+    }
+  </script>
+</body>
+</html>
+

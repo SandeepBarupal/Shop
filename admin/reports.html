@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports &amp; Analytics — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Executive Sales &amp; Fleet Analytics</h1>
+          <p class="admin-page-subtitle">Revenue breakdown, category performance metrics, and White-Glove fulfillment efficiency.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-primary" onclick="window.print()">Export Financial Report (PDF)</button>
+      </div>
+
+      <!-- High-Level Financial Metrics -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Gross Merchandise Value (GMV)</div>
+          <div class="admin-kpi-val">₹18,45,200</div>
+          <div class="admin-kpi-trend trend-up">▲ 24.8% growth this quarter</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Average Order Value (AOV)</div>
+          <div class="admin-kpi-val">₹48,650</div>
+          <div class="admin-kpi-trend trend-up">Driven by tour driver + iron sets</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">White-Glove Fleet On-Time %</div>
+          <div class="admin-kpi-val" style="color: var(--admin-success);">98.4%</div>
+          <div class="admin-kpi-trend">Delhi NCR &amp; Bengaluru hubs</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Trade-In Conversion Rate</div>
+          <div class="admin-kpi-val" style="color: var(--admin-gold);">68.2%</div>
+          <div class="admin-kpi-trend trend-up">High upgrade rate to new Qi10/TSR</div>
+        </div>
+      </div>
+
+      <!-- Visual Analytics Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px;">
+        
+        <!-- Category Contribution -->
+        <div class="admin-card" style="padding: 24px;">
+          <h3 style="font-size: 16px; margin-bottom: 16px;">Sales by Equipment Discipline</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Woods &amp; Tour Drivers</span>
+                <strong>₹7,01,176 (38%)</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 38%; height: 100%; background: var(--admin-primary);"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Forged Irons &amp; Wedges</span>
+                <strong>₹4,79,752 (26%)</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 26%; height: 100%; background: var(--admin-gold);"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Scotty Cameron Putters</span>
+                <strong>₹3,32,136 (18%)</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 18%; height: 100%; background: #0284c7;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Apparel, FootJoy Shoes &amp; Bags</span>
+                <strong>₹3,32,136 (18%)</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 18%; height: 100%; background: #166534;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Geographic Sales -->
+        <div class="admin-card" style="padding: 24px;">
+          <h3 style="font-size: 16px; margin-bottom: 16px;">Geographic Hub Distribution</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Delhi NCR (Gurugram, New Delhi, Noida)</span>
+                <strong>56% Fleet Deliveries</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 56%; height: 100%; background: var(--admin-primary);"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Bengaluru (Indiranagar, Whitefield, KGA)</span>
+                <strong>28% Fleet Deliveries</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 28%; height: 100%; background: var(--admin-gold);"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Mumbai, Pune &amp; Western India</span>
+                <strong>12% Insured Air Express</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 12%; height: 100%; background: #64748b;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 4px;">
+                <span>Rest of India (Chandigarh, Hyderabad, Kolkata)</span>
+                <strong>4% Insured Air Express</strong>
+              </div>
+              <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div style="width: 4%; height: 100%; background: #94a3b8;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Top Performing Clubs -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 style="font-size: 16px;">Top Revenue-Generating Equipment Lines (2026)</h3>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Equipment</th>
+              <th>Brand</th>
+              <th>Units Dispatched</th>
+              <th>Unit Revenue (₹)</th>
+              <th>Total GMV (₹)</th>
+              <th>Return %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TaylorMade Qi10 Max Driver (10.5°)</strong></td>
+              <td>TaylorMade</td>
+              <td>22 Units</td>
+              <td>₹64,999</td>
+              <td><strong>₹14,29,978</strong></td>
+              <td><span class="admin-badge badge-success">0.0%</span></td>
+            </tr>
+            <tr>
+              <td><strong>Scotty Cameron Special Select Newport 2</strong></td>
+              <td>Scotty Cameron</td>
+              <td>16 Units</td>
+              <td>₹46,999</td>
+              <td><strong>₹7,51,984</strong></td>
+              <td><span class="admin-badge badge-success">0.0%</span></td>
+            </tr>
+            <tr>
+              <td><strong>Titleist Pro V1 Golf Balls (Dozen)</strong></td>
+              <td>Titleist</td>
+              <td>118 Packs</td>
+              <td>₹5,299</td>
+              <td><strong>₹6,25,282</strong></td>
+              <td><span class="admin-badge badge-success">0.0%</span></td>
+            </tr>
+            <tr>
+              <td><strong>FootJoy Premiere Series Wilcox Tour Shoes</strong></td>
+              <td>FootJoy</td>
+              <td>28 Pairs</td>
+              <td>₹21,999</td>
+              <td><strong>₹6,15,972</strong></td>
+              <td><span class="admin-badge badge-info">3.5% (Exchanged)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('reports');
+      Admin.renderTopbar();
+    });
+  </script>
+</body>
+</html>
+

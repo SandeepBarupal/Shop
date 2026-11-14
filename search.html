@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Golf Equipment — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Search tour drivers, iron sets, Scotty putters, golf balls, shoes and accessories.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Search &amp; Custom Fitting:</strong> Can't find your exact spec? Call our Gurugram/Bengaluru fitting desk</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search equipment, clubs, balls..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=bags" class="nav-link">Bags</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="category.html?cat=apparel" class="nav-link">Apparel</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Header Bar -->
+  <div style="background: var(--color-primary); color: #ffffff; padding: 40px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <div style="max-width: 720px;">
+        <span class="eyebrow" style="color: var(--color-gold);">PRODUCT SEARCH</span>
+        <h1 style="color: #ffffff; margin: 6px 0 16px; font-size: clamp(26px, 3.5vw, 36px);" id="search-heading">
+          Search Results
+        </h1>
+
+        <!-- Inline Search Form -->
+        <form action="search.html" method="GET" style="display: flex; gap: 8px;">
+          <input 
+            type="text" 
+            id="page-search-input" 
+            name="q" 
+            placeholder="Search drivers, irons, putters, Titleist, Scotty, shoes..." 
+            class="form-control"
+            style="background: #ffffff; color: #111; font-size: 15px; padding: 12px 18px;"
+          >
+          <button type="submit" class="btn btn-gold" style="padding: 0 24px;">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div class="catalog-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h4 style="font-size: 16px;">Refine Results</h4>
+          <button onclick="resetSearchFilters()" style="font-size: 12px; color: var(--color-text-muted); text-decoration: underline;">Reset</button>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-block">
+          <div class="filter-title">Category</div>
+          <div class="filter-options-list" id="search-category-filters">
+            <!-- Filter checkboxes -->
+          </div>
+        </div>
+
+        <!-- Brand -->
+        <div class="filter-block">
+          <div class="filter-title">Brand</div>
+          <div class="filter-options-list" id="search-brand-filters">
+            <!-- Brand checkboxes -->
+          </div>
+        </div>
+
+        <!-- Condition -->
+        <div class="filter-block">
+          <div class="filter-title">Condition</div>
+          <div class="filter-options-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="condition" value="New" onchange="runFilter()"> New (Box Pack)
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="condition" value="Pre-Owned" onchange="runFilter()"> Certified Pre-Owned
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Results View -->
+      <section class="catalog-content">
+        <div class="catalog-toolbar">
+          <div class="results-count" id="search-results-count">
+            Finding matches...
+          </div>
+          <div class="catalog-sort">
+            <label for="search-sort" style="font-size: 13px; color: var(--color-text-muted);">Sort By:</label>
+            <select id="search-sort" class="form-control" style="width: auto; font-size: 13.5px;" onchange="runFilter()">
+              <option value="relevance">Relevance</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Player Rating</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="search-results-grid" class="products-grid">
+          <!-- Populated via JS -->
+        </div>
+
+        <div id="no-results-box" style="display: none; text-align: center; padding: 60px 20px; background: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+          <div style="font-size: 40px; margin-bottom: 12px;">⛳</div>
+          <h3 style="font-size: 20px; margin-bottom: 8px;">No matching equipment found</h3>
+          <p class="text-muted" style="max-width: 480px; margin: 0 auto 24px; font-size: 14px;">
+            We couldn't find an exact match for your search query. Try checking your spelling, using broader terms, or explore our bestsellers below.
+          </p>
+          <a href="products.html" class="btn btn-primary">Browse All Tour Gear</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's authorized golf equipment destination with custom fitting and White-Glove delivery.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="category.html?cat=balls">Golf Balls</a></li>
+            <li><a href="category.html?cat=bags">Golf Bags</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Delivery</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    let currentQuery = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      const params = new URLSearchParams(window.location.search);
+      currentQuery = (params.get('q') || '').trim();
+
+      const input = document.getElementById('page-search-input');
+      if (input) input.value = currentQuery;
+
+      document.getElementById('search-heading').textContent = currentQuery 
+        ? `Search Results for "${currentQuery}"`
+        : 'All Golf Equipment';
+
+      buildFilterLists();
+      runFilter();
+    });
+
+    function buildFilterLists() {
+      const catList = document.getElementById('search-category-filters');
+      if (catList) {
+        catList.innerHTML = GOLF_DATABASE.categories.map(c => `
+          <label class="filter-checkbox-label">
+            <input type="checkbox" name="cat" value="${c.id}" onchange="runFilter()"> ${c.name}
+          </label>
+        `).join('');
+      }
+
+      const brandList = document.getElementById('search-brand-filters');
+      if (brandList) {
+        brandList.innerHTML = GOLF_DATABASE.brands.map(b => `
+          <label class="filter-checkbox-label">
+            <input type="checkbox" name="brand" value="${b.name}" onchange="runFilter()"> ${b.name}
+          </label>
+        `).join('');
+      }
+    }
+
+    function runFilter() {
+      const q = currentQuery.toLowerCase();
+      let products = Store.getProducts();
+
+      // Keyword query filter
+      if (q) {
+        products = products.filter(p => {
+          const name = p.name.toLowerCase();
+          const brand = p.brand.toLowerCase();
+          const category = (p.category || '').toLowerCase();
+          const desc = (p.description || '').toLowerCase();
+          const specs = Object.values(p.specs || {}).join(' ').toLowerCase();
+          return name.includes(q) || brand.includes(q) || category.includes(q) || desc.includes(q) || specs.includes(q);
+        });
+      }
+
+      // Category filters
+      const selectedCats = Array.from(document.querySelectorAll('input[name="cat"]:checked')).map(el => el.value);
+      if (selectedCats.length > 0) {
+        products = products.filter(p => selectedCats.includes(p.category));
+      }
+
+      // Brand filters
+      const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(el => el.value.toLowerCase());
+      if (selectedBrands.length > 0) {
+        products = products.filter(p => selectedBrands.includes(p.brand.toLowerCase()));
+      }
+
+      // Condition filters
+      const selectedConds = Array.from(document.querySelectorAll('input[name="condition"]:checked')).map(el => el.value);
+      if (selectedConds.length > 0) {
+        products = products.filter(p => {
+          if (selectedConds.includes('New') && (!p.condition || p.condition === 'New')) return true;
+          if (selectedConds.includes('Pre-Owned') && p.condition && p.condition !== 'New') return true;
+          return false;
+        });
+      }
+
+      // Sort
+      const sort = document.getElementById('search-sort').value;
+      if (sort === 'price-low') {
+        products.sort((a, b) => a.price - b.price);
+      } else if (sort === 'price-high') {
+        products.sort((a, b) => b.price - a.price);
+      } else if (sort === 'rating') {
+        products.sort((a, b) => b.rating - a.rating);
+      }
+
+      // Render count & grid
+      const countEl = document.getElementById('search-results-count');
+      const grid = document.getElementById('search-results-grid');
+      const emptyBox = document.getElementById('no-results-box');
+
+      countEl.textContent = `Showing ${products.length} matching products`;
+
+      if (products.length === 0) {
+        grid.style.display = 'none';
+        emptyBox.style.display = 'block';
+      } else {
+        grid.style.display = 'grid';
+        emptyBox.style.display = 'none';
+        grid.innerHTML = products.map(p => UI.renderProductCard(p)).join('');
+      }
+    }
+
+    function resetSearchFilters() {
+      document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+      runFilter();
+    }
+  </script>
+</body>
+</html>
+

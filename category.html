@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Category — Royal Fairway Golf Co.</title>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span>⛳ <strong>White-Glove Own-Delivery:</strong> In-house uniformed fleet across Delhi NCR &amp; Bengaluru</span>
+      <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search this category..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-secondary btn-sm">All Products</a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)">
+          <span style="font-size: 18px;">👜</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Category Banner -->
+  <div id="cat-hero-banner" style="background: var(--color-primary); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" id="cat-eyebrow" style="color: var(--color-gold);">CHAMPIONSHIP DISCIPLINE</span>
+      <h1 id="cat-title" style="color: #ffffff; margin: 6px 0 10px;">Golf Category</h1>
+      <p id="cat-desc" style="color: #a7c2b3; font-size: 15px; max-width: 640px;">
+        Curated tournament equipment with verified serials and white-glove delivery.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div class="catalog-layout">
+      <!-- Sidebar with Quick Category Switching & Filters -->
+      <aside class="filter-sidebar">
+        <h4 style="font-size: 16px; margin-bottom: 16px;">Categories</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+          ${GOLF_DATABASE.categories.map(c => `
+            <a href="category.html?cat=${c.id}" class="cat-nav-link" id="nav-${c.id}" style="padding: 6px 0; font-size: 13.5px; color: var(--color-text-main); font-weight: 500;">
+              ${c.name}
+            </a>
+          `).join('')}
+        </div>
+
+        <div class="filter-block">
+          <div class="filter-title">Filter by Brand</div>
+          <div id="cat-brand-filters" class="filter-options-list"></div>
+        </div>
+
+        <div class="filter-block">
+          <div class="filter-title">Condition</div>
+          <div class="filter-options-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catCondition" value="New" onchange="filterCategoryProducts()">
+              <span>Brand New</span>
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="catCondition" value="Pre-Owned" onchange="filterCategoryProducts()">
+              <span>Certified Pre-Owned</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Products Grid -->
+      <div>
+        <div class="catalog-toolbar">
+          <div style="font-size: 14px; font-weight: 600;">
+            Found <span id="cat-prod-count">0</span> items in this category
+          </div>
+          <select id="cat-sort" class="form-control" style="width: auto; padding: 7px 32px 7px 12px; font-size: 13px;" onchange="filterCategoryProducts()">
+            <option value="featured">Featured / Tour Choice</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+
+        <div class="products-grid-4" id="cat-products-grid"></div>
+
+        <div id="cat-empty-msg" style="display: none; text-align: center; padding: 80px 20px; background: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+          <h3>No products in this specific filter</h3>
+          <p class="text-muted" style="margin-bottom: 20px;">Try adjusting your brand or condition filters.</p>
+          <a href="products.html" class="btn btn-primary">Browse All Equipment</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved.</p>
+        <a href="index.html" style="color: var(--color-gold);">Return to Homepage →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    let currentCat = 'clubs';
+    let currentCategoryProducts = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      currentCat = urlParams.get('cat') || 'clubs';
+
+      const catMeta = GOLF_DATABASE.categories.find(c => c.id === currentCat) || GOLF_DATABASE.categories[0];
+
+      document.getElementById('page-title').textContent = `${catMeta.name} — Royal Fairway Golf Co.`;
+      document.getElementById('cat-title').textContent = catMeta.name;
+      document.getElementById('cat-desc').textContent = catMeta.description;
+
+      const activeNav = document.getElementById(`nav-${catMeta.id}`);
+      if (activeNav) {
+        activeNav.style.color = 'var(--color-primary)';
+        activeNav.style.fontWeight = '700';
+      }
+
+      // Populate brand filters
+      const allProducts = Store.getProducts();
+      const catProds = allProducts.filter(p => p.category === currentCat || (currentCat === 'clubs' && ['drivers', 'irons', 'putters', 'clubs'].includes(p.category)));
+      const brandsInCat = Array.from(new Set(catProds.map(p => p.brand)));
+
+      const brandFilterContainer = document.getElementById('cat-brand-filters');
+      if (brandFilterContainer) {
+        brandFilterContainer.innerHTML = brandsInCat.map(b => `
+          <label class="filter-checkbox-label">
+            <input type="checkbox" name="catBrand" value="${b}" onchange="filterCategoryProducts()">
+            <span>${b}</span>
+          </label>
+        `).join('');
+      }
+
+      filterCategoryProducts();
+    });
+
+    function filterCategoryProducts() {
+      const allProducts = Store.getProducts();
+      let list = allProducts.filter(p => p.category === currentCat || (currentCat === 'clubs' && ['drivers', 'irons', 'putters', 'clubs'].includes(p.category)));
+
+      const selectedBrands = Array.from(document.querySelectorAll('input[name="catBrand"]:checked')).map(cb => cb.value);
+      const selectedConditions = Array.from(document.querySelectorAll('input[name="catCondition"]:checked')).map(cb => cb.value);
+      const sortBy = document.getElementById('cat-sort').value;
+
+      if (selectedBrands.length > 0) {
+        list = list.filter(p => selectedBrands.includes(p.brand));
+      }
+      if (selectedConditions.length > 0) {
+        list = list.filter(p => {
+          if (selectedConditions.includes('New') && p.condition === 'New') return true;
+          if (selectedConditions.includes('Pre-Owned') && p.condition !== 'New') return true;
+          return false;
+        });
+      }
+
+      list.sort((a, b) => {
+        if (sortBy === 'price-low') return a.price - b.price;
+        if (sortBy === 'price-high') return b.price - a.price;
+        if (sortBy === 'rating') return b.rating - a.rating;
+        return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+      });
+
+      const grid = document.getElementById('cat-products-grid');
+      const countEl = document.getElementById('cat-prod-count');
+      const emptyMsg = document.getElementById('cat-empty-msg');
+
+      countEl.textContent = list.length;
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        emptyMsg.style.display = 'block';
+      } else {
+        emptyMsg.style.display = 'none';
+        grid.innerHTML = list.map(p => UI.renderProductCard(p)).join('');
+      }
+    }
+  </script>
+</body>
+</html>
+

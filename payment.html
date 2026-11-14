@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Secure UPI, Card and Net Banking payment with 256-bit encryption.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: var(--color-bg-alt);">
+
+  <!-- Header Clean Variant -->
+  <header style="background: #ffffff; border-bottom: 1px solid var(--border-line); padding: 20px 0;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <!-- Progress Stepper -->
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 13.5px;">
+        <a href="checkout.html" style="color: var(--color-text-muted);">1. Delivery Details</a>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="font-weight: 700; color: var(--color-primary);">2. Payment</span>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="color: var(--color-text-muted);">3. Confirmation</span>
+      </div>
+
+      <div style="font-size: 13px; color: var(--color-text-muted); display: flex; align-items: center; gap: 6px;">
+        <span>🔒</span>
+        <span>PCI-DSS Level 1 Secure</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0 80px;">
+    <div style="display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start;">
+      
+      <!-- Payment Options Panel -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 22px; margin-bottom: 6px;">Select Payment Method</h2>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 24px;">All transactions are encrypted and processed through RBI-approved Indian gateways.</p>
+
+        <!-- Method Tabs / Radio Buttons -->
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px;">
+          
+          <!-- Option 1: UPI (Default) -->
+          <div style="border: 2px solid var(--color-primary); border-radius: var(--radius-md); padding: 20px; background: var(--color-bg-alt);">
+            <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="pay_method" value="UPI Instant" checked onchange="togglePayForm('upi')">
+                <div>
+                  <strong style="font-size: 15px; display: block; color: var(--color-primary);">UPI Instant (Google Pay, PhonePe, Paytm, BHIM)</strong>
+                  <span class="text-muted" style="font-size: 12.5px;">Zero transaction fee • Instant order confirmation</span>
+                </div>
+              </div>
+              <span class="badge badge-mint" style="font-size: 11px;">FASTEST</span>
+            </label>
+
+            <!-- UPI Sub-form -->
+            <div id="form-upi" style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-line);">
+              <div style="display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: center;">
+                <!-- QR Mock -->
+                <div style="background: #ffffff; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-line); text-align: center;">
+                  <div style="width: 110px; height: 110px; background: repeating-conic-gradient(#111 0% 25%, #fff 0% 50%) 50% / 14px 14px; margin: 0 auto 6px; border-radius: 4px;"></div>
+                  <span style="font-size: 10.5px; color: var(--color-text-muted); font-weight: 700;">Scan with any UPI App</span>
+                </div>
+
+                <div>
+                  <label class="form-label" for="upi-id">Or Enter UPI ID / VPA *</label>
+                  <div style="display: flex; gap: 8px;">
+                    <input type="text" id="upi-id" class="form-control" placeholder="username@okhdfcbank" value="ranvijay@upi">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="Store.showToast('UPI ID Verified successfully!')">Verify</button>
+                  </div>
+                  <div style="font-size: 11.5px; color: var(--color-text-muted); margin-top: 6px;">Supported: @okaxis, @okhdfcbank, @ybl, @paytm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 2: Credit / Debit Cards -->
+          <div style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="pay_method" value="Credit/Debit Card" onchange="togglePayForm('card')">
+                <div>
+                  <strong style="font-size: 15px; display: block;">Credit or Debit Card</strong>
+                  <span class="text-muted" style="font-size: 12.5px;">RuPay, Visa, Mastercard, American Express</span>
+                </div>
+              </div>
+              <div style="display: flex; gap: 6px; font-size: 18px;">💳</div>
+            </label>
+
+            <div id="form-card" style="display: none; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-line);">
+              <div style="margin-bottom: 14px;">
+                <label class="form-label">Card Number</label>
+                <input type="text" class="form-control" placeholder="4111 2222 3333 4444" maxlength="19" value="4129 8832 9941 7720">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                <div>
+                  <label class="form-label">Valid Through (MM/YY)</label>
+                  <input type="text" class="form-control" placeholder="08/28" maxlength="5" value="12/28">
+                </div>
+                <div>
+                  <label class="form-label">CVV / CVC</label>
+                  <input type="password" class="form-control" placeholder="123" maxlength="4" value="882">
+                </div>
+              </div>
+
+              <div>
+                <label class="form-label">Name On Card</label>
+                <input type="text" class="form-control" placeholder="Name as displayed on card" value="Ranvijay Singh">
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 3: Net Banking -->
+          <div style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="pay_method" value="Net Banking" onchange="togglePayForm('netbanking')">
+                <div>
+                  <strong style="font-size: 15px; display: block;">Net Banking</strong>
+                  <span class="text-muted" style="font-size: 12.5px;">Direct transfer from all top Indian banks</span>
+                </div>
+              </div>
+              <span style="font-size: 18px;">🏦</span>
+            </label>
+
+            <div id="form-netbanking" style="display: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-line);">
+              <select class="form-control">
+                <option selected>HDFC Bank</option>
+                <option>ICICI Bank</option>
+                <option>State Bank of India (SBI)</option>
+                <option>Axis Bank</option>
+                <option>Kotak Mahindra Bank</option>
+                <option>IndusInd Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Option 4: Cash on Delivery -->
+          <div style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="radio" name="pay_method" value="Cash on Delivery (COD)" onchange="togglePayForm('cod')">
+                <div>
+                  <strong style="font-size: 15px; display: block;">Cash on Delivery (COD) / Pay on Delivery via UPI</strong>
+                  <span class="text-muted" style="font-size: 12.5px;">Inspect clubs with White-Glove fleet driver before payment</span>
+                </div>
+              </div>
+              <span style="font-size: 18px;">💵</span>
+            </label>
+          </div>
+
+        </div>
+
+        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="executePlaceOrder()">
+          Authorize &amp; Place Order (<span id="pay-btn-amount">₹0</span>) →
+        </button>
+      </div>
+
+      <!-- Order Recap Sidebar -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; position: sticky; top: 30px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 18px; margin-bottom: 16px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">Dispatch Summary</h3>
+
+        <div id="recap-customer" style="margin-bottom: 16px; font-size: 13.5px; line-height: 1.5; background: var(--color-bg-alt); padding: 14px; border-radius: var(--radius-md);">
+          <strong id="recap-name" style="display: block; color: var(--color-primary);">Major General Ranvijay Singh</strong>
+          <span id="recap-address" class="text-muted" style="display: block;">The Magnolias, Golf Course Rd, Gurugram</span>
+          <span id="recap-phone" style="font-size: 12px; color: var(--color-text-muted);">+91 98100 23456</span>
+          <div style="margin-top: 6px;">
+            <a href="checkout.html" style="font-size: 12px; color: var(--color-gold); font-weight: 700;">Edit Address</a>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; margin-bottom: 18px;">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">Subtotal:</span>
+            <span id="pay-subtotal">₹0</span>
+          </div>
+
+          <div id="pay-discount-row" style="display: flex; justify-content: space-between; color: #166534; display: none;">
+            <span>Clubhouse Promo:</span>
+            <span id="pay-discount">-₹0</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">White-Glove Fleet:</span>
+            <span style="color: #166534; font-weight: 600;">FREE</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; border-top: 1px solid var(--border-line); padding-top: 14px;">
+            <span>Grand Total:</span>
+            <span id="pay-total" style="color: var(--color-primary);">₹0</span>
+          </div>
+        </div>
+
+        <div style="font-size: 12px; color: var(--color-text-muted); line-height: 1.5;">
+          ⛳ <em>Estimated White-Glove delivery tomorrow between 10:00 AM - 1:00 PM via Fairway EV Fleet.</em>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    let checkoutInfo = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+
+      // Read saved checkout details
+      try {
+        checkoutInfo = JSON.parse(sessionStorage.getItem('rfg_checkout_info')) || {};
+      } catch (e) {}
+
+      if (checkoutInfo.customerName) {
+        document.getElementById('recap-name').textContent = checkoutInfo.customerName;
+        document.getElementById('recap-address').textContent = `${checkoutInfo.address}, ${checkoutInfo.city} - ${checkoutInfo.pincode}`;
+        document.getElementById('recap-phone').textContent = checkoutInfo.customerPhone;
+      }
+
+      const totals = Store.getCartTotals();
+      document.getElementById('pay-subtotal').textContent = `₹${totals.subtotal.toLocaleString('en-IN')}`;
+      if (totals.discount > 0) {
+        document.getElementById('pay-discount-row').style.display = 'flex';
+        document.getElementById('pay-discount').textContent = `-₹${totals.discount.toLocaleString('en-IN')}`;
+      }
+      document.getElementById('pay-total').textContent = `₹${totals.total.toLocaleString('en-IN')}`;
+      document.getElementById('pay-btn-amount').textContent = `₹${totals.total.toLocaleString('en-IN')}`;
+    });
+
+    function togglePayForm(type) {
+      document.getElementById('form-upi').style.display = type === 'upi' ? 'block' : 'none';
+      document.getElementById('form-card').style.display = type === 'card' ? 'block' : 'none';
+      document.getElementById('form-netbanking').style.display = type === 'netbanking' ? 'block' : 'none';
+    }
+
+    function executePlaceOrder() {
+      const selectedMethod = document.querySelector('input[name="pay_method"]:checked').value;
+
+      const orderData = {
+        customerName: checkoutInfo.customerName || 'Major General Ranvijay Singh',
+        customerPhone: checkoutInfo.customerPhone || '+91 98100 23456',
+        customerEmail: checkoutInfo.customerEmail || 'ranvijay.singh@example.com',
+        city: checkoutInfo.city || 'Gurugram',
+        address: checkoutInfo.address || 'Villa 14, The Magnolias, Golf Course Road',
+        pincode: checkoutInfo.pincode || '122002',
+        paymentMethod: selectedMethod,
+      };
+
+      const order = Store.createOrder(orderData);
+      sessionStorage.setItem('rfg_last_order', JSON.stringify(order));
+
+      setTimeout(() => {
+        window.location.href = `order-confirmation.html?id=${order.orderNumber}`;
+      }, 600);
+    }
+  </script>
+</body>
+</html>
+

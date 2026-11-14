@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Fairway Golf Gift Cards — The Ultimate Golfing Present</title>
+  <meta name="description" content="Give the gift of championship golf equipment, custom TrackMan fittings, or certified pre-owned clubs. Digital and luxury physical cards.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>🎁 <strong>Royal Fairway Gift Cards:</strong> Redeemable on all tour equipment, apparel &amp; custom fitting sessions</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search gift cards, drivers, balls..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="gift-cards.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Gift Cards</a></li>
+          <li class="nav-item"><a href="membership.html" class="nav-link">Clubhouse VIP</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091c12 0%, #173826 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">THE TIMELESS GOLFING GIFT</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Royal Fairway Gift Cards</h1>
+      <p style="color: #cadfd4; font-size: 16px; max-width: 650px; line-height: 1.6;">
+        Give fellow golfers the freedom to choose their dream driver, Scotty Cameron putter, bespoke fitting session, or tour apparel. Never expires.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start;">
+      
+      <!-- Interactive Card Visualizer -->
+      <div>
+        <div style="position: sticky; top: 100px;">
+          <div id="gift-card-preview" style="background: linear-gradient(135deg, #071910 0%, #153825 50%, #071910 100%); border: 2px solid var(--color-gold); border-radius: 20px; padding: 36px 32px; color: #ffffff; box-shadow: 0 20px 40px rgba(0,0,0,0.25); min-height: 250px; display: flex; flex-direction: column; justify-content: space-between;">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 36px; height: 36px; background: var(--color-gold); color: #0c2317; border-radius: 50%; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 16px;">RF</div>
+                <div>
+                  <div style="font-family: var(--font-heading); font-size: 16px; letter-spacing: 1px;">ROYAL FAIRWAY</div>
+                  <div style="font-size: 9px; letter-spacing: 1.5px; color: var(--color-gold);">THE CLUBHOUSE CARD</div>
+                </div>
+              </div>
+              <span style="font-size: 24px;">⛳</span>
+            </div>
+
+            <div style="margin: 24px 0;">
+              <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #a1c7b3;">Card Value</span>
+              <div id="preview-amount" style="font-size: 38px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">₹5,000</div>
+              <div id="preview-recipient" style="font-size: 14px; color: var(--color-gold); margin-top: 4px; font-style: italic;">For: Honoured Member</div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 14px;">
+              <div style="font-size: 11px; color: #a1c7b3; font-family: monospace;">RFG-CARD-2026-XXXX</div>
+              <div style="font-size: 10px; color: var(--color-gold); text-transform: uppercase; font-weight: 700;">Valid Across India</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px;">Card Privileges</h4>
+            <ul style="font-size: 13px; color: var(--color-text-muted); line-height: 1.6; list-style: disc; padding-left: 20px;">
+              <li>Valid on all equipment from Titleist, TaylorMade, Scotty Cameron, Callaway &amp; Bushnell</li>
+              <li>Redeemable online or at our Gurugram &amp; Bengaluru fitting studios</li>
+              <li>Includes complimentary TrackMan 4 driver launch monitor assessment</li>
+              <li>No expiration date or hidden maintenance deductions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gift Card Order Form -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 24px; margin-bottom: 6px;">Configure Your Golf Gift Card</h2>
+        <p class="text-muted" style="font-size: 14px; margin-bottom: 24px;">Delivered instantly via email/SMS or in a luxury gold-embossed presentation box.</p>
+
+        <!-- Step 1: Select Format -->
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px;">1. Select Card Delivery Format:</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <label style="border: 2px solid var(--color-primary); border-radius: var(--radius-md); padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px; background: var(--color-bg-alt);">
+              <input type="radio" name="card_format" value="digital" checked onchange="toggleFormat('digital')">
+              <div>
+                <strong style="font-size: 13.5px; display: block;">Instant E-Card</strong>
+                <span class="text-muted" style="font-size: 11.5px;">Sent by Email &amp; WhatsApp</span>
+              </div>
+            </label>
+
+            <label style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+              <input type="radio" name="card_format" value="physical" onchange="toggleFormat('physical')">
+              <div>
+                <strong style="font-size: 13.5px; display: block;">Luxury Metal Card</strong>
+                <span class="text-muted" style="font-size: 11.5px;">Velvet Box White-Glove Fleet</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Select Amount -->
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px;">2. Choose Amount (₹):</label>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px;">
+            <button type="button" class="btn btn-outline amount-btn" onclick="setAmount(2500, this)">₹2,500</button>
+            <button type="button" class="btn btn-primary amount-btn" onclick="setAmount(5000, this)">₹5,000</button>
+            <button type="button" class="btn btn-outline amount-btn" onclick="setAmount(10000, this)">₹10,000</button>
+            <button type="button" class="btn btn-outline amount-btn" onclick="setAmount(25000, this)">₹25,000</button>
+            <button type="button" class="btn btn-outline amount-btn" onclick="setAmount(50000, this)">₹50,000</button>
+            <button type="button" class="btn btn-outline amount-btn" onclick="setCustom(this)">Custom</button>
+          </div>
+          <input type="number" id="custom-amount-input" placeholder="Enter custom amount in ₹ (e.g. 15000)" class="form-control" style="display: none;" oninput="updateCustomAmount(this.value)">
+        </div>
+
+        <!-- Step 3: Recipient Information -->
+        <form id="gift-card-form" onsubmit="handleGiftCardSubmit(event)">
+          <div style="margin-bottom: 16px;">
+            <label class="form-label" for="recipient-name">Recipient's Full Name *</label>
+            <input type="text" id="recipient-name" class="form-control" placeholder="e.g. Capt. Vikram Mehra" required oninput="updateRecipient(this.value)">
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label class="form-label" for="recipient-email">Recipient's Email Address *</label>
+            <input type="email" id="recipient-email" class="form-control" placeholder="vikram@example.com" required>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label class="form-label" for="sender-name">Your Name *</label>
+            <input type="text" id="sender-name" class="form-control" placeholder="e.g. Arjun Kapoor" required>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label class="form-label" for="gift-message">Personal Golf Message (Optional)</label>
+            <textarea id="gift-message" class="form-control" rows="3" placeholder="e.g. Wishing you many birdies at DLF this season! Enjoy the new equipment."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            Add Gift Card to Bag — <span id="btn-amount-label">₹5,000</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's finest golf gifting experiences with authorized manufacturer backing.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Special Shopping</h6>
+          <ul>
+            <li><a href="gift-cards.html">Golf Gift Cards</a></li>
+            <li><a href="membership.html">VIP Membership</a></li>
+            <li><a href="pre-owned.html">Pre-Owned Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    let selectedAmount = 5000;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+    });
+
+    function setAmount(amt, btn) {
+      selectedAmount = amt;
+      document.querySelectorAll('.amount-btn').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-outline');
+      });
+      btn.classList.remove('btn-outline');
+      btn.classList.add('btn-primary');
+      document.getElementById('custom-amount-input').style.display = 'none';
+
+      document.getElementById('preview-amount').textContent = `₹${amt.toLocaleString('en-IN')}`;
+      document.getElementById('btn-amount-label').textContent = `₹${amt.toLocaleString('en-IN')}`;
+    }
+
+    function setCustom(btn) {
+      document.querySelectorAll('.amount-btn').forEach(b => {
+        b.classList.remove('btn-primary');
+        b.classList.add('btn-outline');
+      });
+      btn.classList.remove('btn-outline');
+      btn.classList.add('btn-primary');
+      const input = document.getElementById('custom-amount-input');
+      input.style.display = 'block';
+      input.focus();
+    }
+
+    function updateCustomAmount(val) {
+      const num = parseInt(val, 10) || 1000;
+      selectedAmount = num;
+      document.getElementById('preview-amount').textContent = `₹${num.toLocaleString('en-IN')}`;
+      document.getElementById('btn-amount-label').textContent = `₹${num.toLocaleString('en-IN')}`;
+    }
+
+    function updateRecipient(name) {
+      document.getElementById('preview-recipient').textContent = name.trim() ? `For: ${name}` : 'For: Honoured Member';
+    }
+
+    function toggleFormat(type) {
+      Store.showToast(`Selected ${type === 'digital' ? 'Digital E-Card (Instant)' : 'Physical Luxury Metal Card in Velvet Box'}.`);
+    }
+
+    function handleGiftCardSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('recipient-name').value;
+      const email = document.getElementById('recipient-email').value;
+      const sender = document.getElementById('sender-name').value;
+
+      const cardProduct = {
+        id: 'gift-card-' + Date.now(),
+        name: `Royal Fairway Gift Card (₹${selectedAmount.toLocaleString('en-IN')})`,
+        brand: 'Royal Fairway',
+        category: 'gift-cards',
+        price: selectedAmount,
+        mrp: selectedAmount,
+        image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=800&q=80',
+        rating: 5.0,
+        reviewsCount: 42,
+        description: `Gift card for ${name} from ${sender}. Valid on all championship golf equipment.`,
+      };
+
+      Store.addToCart(cardProduct, 1, {
+        recipient: name,
+        recipientEmail: email,
+        from: sender,
+      });
+
+      UI.toggleCartDrawer(true);
+    }
+  </script>
+</body>
+</html>
+

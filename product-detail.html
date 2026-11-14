@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pdp-meta-title">Product Details — Royal Fairway Golf Co.</title>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span>⛳ <strong>White-Glove Own-Delivery:</strong> In-house uniformed fleet across Delhi NCR &amp; Bengaluru</span>
+      <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+    </div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search equipment, clubs, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare">
+          <span style="font-size: 18px;">⚖</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn">
+          <span style="font-size: 18px;">♥</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)">
+          <span style="font-size: 18px;">👜</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div style="background: var(--color-bg-subtle); border-bottom: 1px solid var(--border-line); padding: 12px 0; font-size: 13px;">
+    <div class="container" style="color: var(--color-text-muted);">
+      <a href="index.html">Home</a> &gt; <a href="products.html">Equipment</a> &gt; <span id="pdp-crumb-cat">Category</span> &gt; <strong id="pdp-crumb-title" style="color: var(--color-primary);">Product</strong>
+    </div>
+  </div>
+
+  <!-- PDP Main Container -->
+  <main class="container section-padding">
+    <div class="pdp-grid">
+      <!-- Left Column: Gallery & Zoom -->
+      <div class="pdp-gallery-wrap">
+        <div class="pdp-main-image-box" id="pdp-zoom-box" onmousemove="handleImageZoom(event)" onmouseleave="resetImageZoom()">
+          <img id="pdp-main-img" src="" alt="Golf Equipment" class="pdp-main-image">
+          <div id="pdp-condition-tag" style="position: absolute; top: 16px; left: 16px; z-index: 5;"></div>
+        </div>
+
+        <div class="pdp-thumbnails-strip" id="pdp-thumbs-row">
+          <!-- Thumbnails rendered dynamically -->
+        </div>
+
+        <!-- Trust Badges Box -->
+        <div style="margin-top: 32px; padding: 24px; background: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--border-line); display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span style="font-size: 22px;">🚚</span>
+            <div>
+              <strong style="font-size: 13.5px; display: block;">White-Glove In-House Handover</strong>
+              <span class="text-muted" style="font-size: 12px;">Climate-controlled EV fleet. On-spot trial for shoes &amp; apparel.</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span style="font-size: 22px;">🛡️</span>
+            <div>
+              <strong style="font-size: 13.5px; display: block;">100% Genuine Tour Equipment</strong>
+              <span class="text-muted" style="font-size: 12px;">Authorized direct manufacturer warranty &amp; verifiable serial cards.</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span style="font-size: 22px;">⚖️</span>
+            <div>
+              <strong style="font-size: 13.5px; display: block;">Guaranteed Buy-Back &amp; Trade-In</strong>
+              <span class="text-muted" style="font-size: 12px;">Trade this club back to us anytime for instant store credit.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Info & Actions -->
+      <div>
+        <span id="pdp-brand" class="eyebrow">TITLEIST</span>
+        <h1 id="pdp-name" style="font-size: 32px; margin: 4px 0 12px;">Product Title</h1>
+
+        <!-- Rating & SKU -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border-line);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span id="pdp-stars" style="color: var(--color-gold); font-size: 16px;">★★★★★</span>
+            <strong id="pdp-rating">4.9</strong>
+            <span class="text-muted" style="font-size: 13px;" id="pdp-reviews-count">(88 verified reviews)</span>
+          </div>
+          <span style="font-size: 12px; color: var(--color-text-muted);">
+            SKU: <code id="pdp-sku" style="font-weight: 700; color: var(--color-primary);">RFG-001</code>
+          </span>
+        </div>
+
+        <!-- Price Section -->
+        <div style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: baseline; gap: 14px;">
+            <span id="pdp-price" style="font-size: 34px; font-weight: 800; color: var(--color-primary);">₹0</span>
+            <span id="pdp-mrp" style="font-size: 18px; color: var(--color-text-muted); text-decoration: line-through;">₹0</span>
+            <span id="pdp-save-badge" class="badge badge-sale">SAVE ₹0</span>
+          </div>
+          <span style="font-size: 12px; color: var(--color-text-muted); display: block; margin-top: 4px;">
+            Price inclusive of all taxes (18% GST). Complimentary White-Glove delivery on orders ₹4,999+.
+          </span>
+        </div>
+
+        <!-- Specifications & Variations Selector -->
+        <div style="background: #ffffff; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-line); margin-bottom: 24px;">
+          <div id="pdp-variants-container">
+            <!-- Rendered via JS based on category -->
+          </div>
+
+          <!-- Quantity Selector -->
+          <div style="display: flex; align-items: center; gap: 16px; margin-top: 18px;">
+            <label class="form-label" style="margin-bottom: 0;">Quantity:</label>
+            <div style="display: flex; align-items: center; border: 1px solid var(--border-line); border-radius: var(--radius-xs); background: #ffffff;">
+              <button onclick="changeQty(-1)" style="padding: 8px 14px; font-size: 16px;">-</button>
+              <span id="pdp-qty-val" style="min-width: 36px; text-align: center; font-weight: 700; font-size: 14px;">1</span>
+              <button onclick="changeQty(1)" style="padding: 8px 14px; font-size: 16px;">+</button>
+            </div>
+            <span id="pdp-stock-status" style="font-size: 13px; font-weight: 600; color: var(--color-success);">
+              ✓ In Stock (Fleet Ready)
+            </span>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div style="display: flex; gap: 14px; margin-bottom: 24px;">
+          <button id="pdp-add-cart-btn" onclick="handleAddToCartClick()" class="btn btn-secondary btn-lg" style="flex: 1;">
+            👜 Add to Bag
+          </button>
+          <button onclick="handleBuyNowClick()" class="btn btn-primary btn-lg" style="flex: 1;">
+            ⚡ Buy Now with Own-Delivery
+          </button>
+          <button id="pdp-wish-btn" onclick="handleWishlistClick()" class="btn btn-outline" style="padding: 0 16px;" title="Wishlist">
+            ♥
+          </button>
+          <button id="pdp-comp-btn" onclick="handleCompareClick()" class="btn btn-outline" style="padding: 0 16px;" title="Compare Specs">
+            ⚖
+          </button>
+        </div>
+
+        <!-- Pincode Delivery Estimator -->
+        <div style="padding: 18px; background: var(--color-bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-line); margin-bottom: 32px;">
+          <strong style="display: block; font-size: 13.5px; margin-bottom: 6px;">Check White-Glove Own-Delivery Schedule:</strong>
+          <form onsubmit="handlePincodeCheck(event)" style="display: flex; gap: 8px;">
+            <input type="text" id="pincode-input" maxlength="6" placeholder="Enter 6-digit Indian PIN (e.g. 122002)" class="form-control" style="flex: 1; padding: 8px 12px;">
+            <button type="submit" class="btn btn-primary btn-sm">Verify Schedule</button>
+          </form>
+          <div id="pincode-result" style="margin-top: 8px; font-size: 13px; font-weight: 500;"></div>
+        </div>
+
+        <!-- Tabs: Description, Specs, Delivery, Reviews -->
+        <div>
+          <div style="display: flex; border-bottom: 1px solid var(--border-line); gap: 24px; margin-bottom: 18px;">
+            <button class="pdp-tab-btn active" id="tab-btn-desc" onclick="switchTab('desc')">Description</button>
+            <button class="pdp-tab-btn" id="tab-btn-specs" onclick="switchTab('specs')">Specifications</button>
+            <button class="pdp-tab-btn" id="tab-btn-delivery" onclick="switchTab('delivery')">Delivery Fleet</button>
+            <button class="pdp-tab-btn" id="tab-btn-reviews" onclick="switchTab('reviews')">Reviews</button>
+          </div>
+
+          <div id="tab-content-desc" class="pdp-tab-pane" style="font-size: 14.5px; line-height: 1.7;">
+            <p id="pdp-full-desc"></p>
+          </div>
+
+          <div id="tab-content-specs" class="pdp-tab-pane" style="display: none;">
+            <table class="pdp-specs-table" id="pdp-specs-tbody">
+              <!-- Rendered via JS -->
+            </table>
+          </div>
+
+          <div id="tab-content-delivery" class="pdp-tab-pane" style="display: none; font-size: 14px; line-height: 1.6;">
+            <strong>Our Signature White-Glove Operating Standards:</strong>
+            <ul style="padding-left: 20px; margin-top: 8px; display: flex; flex-direction: column; gap: 8px; color: var(--color-text-muted);">
+              <li><strong>Delhi NCR Service Radius:</strong> DLF Phases 1-5, Golf Course Road, Chanakyapuri, Vasant Vihar, Greater Kailash, Noida Sectors 1-62. Same-day dispatch if confirmed before 1:00 PM.</li>
+              <li><strong>Bengaluru Hub Radius:</strong> Domlur, Embassy GolfLinks, Indiranagar, Sadashivanagar. Next morning handover.</li>
+              <li><strong>Club Locker Drops:</strong> Direct delivery to Caddy Master or Pro Shop concierge at recognized golf courses.</li>
+              <li><strong>7-Day Trial Guarantee:</strong> 100% money back on equipment returned in unhit condition with factory wrap.</li>
+            </ul>
+          </div>
+
+          <div id="tab-content-reviews" class="pdp-tab-pane" style="display: none;">
+            <div id="pdp-reviews-list" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;"></div>
+            
+            <div style="background: var(--color-bg-subtle); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-line);">
+              <h4 style="font-size: 16px; margin-bottom: 12px;">Submit Player Review</h4>
+              <form onsubmit="handleReviewSubmit(event)" style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" id="rev-name" placeholder="Your Name (e.g. Raghav S.)" required class="form-control">
+                <select id="rev-rating" class="form-control">
+                  <option value="5">★★★★★ (5/5 Tour Excellence)</option>
+                  <option value="4">★★★★☆ (4/5 Great Feel)</option>
+                  <option value="3">★★★☆☆ (3/5 Average)</option>
+                </select>
+                <textarea id="rev-comment" placeholder="Share your experience on the green, feel, forgiveness, or delivery..." rows="3" required class="form-control"></textarea>
+                <button type="submit" class="btn btn-primary btn-sm" style="align-self: flex-start;">Publish Review</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .pdp-tab-btn {
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+    }
+    .pdp-tab-btn.active {
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+      font-weight: 700;
+    }
+  </style>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer-overlay" onclick="UI.toggleCartDrawer(false)">
+    <div class="cart-drawer-panel" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <strong>Your Golf Bag</strong>
+        <button onclick="UI.toggleCartDrawer(false)">✕</button>
+      </div>
+      <div id="cart-drawer-items" class="drawer-items-list"></div>
+      <div id="cart-drawer-footer" class="drawer-footer">
+        <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved.</p>
+        <a href="index.html" style="color: var(--color-gold);">Return to Homepage →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    let currentProduct = null;
+    let selectedQuantity = 1;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prodId = urlParams.get('id') || 'drv-01';
+
+      currentProduct = Store.getProductById(prodId) || GOLF_DATABASE.products[0];
+      Store.addRecentlyViewed(currentProduct);
+
+      // Meta
+      document.getElementById('pdp-meta-title').textContent = `${currentProduct.name} — Royal Fairway Golf Co.`;
+      document.getElementById('pdp-crumb-cat').textContent = currentProduct.categoryName;
+      document.getElementById('pdp-crumb-title').textContent = currentProduct.name;
+
+      // Details
+      document.getElementById('pdp-brand').textContent = currentProduct.brand;
+      document.getElementById('pdp-name').textContent = currentProduct.name;
+      document.getElementById('pdp-sku').textContent = currentProduct.sku;
+      document.getElementById('pdp-rating').textContent = currentProduct.rating;
+      document.getElementById('pdp-reviews-count').textContent = `(${currentProduct.reviewsCount} verified player ratings)`;
+      document.getElementById('pdp-full-desc').textContent = currentProduct.description;
+
+      // Price
+      document.getElementById('pdp-price').textContent = `₹${currentProduct.price.toLocaleString('en-IN')}`;
+      if (currentProduct.mrp > currentProduct.price) {
+        document.getElementById('pdp-mrp').textContent = `₹${currentProduct.mrp.toLocaleString('en-IN')}`;
+        document.getElementById('pdp-save-badge').textContent = `SAVE ₹${(currentProduct.mrp - currentProduct.price).toLocaleString('en-IN')}`;
+      } else {
+        document.getElementById('pdp-mrp').style.display = 'none';
+        document.getElementById('pdp-save-badge').style.display = 'none';
+      }
+
+      // Condition Tag
+      if (currentProduct.condition && currentProduct.condition !== 'New') {
+        const cls = currentProduct.condition.includes('Mint') ? 'badge-mint' : 'badge-excellent';
+        document.getElementById('pdp-condition-tag').innerHTML = `<span class="badge ${cls}" style="font-size: 13px; padding: 6px 12px;">${currentProduct.condition} CERTIFIED</span>`;
+      }
+
+      // Main image
+      document.getElementById('pdp-main-img').src = currentProduct.image;
+
+      // Thumbnails
+      const thumbsContainer = document.getElementById('pdp-thumbs-row');
+      const gallery = currentProduct.gallery && currentProduct.gallery.length ? currentProduct.gallery : [currentProduct.image];
+      thumbsContainer.innerHTML = gallery.map((g, i) => `
+        <button class="pdp-thumb-btn ${i === 0 ? 'active' : ''}" onclick="switchGalleryImg('${g}', this)">
+          <img src="${g}" class="pdp-thumb-img" alt="thumbnail">
+        </button>
+      `).join('');
+
+      // Variations Builder
+      buildVariantsUI(currentProduct);
+
+      // Specs Table
+      const specsTable = document.getElementById('pdp-specs-tbody');
+      if (currentProduct.specs) {
+        specsTable.innerHTML = Object.entries(currentProduct.specs).map(([key, val]) => `
+          <tr>
+            <td style="width: 35%; font-weight: 700; color: var(--color-primary);">${key}</td>
+            <td>${val}</td>
+          </tr>
+        `).join('');
+      }
+
+      // Initial reviews
+      renderReviews();
+    });
+
+    function switchGalleryImg(src, btn) {
+      document.getElementById('pdp-main-img').src = src;
+      document.querySelectorAll('.pdp-thumb-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function handleImageZoom(e) {
+      const box = e.currentTarget;
+      const img = box.querySelector('.pdp-main-image');
+      const rect = box.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.style.transform = 'scale(1.8)';
+    }
+
+    function resetImageZoom() {
+      const img = document.getElementById('pdp-main-img');
+      img.style.transform = 'scale(1)';
+      img.style.transformOrigin = 'center center';
+    }
+
+    function buildVariantsUI(prod) {
+      const container = document.getElementById('pdp-variants-container');
+      let html = '';
+
+      if (['drivers', 'irons', 'clubs'].includes(prod.category)) {
+        html += `
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Loft Option:</label>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--color-primary); font-weight: 700;">9.0° Tour</button>
+              <button class="btn btn-secondary btn-sm">10.5° Standard</button>
+              <button class="btn btn-secondary btn-sm">12.0° High Launch</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Shaft Flex:</label>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--color-primary); font-weight: 700;">Stiff (S)</button>
+              <button class="btn btn-secondary btn-sm">Regular (R)</button>
+              <button class="btn btn-secondary btn-sm">Extra Stiff (X)</button>
+            </div>
+          </div>
+        `;
+      } else if (prod.category === 'shoes') {
+        html += `
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Select Shoe Size (UK / India):</label>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm">UK 7</button>
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--color-primary); font-weight: 700;">UK 8</button>
+              <button class="btn btn-secondary btn-sm">UK 9</button>
+              <button class="btn btn-secondary btn-sm">UK 10</button>
+              <button class="btn btn-secondary btn-sm">UK 11</button>
+            </div>
+          </div>
+        `;
+      } else if (prod.category === 'apparel') {
+        html += `
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Select Fit Size:</label>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary btn-sm">S (38)</button>
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--color-primary); font-weight: 700;">M (40)</button>
+              <button class="btn btn-secondary btn-sm">L (42)</button>
+              <button class="btn btn-secondary btn-sm">XL (44)</button>
+            </div>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function changeQty(delta) {
+      selectedQuantity = Math.max(1, selectedQuantity + delta);
+      document.getElementById('pdp-qty-val').textContent = selectedQuantity;
+    }
+
+    function handleAddToCartClick() {
+      Store.addToCart(currentProduct, selectedQuantity);
+      UI.toggleCartDrawer(true);
+    }
+
+    function handleBuyNowClick() {
+      Store.addToCart(currentProduct, selectedQuantity);
+      window.location.href = 'checkout.html';
+    }
+
+    function handleWishlistClick() {
+      Store.toggleWishlist(currentProduct);
+    }
+
+    function handleCompareClick() {
+      Store.toggleCompare(currentProduct);
+    }
+
+    function handlePincodeCheck(e) {
+      e.preventDefault();
+      const pin = document.getElementById('pincode-input').value.trim();
+      const resEl = document.getElementById('pincode-result');
+
+      if (!pin || pin.length !== 6 || isNaN(Number(pin))) {
+        resEl.style.color = '#dc2626';
+        resEl.textContent = 'Please enter a valid 6-digit Indian PIN code.';
+        return;
+      }
+
+      const prefix = pin.substring(0, 2);
+      if (['11', '12', '20'].includes(prefix)) {
+        resEl.style.color = '#15803d';
+        resEl.textContent = '✓ Delhi NCR Zone: White-Glove Same-Day Delivery available! Handed over by our uniformed driver.';
+      } else if (['56'].includes(prefix)) {
+        resEl.style.color = '#15803d';
+        resEl.textContent = '✓ Bengaluru Links Depot: Next-Morning delivery available directly to your home or club.';
+      } else {
+        resEl.style.color = '#15803d';
+        resEl.textContent = '✓ Priority Insured Air Courier: 2-3 business days standard delivery with tamper-proof seal.';
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.pdp-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.pdp-tab-pane').forEach(p => p.style.display = 'none');
+
+      document.getElementById(`tab-btn-${tabId}`).classList.add('active');
+      document.getElementById(`tab-content-${tabId}`).style.display = 'block';
+    }
+
+    function renderReviews() {
+      const container = document.getElementById('pdp-reviews-list');
+      container.innerHTML = `
+        <div style="padding: 16px; background: #ffffff; border-radius: var(--radius-sm); border: 1px solid var(--border-line);">
+          <div style="display: flex; justify-content: space-between;">
+            <strong>Vikramaditya S. (DLF Golf Club)</strong>
+            <span style="font-size: 12px; color: var(--color-text-muted);">Verified Purchase</span>
+          </div>
+          <div style="color: var(--color-gold); font-size: 13px; margin: 4px 0;">★★★★★</div>
+          <p style="font-size: 13.5px; margin: 0;">Unbelievable forgiveness on off-center hits. Arrived in factory packaging via the white-glove fleet.</p>
+        </div>
+      `;
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('rev-name').value;
+      const comment = document.getElementById('rev-comment').value;
+
+      const container = document.getElementById('pdp-reviews-list');
+      const div = document.createElement('div');
+      div.style.cssText = 'padding: 16px; background: #ffffff; border-radius: var(--radius-sm); border: 1px solid var(--border-line);';
+      div.innerHTML = `
+        <div style="display: flex; justify-content: space-between;">
+          <strong>${name}</strong>
+          <span style="font-size: 12px; color: var(--color-success);">✓ Just Now</span>
+        </div>
+        <div style="color: var(--color-gold); font-size: 13px; margin: 4px 0;">★★★★★</div>
+        <p style="font-size: 13.5px; margin: 0;">${comment}</p>
+      `;
+      container.prepend(div);
+      Store.showToast('Thank you! Your player review has been recorded.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

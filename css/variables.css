@@ -1,0 +1,67 @@
+/* ==========================================================================
+   ROYAL FAIRWAY GOLF CO. — CSS VARIABLES & DESIGN TOKENS
+   Inspired by: St Andrews Links, Golfoy, Golf Mart India, Golf Garage
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --color-primary: #0c2317;          /* Royal Fairway Pine Green */
+  --color-primary-hover: #143825;    /* British Racing Green */
+  --color-primary-light: #eaf1ed;    /* Sage Tint */
+  --color-primary-dark: #07150e;     /* Deep Greenside Shadow */
+  
+  --color-gold: #c29b38;             /* Championship Trophy Gold */
+  --color-gold-hover: #ab852b;       /* Burnished Gold */
+  --color-gold-light: #fbf6eb;       /* Champagne Silk */
+  
+  --color-bg-body: #f6f4ed;          /* Old Course Parchment Sand */
+  --color-bg-card: #ffffff;          /* Crisp Clubhouse White */
+  --color-bg-subtle: #eeece2;        /* Bunker Sand Neutral */
+  --color-bg-dark: #0a130e;          /* Links Midnight */
+
+  /* Text & Contrast */
+  --color-text-main: #131b16;        /* Obsidian Tour Ink */
+  --color-text-muted: #5e6d63;       /* Weathered Sage Grey */
+  --color-text-light: #8e9c93;       /* Fairway Mist */
+  --color-text-inverse: #ffffff;
+
+  /* Lines & Borders */
+  --border-line: rgba(19, 27, 22, 0.12);
+  --border-line-dark: rgba(255, 255, 255, 0.12);
+  --border-focus: #0c2317;
+
+  /* Pre-Owned Condition Grading (Inspired by Golf Garage) */
+  --condition-mint: #15803d;         /* 10/10 Mint - Unhit */
+  --condition-excellent: #0284c7;    /* 9/10 Excellent - Minor Shop Wear */
+  --condition-very-good: #b45309;    /* 8/10 Very Good - Normal Round Play */
+  --condition-good: #6b7280;         /* 7/10 Good - Cosmetic Marks */
+
+  /* System Feedback */
+  --color-success: #16a34a;
+  --color-warning: #ea580c;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+
+  /* Shadows & Depth */
+  --shadow-sm: 0 2px 6px rgba(12, 35, 23, 0.05);
+  --shadow-md: 0 8px 24px rgba(12, 35, 23, 0.08);
+  --shadow-lg: 0 16px 40px rgba(12, 35, 23, 0.12);
+  --shadow-xl: 0 24px 60px rgba(12, 35, 23, 0.16);
+
+  /* Border Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-serif: Georgia, "Playfair Display", "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Layout Constants */
+  --container-max: 1440px;
+  --header-height: 84px;
+  --announcement-height: 38px;
+}
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Categories — Royal Fairway Golf Co.</title>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span>⛳ <strong>Free White-Glove Own-Delivery</strong> across Delhi NCR &amp; Bengaluru</span>
+      <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-secondary btn-sm">All Products</a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)">
+          <span style="font-size: 18px;">👜</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div style="background: var(--color-primary); color: #ffffff; padding: 50px 0; text-align: center;">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">THE 12 DISCIPLINES</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Golf Equipment Categories</h1>
+      <p style="color: #a7c2b3; font-size: 16px; max-width: 620px; margin: 0 auto;">
+        From precision 10K MOI carbonwood drivers and forged irons to hand-stitched tour bags and tournament rangefinders.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div class="category-grid-12" id="categories-full-grid">
+      <!-- Rendered dynamically -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved.</p>
+        <a href="index.html" style="color: var(--color-gold);">Return to Homepage →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('categories-full-grid');
+      if (grid) {
+        grid.innerHTML = GOLF_DATABASE.categories.map(c => `
+          <div class="cat-tile-card" style="text-align: left;">
+            <a href="category.html?cat=${c.id}">
+              <img src="${c.image}" class="cat-tile-img" alt="${c.name}" style="height: 200px;">
+            </a>
+            <div class="cat-tile-content" style="padding: 20px;">
+              <h3 style="font-size: 20px; margin-bottom: 6px;"><a href="category.html?cat=${c.id}">${c.name}</a></h3>
+              <p class="text-muted" style="font-size: 13px; line-height: 1.5; margin-bottom: 14px;">${c.description}</p>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-line); padding-top: 12px;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--color-primary);">${c.count} Products</span>
+                <a href="category.html?cat=${c.id}" class="btn btn-primary btn-sm">Explore →</a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
+

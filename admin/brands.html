@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Management — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Brand Partners &amp; Distributorships</h1>
+          <p class="admin-page-subtitle">Authorized manufacturer agreements, warranty recognition, and catalog linkages.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-primary" onclick="openAddBrandModal()">+ Add Brand Partner</button>
+      </div>
+
+      <div class="admin-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Crest</th>
+              <th>Brand Name</th>
+              <th>Partnership Level</th>
+              <th>Catalog Items</th>
+              <th>Direct Warranty</th>
+              <th>Brand Showcase</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="brands-tbody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Brand Modal -->
+  <div id="brand-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #ffffff; width: 100%; max-width: 500px; border-radius: var(--admin-radius); padding: 32px;">
+      <h3 style="font-size: 20px; margin-bottom: 16px;">Add Brand Manufacturer</h3>
+      <form onsubmit="handleCreateBrand(event)">
+        <div class="admin-form-group">
+          <label class="admin-label">Brand Name *</label>
+          <input type="text" id="brand-name-input" class="admin-input" required placeholder="e.g. Cobra Golf">
+        </div>
+
+        <div class="admin-form-group">
+          <label class="admin-label">Brand Tagline / Bio</label>
+          <textarea id="brand-bio-input" class="admin-textarea" rows="3" placeholder="Pioneering speed and aerospace aerodynamic club engineering."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="admin-btn admin-btn-outline" onclick="document.getElementById('brand-modal').style.display='none'">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn-primary">Save Brand Partner</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('brands');
+      Admin.renderTopbar();
+      renderBrandsTable();
+    });
+
+    function renderBrandsTable() {
+      const tbody = document.getElementById('brands-tbody');
+      const brands = GOLF_DATABASE.brands;
+      const prods = Store.getProducts();
+
+      tbody.innerHTML = brands.map(b => {
+        const count = prods.filter(p => p.brand.toLowerCase() === b.name.toLowerCase()).length;
+
+        return `
+          <tr>
+            <td>
+              <div style="width: 36px; height: 36px; background: var(--admin-primary); color: #ffffff; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px;">
+                ${b.name.substring(0, 2).toUpperCase()}
+              </div>
+            </td>
+            <td><strong>${b.name}</strong></td>
+            <td><span class="admin-badge badge-success">Official Authorized Tier 1</span></td>
+            <td><strong>${count} Products</strong></td>
+            <td><span class="admin-badge badge-info">2-Year Official</span></td>
+            <td>
+              <a href="../brand-detail.html?brand=${encodeURIComponent(b.name)}" target="_blank" style="color: var(--admin-primary); font-weight: 700; text-decoration: underline;">
+                View Showcase ↗
+              </a>
+            </td>
+            <td>
+              <button class="admin-btn admin-btn-outline admin-btn-sm" onclick="alert('Brand settings updated!')">Edit</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function openAddBrandModal() {
+      document.getElementById('brand-modal').style.display = 'flex';
+    }
+
+    function handleCreateBrand(e) {
+      e.preventDefault();
+      const name = document.getElementById('brand-name-input').value;
+      const bio = document.getElementById('brand-bio-input').value;
+
+      GOLF_DATABASE.brands.push({ name, bio });
+      document.getElementById('brand-modal').style.display = 'none';
+      renderBrandsTable();
+      alert(`Brand partner "${name}" saved!`);
+    }
+  </script>
+</body>
+</html>
+

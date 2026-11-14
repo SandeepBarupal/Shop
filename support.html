@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concierge &amp; Customer Support — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Get in touch with our PGA certified club fitters, TrackMan studio booking, and White-Glove delivery support.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>PGA Pro Concierge:</strong> Expert club advice &amp; custom fitting appointments 7 days a week</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="support.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Customer Support</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">DEDICATED GOLF CONCIERGE</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Customer Care &amp; Custom Fitting</h1>
+      <p style="color: #cadfd4; font-size: 16px; max-width: 650px; line-height: 1.6;">
+        Whether you require shaft recommendations for your swing speed, wish to schedule a TrackMan 4 launch monitor session, or need assistance with your delivery, our master fitters are at your service.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <!-- Contact Info Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 50px;">
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 32px; margin-bottom: 12px;">📞</div>
+        <h3 style="font-size: 17px; margin-bottom: 6px;">Direct Clubhouse Phone</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 14px;">Available 8:00 AM – 8:00 PM IST</p>
+        <a href="tel:+919871044321" style="font-size: 16px; font-weight: 700; color: var(--color-primary);">+91 98710 44321</a>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 32px; margin-bottom: 12px;">💬</div>
+        <h3 style="font-size: 17px; margin-bottom: 6px;">Concierge WhatsApp</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 14px;">Instant responses from our fitting desk</p>
+        <button class="btn btn-outline btn-sm" onclick="Store.showToast('Connecting to WhatsApp Concierge...')">Open WhatsApp Chat</button>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 32px; margin-bottom: 12px;">⛳</div>
+        <h3 style="font-size: 17px; margin-bottom: 6px;">Gurugram Fitting Studio</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 14px;">Golf Course Road, Near DLF Phase 5</p>
+        <span class="badge badge-mint">TrackMan 4 Certified</span>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 32px; margin-bottom: 12px;">⛳</div>
+        <h3 style="font-size: 17px; margin-bottom: 6px;">Bengaluru Fitting Studio</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 14px;">Adjacent to KGA Golf Links, Indiranagar</p>
+        <span class="badge badge-mint">Full Fitting Bay</span>
+      </div>
+    </div>
+
+    <!-- 2 Column Forms: Book Fitting / Support Ticket -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start;">
+      
+      <!-- Form 1: Book TrackMan Fitting -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <span style="font-size: 24px;">🎯</span>
+          <div>
+            <h3 style="font-size: 19px; margin: 0;">Book TrackMan 4 Fitting</h3>
+            <span class="text-muted" style="font-size: 13px;">Gurugram or Bengaluru studio bays</span>
+          </div>
+        </div>
+
+        <form onsubmit="handleFittingBooking(event)">
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="fit-name" class="form-control" required placeholder="e.g. Capt. Vikram Mehra">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+            <div>
+              <label class="form-label">Phone *</label>
+              <input type="tel" id="fit-phone" class="form-control" required placeholder="+91 98100 12345">
+            </div>
+            <div>
+              <label class="form-label">Studio Location *</label>
+              <select id="fit-studio" class="form-control">
+                <option>Gurugram (DLF Golf Course Rd)</option>
+                <option>Bengaluru (KGA Links)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+            <div>
+              <label class="form-label">Equipment to Fit *</label>
+              <select id="fit-club" class="form-control">
+                <option>Driver &amp; Woods Optimization</option>
+                <option>Iron Set Gapping &amp; Lie Angle</option>
+                <option>Vokey Wedge Bounce &amp; Grind</option>
+                <option>Scotty Cameron Putter Fitting</option>
+                <option>Complete 14-Club Tour Bag</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Preferred Date *</label>
+              <input type="date" id="fit-date" class="form-control" required>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label class="form-label">Current Handicap &amp; Goals</label>
+            <input type="text" id="fit-notes" class="form-control" placeholder="e.g. Handicap 12. Looking for higher launch and less spin.">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Confirm Fitting Appointment</button>
+        </form>
+      </div>
+
+      <!-- Form 2: Support Ticket Desk -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <span style="font-size: 24px;">📩</span>
+          <div>
+            <h3 style="font-size: 19px; margin: 0;">Submit Support Ticket</h3>
+            <span class="text-muted" style="font-size: 13px;">Order queries, exchanges &amp; warranty</span>
+          </div>
+        </div>
+
+        <form onsubmit="handleSupportTicket(event)">
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Order Number (If Applicable)</label>
+            <input type="text" id="tkt-order" class="form-control" placeholder="e.g. RFG-2026-8821">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+            <div>
+              <label class="form-label">Your Name *</label>
+              <input type="text" id="tkt-name" class="form-control" required placeholder="Full Name">
+            </div>
+            <div>
+              <label class="form-label">Email *</label>
+              <input type="email" id="tkt-email" class="form-control" required placeholder="name@example.com">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Inquiry Category *</label>
+            <select id="tkt-cat" class="form-control">
+              <option>White-Glove Fleet Delivery Inquiry</option>
+              <option>Serial Number Authenticity &amp; Warranty</option>
+              <option>7-Day Return or Size Exchange</option>
+              <option>Trade-In Equipment Follow-up</option>
+              <option>Corporate &amp; Golf Tournament Orders</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label class="form-label">Message Details *</label>
+            <textarea id="tkt-msg" class="form-control" rows="4" required placeholder="Describe your request in detail..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-block">Submit Concierge Ticket</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership for Titleist, TaylorMade, Callaway, Ping and Scotty Cameron.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="shipping-policy.html">Fleet Delivery Policy</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      // Default tomorrow date for fitting
+      const d = new Date();
+      d.setDate(d.getDate() + 2);
+      const dateEl = document.getElementById('fit-date');
+      if (dateEl) dateEl.value = d.toISOString().split('T')[0];
+    });
+
+    function handleFittingBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('fit-name').value;
+      const studio = document.getElementById('fit-studio').value;
+      const club = document.getElementById('fit-club').value;
+      Store.showToast(`TrackMan fitting booked for ${name} at ${studio} (${club}). Our resident PGA pro will confirm time slot.`);
+      e.target.reset();
+    }
+
+    function handleSupportTicket(e) {
+      e.preventDefault();
+      const ticketNum = 'TKT-' + Math.floor(10000 + Math.random() * 90000);
+      Store.showToast(`Support Ticket #${ticketNum} created! Concierge team has been notified.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

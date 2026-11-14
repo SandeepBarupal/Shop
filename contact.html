@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us &amp; Fitting Studios — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Visit our TrackMan fitting studios in Gurugram and Bengaluru or contact our PGA concierge desk.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Studios Open:</strong> Gurugram DLF Golf Course Rd &amp; Bengaluru KGA Links</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Contact</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">GET IN TOUCH</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Contact Concierge &amp; Fitting Studios</h1>
+      <p style="color: #cadfd4; font-size: 16px; max-width: 650px; line-height: 1.6;">
+        Our team of PGA-certified club technicians and White-Glove delivery dispatchers are here to assist with club specifications, appointments, and orders.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start;">
+      
+      <!-- Studio Locations & Direct Lines -->
+      <div>
+        <h2 style="font-size: 24px; margin-bottom: 20px;">Clubhouse Fitting Studios</h2>
+
+        <!-- Gurugram Studio -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div>
+              <span class="eyebrow" style="color: var(--color-gold);">DELHI NCR FLAGSHIP</span>
+              <h3 style="font-size: 19px; margin: 4px 0;">Gurugram Fitting Centre</h3>
+            </div>
+            <span class="badge badge-mint">TrackMan 4</span>
+          </div>
+
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 14px;">
+            Plot 18, Golf Course Extension Road, Sector 54 (Opposite DLF Magnolias Gate), Gurugram, Haryana 122002
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; margin-bottom: 18px;">
+            <div>📞 Direct: <strong>+91 98710 44321</strong></div>
+            <div>✉️ Email: <strong>gurugram@royalfairway.com</strong></div>
+            <div>⏰ Hours: <strong>Tuesday – Sunday: 8:00 AM – 8:00 PM</strong></div>
+          </div>
+
+          <a href="support.html" class="btn btn-primary btn-sm">Schedule TrackMan Session →</a>
+        </div>
+
+        <!-- Bengaluru Studio -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <div>
+              <span class="eyebrow" style="color: var(--color-gold);">SOUTH INDIA PAVILION</span>
+              <h3 style="font-size: 19px; margin: 4px 0;">Bengaluru Links Studio</h3>
+            </div>
+            <span class="badge badge-mint">Full Bay</span>
+          </div>
+
+          <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 14px;">
+            No. 7, Airport Road, Kodihalli (Adjacent to Karnataka Golf Association), Indiranagar, Bengaluru, Karnataka 560008
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; margin-bottom: 18px;">
+            <div>📞 Direct: <strong>+91 80 4120 7890</strong></div>
+            <div>✉️ Email: <strong>bengaluru@royalfairway.com</strong></div>
+            <div>⏰ Hours: <strong>Tuesday – Sunday: 8:00 AM – 8:00 PM</strong></div>
+          </div>
+
+          <a href="support.html" class="btn btn-primary btn-sm">Schedule TrackMan Session →</a>
+        </div>
+      </div>
+
+      <!-- Contact Message Form -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 24px; margin-bottom: 6px;">Send Us an Inquiry</h2>
+        <p class="text-muted" style="font-size: 14px; margin-bottom: 24px;">Our club specialists typically respond within two business hours.</p>
+
+        <form onsubmit="handleContactSubmit(event)">
+          <div style="margin-bottom: 16px;">
+            <label class="form-label" for="cnt-name">Full Name *</label>
+            <input type="text" id="cnt-name" class="form-control" required placeholder="e.g. Vikramaditya Rathore">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+            <div>
+              <label class="form-label" for="cnt-email">Email Address *</label>
+              <input type="email" id="cnt-email" class="form-control" required placeholder="name@domain.com">
+            </div>
+
+            <div>
+              <label class="form-label" for="cnt-phone">Phone Number *</label>
+              <input type="tel" id="cnt-phone" class="form-control" required placeholder="+91 98100 23456">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label class="form-label" for="cnt-subject">Inquiry Nature</label>
+            <select id="cnt-subject" class="form-control">
+              <option>General Product Inquiry</option>
+              <option>Custom Shaft &amp; Loft Fitting</option>
+              <option>White-Glove Fleet Delivery Status</option>
+              <option>Pre-Owned Trade-In Valuation</option>
+              <option>Corporate Tournament Hampers &amp; Gifts</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label class="form-label" for="cnt-message">Message *</label>
+            <textarea id="cnt-message" class="form-control" rows="4" required placeholder="How can our master fitters assist your game?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Send Message to Concierge</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's leading golf destination for certified tour clubs and bespoke TrackMan fittings.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Contact</h6>
+          <ul>
+            <li><a href="contact.html">Studios</a></li>
+            <li><a href="support.html">Fitting Booking</a></li>
+            <li><a href="order-tracking.html">Track Van</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Policies</h6>
+          <ul>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+    });
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cnt-name').value;
+      Store.showToast(`Thank you, ${name}. Your message has been routed to our resident PGA concierge.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

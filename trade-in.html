@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade-In Valuation Calculator — Royal Fairway Golf Co.</title>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span>⛳ <strong>Clubhouse Trade-In:</strong> Trade your old clubs for immediate store credit</span>
+      <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <a href="pre-owned.html" class="btn btn-secondary btn-sm">Shop Pre-Owned</a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)">
+          <span style="font-size: 18px;">👜</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div style="background: linear-gradient(135deg, #07150e 0%, #0c2317 100%); color: #ffffff; padding: 60px 0; border-bottom: 2px solid var(--color-gold);">
+    <div class="container" style="text-align: center; max-width: 780px;">
+      <span class="eyebrow" style="color: var(--color-gold);">GOLF GARAGE TRADE-IN PROGRAM</span>
+      <h1 style="color: #ffffff; margin: 8px 0 16px;">Trade-In Equipment Calculator</h1>
+      <p style="color: #a7c2b3; font-size: 16px; line-height: 1.6;">
+        Upgrade your golf bag easily. Get an instant, transparent valuation for your current drivers, irons, and putters, and receive immediate store credit or home pickup by our own delivery fleet.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+      <!-- Interactive Trade-In Calculator Form -->
+      <div style="background: #ffffff; border-radius: var(--radius-md); border: 2px solid var(--color-primary); padding: 36px; box-shadow: var(--shadow-md);">
+        <h3 style="font-size: 22px; margin-bottom: 6px;">1. Calculate Your Club's Valuation</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 24px;">Select the brand, category, and condition grade to receive an instant estimate.</p>
+
+        <form id="full-tradein-form" onsubmit="calculateFullTradeIn(event)" style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Club Brand:</label>
+            <select id="trade-brand" class="form-control" required>
+              <option value="TaylorMade">TaylorMade</option>
+              <option value="Titleist">Titleist</option>
+              <option value="Callaway">Callaway</option>
+              <option value="Ping">Ping</option>
+              <option value="Mizuno">Mizuno</option>
+              <option value="Scotty Cameron">Scotty Cameron</option>
+              <option value="Cobra">Cobra</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Club Type &amp; Generation:</label>
+            <select id="trade-club-type" class="form-control" required>
+              <option value="0">Driver (Current Gen 2024-2026: Qi10, TSR, Paradym Smoke)</option>
+              <option value="1">Driver (Previous Gen 2021-2023: Stealth, TSi, Rogue ST)</option>
+              <option value="2">Irons Set (Forged 4-PW: Mizuno Pro, Titleist T100, P770)</option>
+              <option value="3">Irons Set (Cavity 5-PW: Stealth, Paradym, P790)</option>
+              <option value="4">Putter (Milled Scotty Cameron, Bettinardi)</option>
+              <option value="5">Putter (Standard Odyssey, Spider, White Hot)</option>
+              <option value="6">Fairway Wood / Hybrid</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Condition Grade (10-Point Scale):</label>
+            <select id="trade-condition" class="form-control" required>
+              <option value="10/10 Mint">10/10 Mint (Unhit / Floor Display / Plastic Wrap)</option>
+              <option value="9/10 Excellent" selected>9/10 Excellent (Clean crown, minor sole brush marks)</option>
+              <option value="8/10 Very Good">8/10 Very Good (Normal round play, zero sky marks)</option>
+              <option value="7/10 Good">7/10 Good (Playable, minor cosmetic marks on face/sole)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Shaft Type:</label>
+            <select id="trade-shaft" class="form-control">
+              <option value="Graphite Aftermarket Tour">Aftermarket Tour Graphite (Ventus, HZRDUS, Tensei)</option>
+              <option value="Graphite Stock OEM" selected>Stock OEM Graphite (Speeder, Alta CB, Tensei AV)</option>
+              <option value="Steel Stiff/Regular">Steel Shaft (Dynamic Gold, KBS, Modus)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-gold btn-block btn-lg">Calculate Trade-In Credit</button>
+        </form>
+
+        <!-- Dynamic Estimated Value Card -->
+        <div id="trade-valuation-card" style="display: none; margin-top: 24px; padding: 24px; background: var(--color-bg-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-line); text-align: center;">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted);">
+            ESTIMATED TRADE-IN STORE CREDIT
+          </span>
+          <div id="trade-est-val" style="font-size: 36px; font-weight: 800; color: var(--color-primary); margin: 6px 0;">
+            ₹24,000
+          </div>
+          <span style="font-size: 12px; color: var(--color-success); font-weight: 600;">
+            ✓ Eligible for White-Glove doorstep collection in Delhi NCR &amp; Bengaluru
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 2: Submission Form for Pickup -->
+      <div style="background: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--border-line); padding: 36px;">
+        <h3 style="font-size: 22px; margin-bottom: 6px;">2. Submit for Doorstep Collection</h3>
+        <p class="text-muted" style="font-size: 13.5px; margin-bottom: 24px;">
+          Our equipment specialist will review your details, confirm valuation, and dispatch our fleet driver to inspect and collect the club.
+        </p>
+
+        <form onsubmit="handleTradeInSubmission(event)" style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="form-group">
+            <label class="form-label">Player Full Name *</label>
+            <input type="text" id="sub-name" required placeholder="e.g. Capt. Arjun Mehta" class="form-control">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">Phone (+91) *</label>
+              <input type="tel" id="sub-phone" required maxlength="10" placeholder="9811234567" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-label">City *</label>
+              <select id="sub-city" class="form-control">
+                <option value="Gurugram">Gurugram (NCR Fleet)</option>
+                <option value="New Delhi">New Delhi (NCR Fleet)</option>
+                <option value="Noida">Noida (NCR Fleet)</option>
+                <option value="Bengaluru">Bengaluru (Depot Fleet)</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chandigarh">Chandigarh</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Pickup Address / Golf Club Locker *</label>
+            <input type="text" id="sub-address" required placeholder="e.g. DLF Golf Club Caddy Master Desk or Residence" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Photos of Crown, Face &amp; Sole (Optional):</label>
+            <input type="file" multiple class="form-control" style="padding: 8px;">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            Submit Trade-In Application →
+          </button>
+        </form>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-line); font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5;">
+          <strong>Trade-In Guarantee:</strong> Once approved, the store credit voucher code will be issued instantly to your mobile number and email. You can apply it during checkout on any brand-new or certified pre-owned equipment.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved.</p>
+        <a href="index.html" style="color: var(--color-gold);">Return to Homepage →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    let calculatedCredit = 24000;
+
+    function calculateFullTradeIn(e) {
+      e.preventDefault();
+      const clubIdx = Number(document.getElementById('trade-club-type').value);
+      const cond = document.getElementById('trade-condition').value;
+      const base = GOLF_DATABASE.tradeInValuationMatrix.clubTypes[clubIdx].baseValue;
+      const mult = GOLF_DATABASE.tradeInValuationMatrix.conditionMultipliers[cond] || 1;
+      calculatedCredit = Math.round(base * mult);
+
+      document.getElementById('trade-est-val').textContent = `₹${calculatedCredit.toLocaleString('en-IN')}`;
+      document.getElementById('trade-valuation-card').style.display = 'block';
+      Store.showToast(`Valuation calculated: ₹${calculatedCredit.toLocaleString('en-IN')}`);
+    }
+
+    function handleTradeInSubmission(e) {
+      e.preventDefault();
+      const name = document.getElementById('sub-name').value;
+      const phone = document.getElementById('sub-phone').value;
+      const city = document.getElementById('sub-city').value;
+      const address = document.getElementById('sub-address').value;
+      const brand = document.getElementById('trade-brand').value;
+
+      const trade = Store.submitTradeIn({
+        customerName: name,
+        phone: `+91 ${phone}`,
+        city,
+        address,
+        brand,
+        estimatedCredit: calculatedCredit,
+      });
+
+      alert(`Thank you ${name}! Trade-In Request #${trade.refNumber} submitted. Our specialist will call you at ${phone} to coordinate White-Glove inspection.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
+

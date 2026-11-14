@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Warehouse &amp; Studio Inventory Control</h1>
+          <p class="admin-page-subtitle">Multi-hub stock levels across Gurugram Central Hub and Bengaluru Links Pavilion.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-gold" onclick="alert('Batch stock replenishment PO generated for Titleist & TaylorMade!')">
+          + Batch Stock Reorder
+        </button>
+      </div>
+
+      <!-- Quick KPI Stats -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Total SKUs Tracked</div>
+          <div class="admin-kpi-val" id="inv-total-skus">0</div>
+          <div class="admin-kpi-trend trend-up">All active tour lines</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Gurugram Central Stock</div>
+          <div class="admin-kpi-val">142 Units</div>
+          <div class="admin-kpi-trend">Sector 54 Hub</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Bengaluru Links Stock</div>
+          <div class="admin-kpi-val">98 Units</div>
+          <div class="admin-kpi-trend">KGA Indiranagar Hub</div>
+        </div>
+
+        <div class="admin-kpi-card">
+          <div class="admin-kpi-title">Low Stock Alerts</div>
+          <div class="admin-kpi-val" style="color: var(--admin-danger);">3 SKUs</div>
+          <div class="admin-kpi-trend trend-down">Action required</div>
+        </div>
+      </div>
+
+      <!-- Inventory Table -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 style="font-size: 16px;">Live SKU Stock Matrix</h3>
+          <span style="font-size: 12px; color: var(--admin-text-muted);">Adjust stock units in real-time</span>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Club / Gear</th>
+              <th>Brand</th>
+              <th>Category</th>
+              <th>Gurugram Hub</th>
+              <th>Bengaluru Hub</th>
+              <th>Total Stock</th>
+              <th>Stock Status</th>
+              <th>Quick Adjustment</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-tbody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('inventory');
+      Admin.renderTopbar();
+      renderInventoryTable();
+    });
+
+    function renderInventoryTable() {
+      const prods = Store.getProducts();
+      document.getElementById('inv-total-skus').textContent = prods.length;
+
+      const tbody = document.getElementById('inventory-tbody');
+      tbody.innerHTML = prods.map((p, idx) => {
+        // Assign realistic mock hub breakdown based on index
+        const ggn = Math.max(2, (idx * 3 + 4) % 18);
+        const blr = Math.max(1, (idx * 2 + 3) % 12);
+        const total = ggn + blr;
+        const isLow = total < 8;
+
+        return `
+          <tr>
+            <td>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <img src="${p.image}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; border: 1px solid var(--admin-border);">
+                <div>
+                  <strong>${p.name}</strong><br>
+                  <span style="font-size: 11px; color: var(--admin-text-muted); font-family: monospace;">${p.id}</span>
+                </div>
+              </div>
+            </td>
+            <td><strong>${p.brand}</strong></td>
+            <td><span class="admin-badge badge-info">${p.category}</span></td>
+            <td>${ggn} pcs</td>
+            <td>${blr} pcs</td>
+            <td><strong>${total} pcs</strong></td>
+            <td>
+              <span class="admin-badge ${isLow ? 'badge-danger' : 'badge-success'}">
+                ${isLow ? 'Low Stock' : 'In Stock'}
+              </span>
+            </td>
+            <td>
+              <div style="display: flex; gap: 6px;">
+                <button class="admin-btn admin-btn-outline admin-btn-sm" onclick="alert('Added +5 units to ${p.name}')">+5 Units</button>
+                <button class="admin-btn admin-btn-outline admin-btn-sm" onclick="alert('Added +20 units to ${p.name}')">+20 Units</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Clubhouse Account — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Manage your Royal Fairway member profile, fitting preferences, orders, addresses, and reward points.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Clubhouse Account:</strong> Priority booking for TrackMan fittings &amp; White-Glove delivery tracking</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn" style="color: var(--color-primary); font-weight: 700;">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="membership.html" class="nav-link">Clubhouse VIP</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Member Banner -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 48px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="width: 72px; height: 72px; background: var(--color-gold); color: #0c2317; border-radius: 50%; font-size: 26px; font-weight: 900; display: flex; align-items: center; justify-content: center; border: 3px solid #ffffff;">
+          RS
+        </div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <h1 style="color: #ffffff; font-size: 26px; margin: 0;">Major General Ranvijay Singh</h1>
+            <span class="badge badge-gold" style="font-size: 11px;">Eagle VIP Member</span>
+          </div>
+          <p style="color: #cadfd4; font-size: 14px; margin: 0;">
+            Home Club: <strong>DLF Golf &amp; Country Club, Gurugram</strong> • Handicap Index: <strong>7.4</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Points Widget -->
+      <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 16px 24px; border-radius: var(--radius-md); text-align: right;">
+        <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gold);">Reward Points Balance</span>
+        <div style="font-size: 28px; font-weight: 800; color: #ffffff;">2,450 pts</div>
+        <span style="font-size: 12px; color: #a1c7b3;">= ₹2,450 Redeemable Credit</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: start;">
+      
+      <!-- Account Nav Sidebar -->
+      <aside style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 16px; box-shadow: var(--shadow-sm);">
+        <nav style="display: flex; flex-direction: column; gap: 4px;">
+          <a href="account.html" style="padding: 12px 16px; border-radius: var(--radius-sm); background: var(--color-bg-alt); font-weight: 700; color: var(--color-primary); display: flex; align-items: center; gap: 10px;">
+            <span>👤</span> Member Profile
+          </a>
+          <a href="orders.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>📦</span> My Orders &amp; Dispatches
+          </a>
+          <a href="order-tracking.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>🚐</span> Live Fleet Tracking
+          </a>
+          <a href="addresses.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>📍</span> Delivery Address Book
+          </a>
+          <a href="wishlist.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>♥</span> Saved Equipment
+          </a>
+          <a href="trade-in.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>🔄</span> Trade-In Inquiries
+          </a>
+          <a href="support.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+            <span>⛳</span> Fitting Desk &amp; Support
+          </a>
+          <div style="border-top: 1px solid var(--border-line); margin: 8px 0;"></div>
+          <a href="admin/index.html" style="padding: 12px 16px; border-radius: var(--radius-sm); color: var(--color-gold); font-weight: 700; display: flex; align-items: center; gap: 10px;">
+            <span>⚙</span> Admin Management Suite
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Account Main Content -->
+      <section style="display: flex; flex-direction: column; gap: 28px;">
+        
+        <!-- Profile Quick Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <span class="text-muted" style="font-size: 12px; text-transform: uppercase;">Total Orders Placed</span>
+            <div id="stat-orders-count" style="font-size: 26px; font-weight: 800; color: var(--color-primary); margin-top: 4px;">4</div>
+            <a href="orders.html" style="font-size: 12px; color: var(--color-gold); font-weight: 600;">View Orders →</a>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <span class="text-muted" style="font-size: 12px; text-transform: uppercase;">In-Flight Deliveries</span>
+            <div style="font-size: 26px; font-weight: 800; color: #166534; margin-top: 4px;">1 Active</div>
+            <a href="order-tracking.html" style="font-size: 12px; color: var(--color-gold); font-weight: 600;">Track Van →</a>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 20px;">
+            <span class="text-muted" style="font-size: 12px; text-transform: uppercase;">Trade-In Credits</span>
+            <div style="font-size: 26px; font-weight: 800; color: var(--color-gold); margin-top: 4px;">₹18,500</div>
+            <a href="trade-in.html" style="font-size: 12px; color: var(--color-primary); font-weight: 600;">New Valuation →</a>
+          </div>
+        </div>
+
+        <!-- Personal Golf Profile Form -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border-line); padding-bottom: 14px;">
+            <h3 style="font-size: 19px; margin: 0;">Golf Profile &amp; Fitting Specs</h3>
+            <span class="badge badge-mint">Verified Member</span>
+          </div>
+
+          <form onsubmit="event.preventDefault(); Store.showToast('Profile specifications updated successfully!');">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+              <div>
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" value="Major General Ranvijay Singh">
+              </div>
+
+              <div>
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" value="ranvijay.singh@example.com">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+              <div>
+                <label class="form-label">Contact Phone</label>
+                <input type="tel" class="form-control" value="+91 98100 23456">
+              </div>
+
+              <div>
+                <label class="form-label">Home Golf Club</label>
+                <select class="form-control">
+                  <option selected>DLF Golf &amp; Country Club (Gurugram)</option>
+                  <option>Delhi Golf Club (DGC)</option>
+                  <option>Karnataka Golf Association (KGA Bengaluru)</option>
+                  <option>Bombay Presidency Golf Club (BPGC)</option>
+                  <option>Willingdon Sports Club (Mumbai)</option>
+                  <option>Prestige Golfshire (Bengaluru)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 28px;">
+              <div>
+                <label class="form-label">Official Handicap Index</label>
+                <input type="text" class="form-control" value="7.4">
+              </div>
+
+              <div>
+                <label class="form-label">Preferred Driver Shaft</label>
+                <select class="form-control">
+                  <option selected>Stiff (S) — 65g</option>
+                  <option>Regular (R) — 55g</option>
+                  <option>Extra Stiff (X) — 75g</option>
+                  <option>Senior / Lite — 45g</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label">Dexterity</label>
+                <select class="form-control">
+                  <option selected>Right Hand (RH)</option>
+                  <option>Left Hand (LH)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Specifications</button>
+          </form>
+        </div>
+
+        <!-- Recent Order Highlight -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 19px; margin: 0;">Latest Dispatch</h3>
+            <a href="orders.html" class="btn btn-outline btn-sm">View All Orders</a>
+          </div>
+
+          <div id="account-latest-order" style="background: var(--color-bg-alt); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership and fitting center for premium global golf brands.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="category.html?cat=balls">Golf Balls</a></li>
+            <li><a href="category.html?cat=shoes">Golf Shoes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Delivery</a></li>
+            <li><a href="addresses.html">Saved Addresses</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      const orders = Store.getOrders();
+      document.getElementById('stat-orders-count').textContent = orders.length;
+
+      const latest = orders[0];
+      const container = document.getElementById('account-latest-order');
+      if (latest && container) {
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <strong style="font-size: 15px; color: var(--color-primary);">${latest.orderNumber}</strong>
+              <span class="text-muted" style="font-size: 13px; margin-left: 8px;">Placed ${new Date(latest.date).toLocaleDateString('en-IN')}</span>
+            </div>
+            <span class="badge badge-mint">${latest.orderStatus}</span>
+          </div>
+
+          <div style="font-size: 14px; margin-bottom: 14px;">
+            Items: <strong>${latest.items ? latest.items.map(i => i.name).join(', ') : 'Tour Equipment'}</strong>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-line); padding-top: 12px;">
+            <div>
+              <span class="text-muted" style="font-size: 13px;">Total Paid:</span>
+              <strong style="font-size: 16px; margin-left: 6px;">₹${latest.total.toLocaleString('en-IN')}</strong>
+            </div>
+            <a href="order-tracking.html?order=${latest.orderNumber}" class="btn btn-gold btn-sm">Track White-Glove Fleet →</a>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
+

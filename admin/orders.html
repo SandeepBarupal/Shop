@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders &amp; Dispatch — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Order Lifecycle &amp; Fleet Dispatch</h1>
+          <p class="admin-page-subtitle">Track orders, assign White-Glove drivers, and manage customer fulfillment pipelines.</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button class="admin-btn admin-btn-outline" onclick="window.print()">Print Packing Slips</button>
+          <a href="../order-tracking.html" target="_blank" class="admin-btn admin-btn-primary">View Customer GPS Tracker ↗</a>
+        </div>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="admin-card" style="padding: 16px 24px; margin-bottom: 20px;">
+        <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+          <input type="text" id="order-search" class="admin-input" style="width: 280px;" placeholder="Search by Order # or Customer..." oninput="filterOrders()">
+
+          <select id="order-status-filter" class="admin-select" style="width: 200px;" onchange="filterOrders()">
+            <option value="all">All Statuses</option>
+            <option value="Order Placed">Order Placed</option>
+            <option value="Preparing White-Glove Dispatch">Preparing Dispatch</option>
+            <option value="Out for Delivery">Out for Delivery</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+
+          <span class="text-muted" id="order-count-text" style="font-size: 13px; margin-left: auto;">Showing orders</span>
+        </div>
+      </div>
+
+      <!-- Orders Table -->
+      <div class="admin-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order Ref</th>
+              <th>Customer</th>
+              <th>Destination</th>
+              <th>Manifest</th>
+              <th>Amount</th>
+              <th>Assigned Driver</th>
+              <th>Fulfillment Status</th>
+              <th>Update Status</th>
+            </tr>
+          </thead>
+          <tbody id="orders-tbody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('orders');
+      Admin.renderTopbar();
+      renderOrders();
+    });
+
+    function renderOrders(items) {
+      const list = items || Store.getOrders();
+      document.getElementById('order-count-text').textContent = `Showing ${list.length} orders`;
+
+      const tbody = document.getElementById('orders-tbody');
+      tbody.innerHTML = list.map(order => {
+        const itemsStr = order.items ? order.items.map(i => `${i.quantity}x ${i.name}`).join('<br>') : 'Tour Equipment';
+        const driverName = order.driver ? order.driver.name : 'Suresh Verma';
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: var(--admin-primary); font-family: monospace; font-size: 14px;">${order.orderNumber}</strong><br>
+              <span style="font-size: 11px; color: var(--admin-text-muted);">${new Date(order.date).toLocaleDateString('en-IN')}</span>
+            </td>
+            <td>
+              <strong>${order.customerName || 'Honoured Member'}</strong><br>
+              <span style="font-size: 12px; color: var(--admin-text-muted);">${order.customerPhone || ''}</span>
+            </td>
+            <td style="max-width: 200px;">
+              <div style="font-size: 13px; line-height: 1.3;">${order.address || 'DLF Phase 5'}, <strong>${order.city || 'Gurugram'}</strong></div>
+            </td>
+            <td style="font-size: 12.5px; max-width: 200px;">
+              ${itemsStr}
+            </td>
+            <td>
+              <strong>₹${order.total.toLocaleString('en-IN')}</strong><br>
+              <span style="font-size: 11px; color: #166534;">${order.paymentMethod || 'UPI'}</span>
+            </td>
+            <td>
+              <select onchange="assignDriver('${order.orderNumber}', this.value)" style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 12px;">
+                <option value="Suresh Verma" ${driverName === 'Suresh Verma' ? 'selected' : ''}>Suresh Verma (Gurugram EV)</option>
+                <option value="Rajesh Kumar" ${driverName === 'Rajesh Kumar' ? 'selected' : ''}>Rajesh Kumar (Bengaluru EV)</option>
+                <option value="Vikram Joshi" ${driverName === 'Vikram Joshi' ? 'selected' : ''}>Vikram Joshi (Delhi Air Express)</option>
+              </select>
+            </td>
+            <td>
+              <span class="admin-badge ${order.orderStatus === 'Delivered' ? 'badge-success' : 'badge-warning'}">
+                ${order.orderStatus}
+              </span>
+            </td>
+            <td>
+              <select onchange="updateOrderStatus('${order.orderNumber}', this.value)" style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 12px; font-weight: 600;">
+                <option value="Order Placed" ${order.orderStatus === 'Order Placed' ? 'selected' : ''}>Order Placed</option>
+                <option value="Preparing White-Glove Dispatch" ${order.orderStatus.includes('Preparing') ? 'selected' : ''}>Preparing Dispatch</option>
+                <option value="Out for Delivery" ${order.orderStatus.includes('Out') ? 'selected' : ''}>Out for Delivery</option>
+                <option value="Delivered" ${order.orderStatus === 'Delivered' ? 'selected' : ''}>Delivered</option>
+              </select>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterOrders() {
+      const q = document.getElementById('order-search').value.toLowerCase().trim();
+      const status = document.getElementById('order-status-filter').value;
+
+      let list = Store.getOrders();
+      if (q) {
+        list = list.filter(o => o.orderNumber.toLowerCase().includes(q) || (o.customerName && o.customerName.toLowerCase().includes(q)));
+      }
+      if (status !== 'all') {
+        list = list.filter(o => o.orderStatus === status);
+      }
+      renderOrders(list);
+    }
+
+    function updateOrderStatus(num, newStatus) {
+      Store.updateOrderStatus(num, newStatus);
+      renderOrders();
+    }
+
+    function assignDriver(num, driverName) {
+      const vehicle = driverName.includes('Rajesh') 
+        ? 'KA 01 EK 9122 (Fairway EV Van #2)' 
+        : 'HR 26 DQ 8821 (Fairway EV Van #1)';
+      
+      Store.updateOrderStatus(num, 'Out for Delivery', `Assigned driver ${driverName}`, {
+        name: driverName,
+        phone: '+91 98710 44321',
+        vehicle
+      });
+      renderOrders();
+    }
+  </script>
+</body>
+</html>
+

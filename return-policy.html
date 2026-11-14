@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return &amp; Refund Policy — Royal Fairway Golf Co.</title>
+  <meta name="description" content="7-day hassle-free returns, on-spot shoe fitting, and 30-day playability guarantee on pre-owned equipment.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>30-Day Play Guarantee:</strong> Exchange pre-owned clubs if they do not suit your swing</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="return-policy.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Return Policy</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 48px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="max-width: 800px;">
+      <span class="eyebrow" style="color: var(--color-gold);">HASSLE-FREE PRO SHOP SERVICE</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Returns, Exchanges &amp; Play Guarantee</h1>
+      <p style="color: #cadfd4; font-size: 16px; line-height: 1.6;">
+        Our goal is your complete satisfaction on the golf course. Learn how our on-spot shoe fitting and 30-day play guarantee protect your investment.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding" style="max-width: 840px;">
+    <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-sm); font-size: 15px; line-height: 1.8; color: var(--color-text);">
+      
+      <h2 style="font-size: 22px; color: var(--color-primary); margin-bottom: 12px;">1. 7-Day Easy Returns on New Equipment</h2>
+      <p class="text-muted" style="margin-bottom: 24px;">
+        Brand-new golf apparel, footwear, rangefinders, GPS watches, and golf bags may be returned or exchanged within 7 days of delivery for a 100% full refund. New golf clubs must remain in original factory shrinkwrap with all tags and accessories intact.
+      </p>
+
+      <h2 style="font-size: 22px; color: var(--color-primary); margin-bottom: 12px;">2. On-the-Spot Try &amp; Exchange (White-Glove Delivery)</h2>
+      <p class="text-muted" style="margin-bottom: 24px;">
+        During doorstep White-Glove delivery in Delhi NCR and Bengaluru, customers purchasing FootJoy golf shoes or tour apparel are encouraged to try them on while our fleet specialist waits. If a different size is needed, the driver can swap it on the spot or arrange a same-day replacement.
+      </p>
+
+      <h2 style="font-size: 22px; color: var(--color-primary); margin-bottom: 12px;">3. 30-Day Playability Guarantee (Certified Pre-Owned)</h2>
+      <p class="text-muted" style="margin-bottom: 24px;">
+        Inspired by Golf Garage's player-first policy, all Certified Pre-Owned golf clubs include our 30-Day Playability Guarantee. If you take a pre-owned driver, fairway wood, or iron set out to your course and feel the shaft stiffness or launch trajectory is not suitable for your swing, return it within 30 days for 100% store credit toward any other equipment.
+      </p>
+
+      <h2 style="font-size: 22px; color: var(--color-primary); margin-bottom: 12px;">4. Doorstep Pickup &amp; Refund Processing</h2>
+      <p class="text-muted" style="margin-bottom: 24px;">
+        Returns in covered fleet cities are collected from your home or golf course locker for free by our uniformed drivers. Once verified at our studio hub, refunds are credited back to your original payment method (UPI / Card / Net Banking) within 48 to 72 business hours.
+      </p>
+
+      <h2 style="font-size: 22px; color: var(--color-primary); margin-bottom: 12px;">5. How to Initiate a Return</h2>
+      <p class="text-muted">
+        To initiate an exchange or return, visit your <a href="orders.html" style="color: var(--color-gold); font-weight: 700;">My Orders</a> page or contact our WhatsApp Concierge at <strong>+91 98710 44321</strong>.
+      </p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership for Titleist, TaylorMade, Callaway, Ping and Scotty Cameron.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Policies</h6>
+          <ul>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Configuration — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Store Configuration &amp; Logistics Settings</h1>
+          <p class="admin-page-subtitle">Configure GST tax rates, fleet hubs, payment gateways, and threshold rules.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-primary" onclick="alert('Store configuration successfully updated!')">Save Settings</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;">
+        
+        <!-- Commercial & Tax Settings -->
+        <div class="admin-card" style="padding: 28px;">
+          <h3 style="font-size: 17px; margin-bottom: 16px;">Tax &amp; Legal Configuration</h3>
+
+          <form onsubmit="event.preventDefault(); alert('Tax settings saved!');">
+            <div class="admin-form-group">
+              <label class="admin-label">Legal Business Entity Name</label>
+              <input type="text" class="admin-input" value="Royal Fairway Golf Co. India Private Limited">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">GSTIN Identification Number</label>
+              <input type="text" class="admin-input" value="06AAACR2026F1Z8">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="admin-form-group">
+                <label class="admin-label">Golf Equipment GST Rate (%)</label>
+                <input type="number" class="admin-input" value="18">
+              </div>
+
+              <div class="admin-form-group">
+                <label class="admin-label">Store Currency</label>
+                <input type="text" class="admin-input" value="INR (₹) - Indian Rupee" readonly>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Free White-Glove Shipping Threshold (₹)</label>
+              <input type="number" class="admin-input" value="4999">
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-outline">Update Legal Parameters</button>
+          </form>
+        </div>
+
+        <!-- Fleet Hubs & Operating Hours -->
+        <div class="admin-card" style="padding: 28px;">
+          <h3 style="font-size: 17px; margin-bottom: 16px;">White-Glove Fleet Hubs</h3>
+
+          <form onsubmit="event.preventDefault(); alert('Fleet hubs saved!');">
+            <div class="admin-form-group">
+              <label class="admin-label">Delhi NCR Primary Hub</label>
+              <input type="text" class="admin-input" value="Sector 54, Golf Course Extension Rd, Gurugram">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Bengaluru South Hub</label>
+              <input type="text" class="admin-input" value="No. 7, Kodihalli, Indiranagar (Adjacent to KGA Golf Links)">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Fleet Hotline Phone</label>
+              <input type="tel" class="admin-input" value="+91 98710 44321">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Supported Payment Gateways</label>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px;">
+                <span class="admin-badge badge-success">UPI (Auto-Reconcile)</span>
+                <span class="admin-badge badge-success">RuPay / Visa / Mastercard</span>
+                <span class="admin-badge badge-success">Net Banking (Top 12 Banks)</span>
+                <span class="admin-badge badge-success">Cash on Delivery (COD)</span>
+              </div>
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-outline" style="margin-top: 12px;">Save Fleet Configuration</button>
+          </form>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('settings');
+      Admin.renderTopbar();
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Thank you for your order. Your tour equipment has been dispatched via our White-Glove fleet.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: var(--color-bg-alt);">
+
+  <!-- Header Clean Variant -->
+  <header style="background: #ffffff; border-bottom: 1px solid var(--border-line); padding: 20px 0;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 13.5px;">
+        <span style="color: var(--color-text-muted);">1. Delivery Details</span>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="color: var(--color-text-muted);">2. Payment</span>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="font-weight: 700; color: #166534;">3. Order Placed ✓</span>
+      </div>
+
+      <a href="index.html" class="btn btn-outline btn-sm">Return to Store</a>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 860px; padding: 48px 20px 80px;">
+    
+    <!-- Hero Confirmation Card -->
+    <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 40px; text-align: center; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
+      <div style="width: 70px; height: 70px; background: #dcfce7; color: #166534; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 900; margin: 0 auto 18px;">
+        ✓
+      </div>
+      <span class="eyebrow" style="color: var(--color-gold);">ORDER RECORDED &amp; FITTING VERIFIED</span>
+      <h1 style="font-size: clamp(26px, 3.5vw, 36px); margin: 6px 0 10px;">Thank You, <span id="conf-customer-name">Member</span>!</h1>
+      <p style="color: var(--color-text-muted); font-size: 15px; max-width: 540px; margin: 0 auto 18px;">
+        Your tour golf equipment has been scheduled for White-Glove dispatch. A confirmation receipt and tax invoice have been dispatched to your email.
+      </p>
+
+      <div style="display: inline-block; background: var(--color-bg-alt); padding: 10px 24px; border-radius: var(--radius-pill); font-family: monospace; font-size: 16px; font-weight: 700; color: var(--color-primary); border: 1px solid var(--border-line);">
+        Order Reference: <span id="conf-order-id">RFG-2026-8821</span>
+      </div>
+    </div>
+
+    <!-- White-Glove Assigned Fleet Card -->
+    <div style="background: linear-gradient(135deg, #091f14 0%, #153a26 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 18px;">
+        <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;">
+          🚐
+        </div>
+        <div>
+          <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gold); font-weight: 700;">ASSIGNED WHITE-GLOVE FLEET SPECIALIST</span>
+          <h3 id="conf-driver-name" style="color: #ffffff; font-size: 20px; margin: 2px 0 4px;">Suresh Verma (Gurugram Central Hub)</h3>
+          <div style="font-size: 13px; color: #cadfd4;">
+            Vehicle: <span id="conf-vehicle">HR 26 DQ 8821 (Fairway EV Van #1)</span> • <span id="conf-delivery-slot">Tomorrow, 10:00 AM - 1:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <a id="conf-track-btn" href="order-tracking.html" class="btn btn-gold btn-sm">Live GPS Tracking →</a>
+        <button class="btn btn-outline btn-sm" style="color: #ffffff; border-color: rgba(255,255,255,0.3);" onclick="window.print()">Print Receipt</button>
+      </div>
+    </div>
+
+    <!-- Order Items & Breakdown Card -->
+    <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);">
+      <h3 style="font-size: 19px; margin-bottom: 20px; border-bottom: 1px solid var(--border-line); padding-bottom: 12px;">Order Summary &amp; Equipment Manifest</h3>
+
+      <div id="conf-items-list" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+        <!-- Injected via JS -->
+      </div>
+
+      <div style="border-top: 1px solid var(--border-line); padding-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div>
+          <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text-muted); margin-bottom: 8px;">Delivery Destination</h4>
+          <p id="conf-dest-address" style="font-size: 14px; line-height: 1.5; color: var(--color-text);">
+            Villa 14, The Magnolias, Golf Course Road, Gurugram - 122002
+          </p>
+          <div style="font-size: 13px; color: var(--color-text-muted); margin-top: 4px;">
+            Payment: <strong id="conf-pay-status" style="color: #166534;">Paid via UPI</strong>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; text-align: right;">
+          <div>
+            <span class="text-muted">Equipment Value:</span>
+            <strong id="conf-total-val" style="font-size: 18px; color: var(--color-primary); margin-left: 8px;">₹0</strong>
+          </div>
+          <div style="font-size: 12px; color: var(--color-text-muted);">
+            Includes 18% GST &amp; White-Glove Hand Delivery
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 36px;">
+      <a href="products.html" class="btn btn-outline">Explore More Championship Equipment</a>
+    </div>
+
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+
+      const params = new URLSearchParams(window.location.search);
+      const orderIdParam = params.get('id');
+
+      const orders = Store.getOrders();
+      let order = orders.find(o => o.orderNumber === orderIdParam || o.id === orderIdParam);
+
+      if (!order) {
+        // Fallback to last order or initial order
+        try {
+          order = JSON.parse(sessionStorage.getItem('rfg_last_order')) || orders[0];
+        } catch(e) {
+          order = orders[0];
+        }
+      }
+
+      if (order) {
+        document.getElementById('conf-customer-name').textContent = order.customerName || 'Honoured Member';
+        document.getElementById('conf-order-id').textContent = order.orderNumber;
+        document.getElementById('conf-dest-address').textContent = `${order.address}, ${order.city} - ${order.pincode}`;
+        document.getElementById('conf-pay-status').textContent = `Paid via ${order.paymentMethod || 'UPI'}`;
+        document.getElementById('conf-total-val').textContent = `₹${order.total.toLocaleString('en-IN')}`;
+        document.getElementById('conf-track-btn').href = `order-tracking.html?order=${order.orderNumber}`;
+
+        if (order.driver) {
+          document.getElementById('conf-driver-name').textContent = `${order.driver.name} (White-Glove Fleet Specialist)`;
+          document.getElementById('conf-vehicle').textContent = order.driver.vehicle;
+        }
+
+        const itemsEl = document.getElementById('conf-items-list');
+        itemsEl.innerHTML = (order.items || []).map(it => `
+          <div style="display: flex; gap: 16px; align-items: center; border-bottom: 1px solid var(--border-line); padding-bottom: 12px;">
+            <img src="${it.image}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-line);">
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; margin: 0 0 4px;">${it.name}</h4>
+              <div style="font-size: 12.5px; color: var(--color-text-muted);">Quantity: ${it.quantity}</div>
+            </div>
+            <div style="font-size: 15px; font-weight: 700; color: var(--color-primary);">
+              ₹${(it.price * it.quantity).toLocaleString('en-IN')}
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>
+

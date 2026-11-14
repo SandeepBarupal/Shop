@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clubhouse Membership &amp; Rewards — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Join the Royal Fairway Clubhouse. Enjoy exclusive TrackMan fittings, priority access to Scotty Cameron drops, and White-Glove delivery perks.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>👑 <strong>Clubhouse Rewards:</strong> Earn points on every purchase and redeem for tour gear &amp; fittings</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, drivers, balls..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="gift-cards.html" class="nav-link">Gift Cards</a></li>
+          <li class="nav-item"><a href="membership.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Clubhouse VIP</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 60px 0; border-bottom: 1px solid var(--border-line); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <span class="eyebrow" style="color: var(--color-gold);">ROYAL FAIRWAY PRIVILEGES</span>
+      <h1 style="color: #ffffff; margin: 10px 0 16px; font-size: clamp(34px, 4.5vw, 50px);">The Clubhouse Membership</h1>
+      <p style="color: #cadfd4; font-size: 17px; line-height: 1.6;">
+        Elevate your golfing journey with members-only privileges. Earn reward points on every driver, iron set, and ball sleeve, redeemable toward studio fittings and championship gear.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <!-- Membership Tiers Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 28px; margin-bottom: 60px;">
+      
+      <!-- Tier 1: Par -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span class="eyebrow" style="color: var(--color-text-muted);">ENTRY TIER</span>
+          <h3 style="font-size: 26px; margin: 6px 0;">Par Member</h3>
+          <div style="font-size: 28px; font-weight: 800; color: var(--color-primary); margin-bottom: 16px;">Complimentary</div>
+          <p class="text-muted" style="font-size: 13.5px; margin-bottom: 24px; line-height: 1.5;">Ideal for golfers starting their equipment collection or seeking standard warranty protection.</p>
+
+          <ul style="font-size: 13.5px; line-height: 2; list-style: none; padding: 0; margin-bottom: 30px;">
+            <li>✓ 1 Reward Point per ₹100 spent</li>
+            <li>✓ Free White-Glove delivery on ₹4,999+</li>
+            <li>✓ 7-Day easy returns &amp; exchanges</li>
+            <li>✓ Serial number registration &amp; warranty</li>
+            <li style="opacity: 0.4;">✗ Complimentary TrackMan studio fitting</li>
+            <li style="opacity: 0.4;">✗ Priority allocation on Scotty Cameron</li>
+          </ul>
+        </div>
+
+        <button class="btn btn-outline btn-block" onclick="joinTier('Par')">Active Status</button>
+      </div>
+
+      <!-- Tier 2: Birdie (Popular) -->
+      <div style="background: #ffffff; border: 2px solid var(--color-gold); border-radius: var(--radius-lg); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: var(--shadow-md);">
+        <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-gold); color: #0c2317; font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: var(--radius-pill); letter-spacing: 0.5px;">
+          MOST POPULAR CLUBHOUSE TIER
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color: var(--color-gold);">PREFERRED TIER</span>
+          <h3 style="font-size: 26px; margin: 6px 0;">Birdie Member</h3>
+          <div style="font-size: 28px; font-weight: 800; color: var(--color-primary); margin-bottom: 16px;">₹4,999 <span style="font-size: 14px; font-weight: 400; color: var(--color-text-muted);">/ year</span></div>
+          <p class="text-muted" style="font-size: 13.5px; margin-bottom: 24px; line-height: 1.5;">Complimentary with ₹50,000 annual spend on clubs or apparel.</p>
+
+          <ul style="font-size: 13.5px; line-height: 2; list-style: none; padding: 0; margin-bottom: 30px;">
+            <li>✓ <strong>2x Reward Points</strong> (2 points per ₹100 spent)</li>
+            <li>✓ <strong>Free White-Glove Delivery</strong> on ALL orders</li>
+            <li>✓ 1 Free TrackMan 4 Fitting Session per year (Worth ₹3,500)</li>
+            <li>✓ 10% Off Trade-In Valuation Bonus</li>
+            <li>✓ Birthday voucher worth ₹1,500</li>
+            <li style="opacity: 0.4;">✗ Doorstep mobile fitting van trial</li>
+          </ul>
+        </div>
+
+        <button class="btn btn-gold btn-block btn-lg" onclick="joinTier('Birdie')">Upgrade to Birdie</button>
+      </div>
+
+      <!-- Tier 3: Eagle VIP -->
+      <div style="background: linear-gradient(180deg, #091f14 0%, #103220 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span class="eyebrow" style="color: var(--color-gold);">INVITATION &amp; PATRON TIER</span>
+          <h3 style="font-size: 26px; margin: 6px 0; color: #ffffff;">Eagle VIP</h3>
+          <div style="font-size: 28px; font-weight: 800; color: var(--color-gold); margin-bottom: 16px;">₹14,999 <span style="font-size: 14px; font-weight: 400; color: #cadfd4;">/ year</span></div>
+          <p style="color: #cadfd4; font-size: 13.5px; margin-bottom: 24px; line-height: 1.5;">Complimentary with ₹1,50,000 annual spend. For dedicated tournament competitors.</p>
+
+          <ul style="font-size: 13.5px; line-height: 2; list-style: none; padding: 0; margin-bottom: 30px; color: #e1ede6;">
+            <li>✓ <strong>3x Reward Points</strong> on all gear</li>
+            <li>✓ VIP Priority access to Scotty Cameron &amp; limited tour heads</li>
+            <li>✓ <strong>Unlimited</strong> TrackMan 4 launch monitor sessions</li>
+            <li>✓ Doorstep Mobile Fitting Van in Delhi NCR &amp; Bengaluru</li>
+            <li>✓ Dedicated Master Fitter Concierge via direct WhatsApp</li>
+            <li>✓ Free annual iron re-gripping service (set of 7)</li>
+          </ul>
+        </div>
+
+        <button class="btn btn-gold btn-block" onclick="joinTier('Eagle VIP')">Join Eagle VIP</button>
+      </div>
+    </div>
+
+    <!-- Points Calculator -->
+    <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 40px; text-align: center; max-width: 780px; margin: 0 auto;">
+      <h3 style="font-size: 22px; margin-bottom: 8px;">Rewards Points Calculator</h3>
+      <p class="text-muted" style="font-size: 14px; margin-bottom: 24px;">See how many rewards points you earn and what you can redeem them for.</p>
+
+      <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 24px;">
+        <label for="spend-input" style="font-weight: 700; font-size: 14px;">Estimated Equipment Spend:</label>
+        <div style="position: relative; max-width: 220px;">
+          <input type="number" id="spend-input" class="form-control" value="65000" step="5000" oninput="calcPoints(this.value)">
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; background: var(--color-bg-alt); padding: 24px; border-radius: var(--radius-md);">
+        <div>
+          <span style="font-size: 12px; color: var(--color-text-muted);">Par (1x)</span>
+          <div id="pts-par" style="font-size: 22px; font-weight: 800; color: var(--color-primary); margin-top: 4px;">650 pts</div>
+          <span style="font-size: 11.5px; color: var(--color-text-muted);">(₹650 store credit)</span>
+        </div>
+        <div style="border-left: 1px solid var(--border-line); border-right: 1px solid var(--border-line);">
+          <span style="font-size: 12px; color: var(--color-gold); font-weight: 700;">Birdie (2x)</span>
+          <div id="pts-birdie" style="font-size: 22px; font-weight: 800; color: var(--color-gold); margin-top: 4px;">1,300 pts</div>
+          <span style="font-size: 11.5px; color: var(--color-text-muted);">(₹1,300 store credit)</span>
+        </div>
+        <div>
+          <span style="font-size: 12px; color: #15803d; font-weight: 700;">Eagle VIP (3x)</span>
+          <div id="pts-eagle" style="font-size: 22px; font-weight: 800; color: #15803d; margin-top: 4px;">1,950 pts</div>
+          <span style="font-size: 11.5px; color: var(--color-text-muted);">(₹1,950 store credit)</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Exclusive privileges for India's passionate golfing community.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Membership</h6>
+          <ul>
+            <li><a href="membership.html">Clubhouse Tiers</a></li>
+            <li><a href="gift-cards.html">Gift Cards</a></li>
+            <li><a href="trade-in.html">Trade-In Rewards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Delivery</a></li>
+            <li><a href="account.html">Member Profile</a></li>
+            <li><a href="contact.html">Concierge Desk</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      calcPoints(65000);
+    });
+
+    function calcPoints(spend) {
+      const s = parseInt(spend, 10) || 0;
+      const par = Math.floor(s / 100);
+      const birdie = par * 2;
+      const eagle = par * 3;
+
+      document.getElementById('pts-par').textContent = `${par.toLocaleString('en-IN')} pts`;
+      document.getElementById('pts-birdie').textContent = `${birdie.toLocaleString('en-IN')} pts`;
+      document.getElementById('pts-eagle').textContent = `${eagle.toLocaleString('en-IN')} pts`;
+    }
+
+    function joinTier(tierName) {
+      Store.showToast(`Congratulations! You have selected the ${tierName} Clubhouse Membership.`);
+      setTimeout(() => {
+        window.location.href = 'account.html';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
+

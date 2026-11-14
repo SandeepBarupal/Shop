@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Directory — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Official authorized dealer for Titleist, TaylorMade, Callaway, Scotty Cameron, Ping, Mizuno, FootJoy and Bushnell across India.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>100% Genuine Tour Equipment:</strong> Authorized distributor warranty with White-Glove delivery</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+        <a href="admin/index.html" class="announcement-pill" style="background: rgba(255,255,255,0.15); color: #ffffff;">⚙️ Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search brands, clubs, accessories..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=bags" class="nav-link">Bags</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="category.html?cat=apparel" class="nav-link">Apparel</a></li>
+          <li class="nav-item"><a href="category.html?cat=tech" class="nav-link">Tech &amp; GPS</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Certified Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Header -->
+  <div style="background: linear-gradient(135deg, #071910 0%, #112d1f 100%); color: #ffffff; padding: 60px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">AUTHORISED TOUR PARTNERS</span>
+      <h1 style="color: #ffffff; margin: 8px 0 14px;">Championship Brand Directory</h1>
+      <p style="color: #cadfd4; font-size: 16px; max-width: 680px; line-height: 1.6;">
+        Royal Fairway is proud to be India's authorized retail partner for the world's most prestigious golf equipment manufacturers. Every item comes with official serial verification, manufacturer warranty, and complimentary custom fitting options.
+      </p>
+
+      <!-- Brand Search -->
+      <div style="margin-top: 24px; max-width: 440px;">
+        <input 
+          type="text" 
+          id="brand-search-filter" 
+          placeholder="Filter brands by name or equipment type..." 
+          class="form-control" 
+          style="background: #ffffff; color: var(--color-text); border: none; font-size: 14px;"
+          oninput="filterBrands(this.value)"
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Brands Grid Section -->
+  <main class="container section-padding">
+    <div id="brands-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 28px;">
+      <!-- Populated via JavaScript from GOLF_DATABASE.brands -->
+    </div>
+
+    <!-- Assurance Banner -->
+    <div style="margin-top: 60px; background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; text-align: center;">
+      <div>
+        <div style="font-size: 32px; margin-bottom: 8px;">🛡</div>
+        <h4 style="font-size: 17px; margin-bottom: 6px;">100% Authenticity Seal</h4>
+        <p class="text-muted" style="font-size: 13.5px;">All clubs feature verifiable factory etched serial numbers.</p>
+      </div>
+      <div>
+        <div style="font-size: 32px; margin-bottom: 8px;">⛳</div>
+        <h4 style="font-size: 17px; margin-bottom: 6px;">PGA Pro Custom Fitting</h4>
+        <p class="text-muted" style="font-size: 13.5px;">TrackMan 4 launch monitor sessions at Gurugram &amp; Bengaluru.</p>
+      </div>
+      <div>
+        <div style="font-size: 32px; margin-bottom: 8px;">🚚</div>
+        <h4 style="font-size: 17px; margin-bottom: 6px;">White-Glove Delivery</h4>
+        <p class="text-muted" style="font-size: 13.5px;">Hand-delivered to your doorstep or home golf club locker.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            Championship golf equipment, tour apparel, and certified pre-owned golf gear. Authorized partner for the world's finest brands.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="category.html?cat=balls">Golf Balls</a></li>
+            <li><a href="category.html?cat=bags">Golf Bags</a></li>
+            <li><a href="category.html?cat=shoes">Golf Shoes</a></li>
+            <li><a href="category.html?cat=apparel">Golf Apparel</a></li>
+            <li><a href="category.html?cat=tech">Tech &amp; GPS</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Special Shopping</h6>
+          <ul>
+            <li><a href="pre-owned.html">Certified Pre-Owned</a></li>
+            <li><a href="used-clubs.html">Used Golf Clubs</a></li>
+            <li><a href="trade-in.html">Trade-In Calculator</a></li>
+            <li><a href="membership.html">Clubhouse Membership</a></li>
+            <li><a href="gift-cards.html">Golf Gift Cards</a></li>
+            <li><a href="clearance.html">Clearance Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Concierge &amp; Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Live Order Tracking</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="orders.html">Order History</a></li>
+            <li><a href="shipping-policy.html">White-Glove Policy</a></li>
+            <li><a href="return-policy.html">7-Day Return Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Management</h6>
+          <ul>
+            <li><a href="admin/index.html">Admin Dashboard</a></li>
+            <li><a href="admin/products.html">Product Management</a></li>
+            <li><a href="admin/orders.html">Orders &amp; Dispatch</a></li>
+            <li><a href="admin/trade-ins.html">Trade-In Reviews</a></li>
+            <li><a href="admin/settings.html">Store Configuration</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved.</p>
+        <div class="payment-badges-row">
+          <span class="payment-badge-chip">UPI (GPay / PhonePe / Paytm)</span>
+          <span class="payment-badge-chip">RuPay</span>
+          <span class="payment-badge-chip">Visa / Mastercard</span>
+          <span class="payment-badge-chip">Net Banking</span>
+          <span class="payment-badge-chip">COD Available</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      renderBrandCards(GOLF_DATABASE.brands);
+    });
+
+    function renderBrandCards(brands) {
+      const container = document.getElementById('brands-grid');
+      if (!container) return;
+
+      container.innerHTML = brands.map(b => {
+        const prodCount = GOLF_DATABASE.products.filter(p => p.brand.toLowerCase() === b.name.toLowerCase()).length;
+        return `
+          <div class="brand-item-card" data-name="${b.name.toLowerCase()}" style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.25s; box-shadow: var(--shadow-sm);">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                <div>
+                  <span class="eyebrow" style="color: var(--color-gold); font-size: 11px;">AUTHORIZED PARTNER</span>
+                  <h3 style="font-size: 24px; margin-top: 4px; color: var(--color-primary);">${b.name}</h3>
+                </div>
+                <div style="width: 52px; height: 52px; background: var(--color-bg-alt); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; color: var(--color-primary); border: 1px solid var(--border-line);">
+                  ${b.name.substring(0, 2).toUpperCase()}
+                </div>
+              </div>
+              <p style="font-size: 14px; line-height: 1.6; color: var(--color-text-muted); margin-bottom: 18px;">
+                ${b.bio || 'World championship golf equipment, engineered for maximum performance, distance and feel on the golf course.'}
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="badge badge-mint" style="font-size: 11px;">100% Genuine</span>
+                <span class="badge" style="background: #eff6ff; color: #1e40af; font-size: 11px;">Official Warranty</span>
+                <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 11px;">${prodCount} Items In-Store</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; border-top: 1px solid var(--border-line); padding-top: 18px;">
+              <a href="brand-detail.html?brand=${encodeURIComponent(b.name)}" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">View Brand Page</a>
+              <a href="products.html?brand=${encodeURIComponent(b.name)}" class="btn btn-outline btn-sm" style="flex: 1; text-align: center;">Shop Gear</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterBrands(query) {
+      const q = query.toLowerCase().trim();
+      const filtered = GOLF_DATABASE.brands.filter(b => 
+        b.name.toLowerCase().includes(q) || (b.bio && b.bio.toLowerCase().includes(q))
+      );
+      renderBrandCards(filtered);
+    }
+  </script>
+</body>
+</html>
+

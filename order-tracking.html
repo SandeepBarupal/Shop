@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Fleet Tracking — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Track your White-Glove golf delivery van in real-time across Delhi NCR & Bengaluru.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>White-Glove Fleet:</strong> GPS-tracked climate-controlled vans for all premium golf sets</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link">My Orders</a></li>
+          <li class="nav-item"><a href="order-tracking.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Live Tracking</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Tracking Bar -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153926 100%); color: #ffffff; padding: 48px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <div style="max-width: 680px;">
+        <span class="eyebrow" style="color: var(--color-gold);">WHITE-GLOVE FLEET CONCIERGE</span>
+        <h1 style="color: #ffffff; margin: 6px 0 16px;">Live Delivery Tracking</h1>
+        <p style="color: #cadfd4; font-size: 15px; margin-bottom: 24px;">
+          Track your personal golf courier, view van dispatch progress, or communicate directly with your assigned driver.
+        </p>
+
+        <!-- Search Order Form -->
+        <form onsubmit="handleLookup(event)" style="display: flex; gap: 8px;">
+          <input 
+            type="text" 
+            id="tracking-query" 
+            placeholder="Enter Order Reference (e.g. RFG-2026-8821)" 
+            class="form-control" 
+            style="background: #ffffff; color: #111; font-weight: 600; text-transform: uppercase;"
+            required
+          >
+          <button type="submit" class="btn btn-gold" style="white-space: nowrap;">Track Van</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div id="tracking-display-area" style="display: grid; grid-template-columns: 1fr 380px; gap: 36px; align-items: start;">
+      
+      <!-- Timeline and Route -->
+      <div>
+        
+        <!-- Driver & Van Card -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; gap: 18px;">
+            <div style="width: 64px; height: 64px; background: var(--color-bg-alt); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; border: 2px solid var(--color-gold);">
+              🚐
+            </div>
+            <div>
+              <span class="eyebrow" style="color: var(--color-gold); font-size: 11px;">WHITE-GLOVE SPECIALIST EN ROUTE</span>
+              <h3 id="trk-driver-name" style="font-size: 20px; margin: 2px 0 4px;">Suresh Verma</h3>
+              <div style="font-size: 13.5px; color: var(--color-text-muted);">
+                Vehicle: <strong id="trk-vehicle" style="color: var(--color-primary);">HR 26 DQ 8821 (Fairway EV Van #1)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-primary btn-sm" onclick="Store.showToast('Calling driver Suresh Verma at +91 98710 44321...')">📞 Call Driver</button>
+            <button class="btn btn-outline btn-sm" onclick="Store.showToast('Driver notified. Gate pass SMS sent.')">💬 WhatsApp</button>
+          </div>
+        </div>
+
+        <!-- Stepper Timeline -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm); margin-bottom: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border-line); padding-bottom: 12px;">
+            <h3 style="font-size: 19px; margin: 0;">Fulfillment &amp; Dispatch Timeline</h3>
+            <span class="badge badge-mint" id="trk-order-status-badge">Order Placed</span>
+          </div>
+
+          <div id="trk-timeline-steps" style="display: flex; flex-direction: column; gap: 20px; position: relative; padding-left: 28px;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Mock Fleet Route Simulation -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <div style="background: var(--color-primary); color: #ffffff; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 13px; font-weight: 700;">Live GPS Corridor: Gurugram Central Hub ➔ Recipient Destination</span>
+            <span style="font-size: 12px; color: var(--color-gold);">● GPS Active</span>
+          </div>
+          <div style="height: 200px; background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            <!-- Simulated map road -->
+            <div style="position: absolute; width: 80%; height: 6px; background: #ffffff; border-radius: 3px; transform: rotate(-5deg);"></div>
+            <div style="position: absolute; width: 80%; height: 2px; border-top: 2px dashed #9ca3af; transform: rotate(-5deg);"></div>
+            <!-- Van icon -->
+            <div style="position: absolute; transform: translate(40px, -10px); background: var(--color-primary); color: #ffffff; padding: 6px 14px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 700; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 6px;">
+              <span>🚐</span> Fairway EV Van (3.2 km away)
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Order Details Sidebar -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; position: sticky; top: 100px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 18px; margin-bottom: 16px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">Order Particulars</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 13.5px; margin-bottom: 24px;">
+          <div>
+            <span class="text-muted" style="display: block; font-size: 12px;">Order Number</span>
+            <strong id="trk-order-id" style="font-size: 16px; color: var(--color-primary); font-family: monospace;">RFG-2026-8821</strong>
+          </div>
+
+          <div>
+            <span class="text-muted" style="display: block; font-size: 12px;">Customer Recipient</span>
+            <strong id="trk-customer-name">Major General Ranvijay Singh</strong>
+          </div>
+
+          <div>
+            <span class="text-muted" style="display: block; font-size: 12px;">Delivery Destination</span>
+            <div id="trk-address" style="line-height: 1.4; color: var(--color-text);">Villa 14, The Magnolias, Golf Course Road, Gurugram</div>
+          </div>
+
+          <div>
+            <span class="text-muted" style="display: block; font-size: 12px;">Payment Method</span>
+            <div id="trk-pay-method" style="color: #166534; font-weight: 600;">Paid via UPI Instant</div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: var(--color-text-muted);">Package Manifest</h4>
+        <div id="trk-items-manifest" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+          <!-- Items -->
+        </div>
+
+        <div style="border-top: 1px solid var(--border-line); padding-top: 14px; display: flex; justify-content: space-between; font-size: 16px; font-weight: 800;">
+          <span>Total Valuation:</span>
+          <span id="trk-total-val" style="color: var(--color-primary);">₹0</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Dedicated White-Glove delivery fleet providing personalized hand-deliveries to residences and golf clubs.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="shipping-policy.html">Fleet Delivery Policy</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      const params = new URLSearchParams(window.location.search);
+      const queryParam = params.get('order');
+
+      const orders = Store.getOrders();
+      let order = orders[0];
+      if (queryParam) {
+        const found = orders.find(o => o.orderNumber.toUpperCase() === queryParam.toUpperCase() || o.id === queryParam);
+        if (found) order = found;
+      }
+
+      if (order) {
+        populateTracking(order);
+      }
+    });
+
+    function handleLookup(e) {
+      e.preventDefault();
+      const val = document.getElementById('tracking-query').value.trim().toUpperCase();
+      const orders = Store.getOrders();
+      const found = orders.find(o => o.orderNumber.toUpperCase() === val || o.id === val);
+
+      if (found) {
+        populateTracking(found);
+        Store.showToast(`Found tracking dispatch for #${found.orderNumber}!`);
+      } else {
+        Store.showToast(`Order "${val}" not found. Displaying current active fleet dispatch.`, 'info');
+        populateTracking(orders[0]);
+      }
+    }
+
+    function populateTracking(order) {
+      document.getElementById('trk-order-id').textContent = order.orderNumber;
+      document.getElementById('trk-customer-name').textContent = order.customerName || 'Honoured Member';
+      document.getElementById('trk-address').textContent = `${order.address}, ${order.city} - ${order.pincode}`;
+      document.getElementById('trk-pay-method').textContent = `${order.paymentStatus || 'Paid'} (${order.paymentMethod || 'UPI'})`;
+      document.getElementById('trk-total-val').textContent = `₹${order.total.toLocaleString('en-IN')}`;
+      document.getElementById('trk-order-status-badge').textContent = order.orderStatus;
+
+      if (order.driver) {
+        document.getElementById('trk-driver-name').textContent = order.driver.name;
+        document.getElementById('trk-vehicle').textContent = order.driver.vehicle;
+      }
+
+      // Render timeline
+      const timelineEl = document.getElementById('trk-timeline-steps');
+      const timeline = order.timeline && order.timeline.length ? order.timeline : [
+        { status: 'Order Placed', time: '10:00 AM Today', note: 'Order registered & verified.' },
+        { status: 'Club Inspection', time: '11:30 AM Today', note: 'TrackMan loft & lie angle checked by master clubmaker.' },
+        { status: 'White-Glove Dispatch', time: '01:15 PM Today', note: 'Loaded into Fairway EV Van #1 with custom velvet travel bags.' },
+      ];
+
+      timelineEl.innerHTML = timeline.map((t, idx) => `
+        <div style="position: relative;">
+          <div style="position: absolute; left: -28px; top: 0; width: 14px; height: 14px; border-radius: 50%; background: ${idx === timeline.length - 1 ? 'var(--color-gold)' : 'var(--color-primary)'}; border: 3px solid #ffffff; box-shadow: 0 0 0 2px var(--color-primary);"></div>
+          <div style="font-weight: 700; font-size: 14.5px; color: var(--color-primary);">${t.status}</div>
+          <div style="font-size: 12px; color: var(--color-text-muted); margin: 2px 0;">${t.time}</div>
+          <div style="font-size: 13px; color: var(--color-text); line-height: 1.4;">${t.note}</div>
+        </div>
+      `).join('');
+
+      // Render manifest items
+      const itemsEl = document.getElementById('trk-items-manifest');
+      itemsEl.innerHTML = (order.items || []).map(it => `
+        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+          <span>${it.quantity} × ${it.name}</span>
+          <strong>₹${(it.price * it.quantity).toLocaleString('en-IN')}</strong>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
+

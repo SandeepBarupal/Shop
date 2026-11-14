@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Royal Fairway Golf Co.</title>
+  <meta name="description" content="The story behind Royal Fairway Golf Co., inspired by St Andrews heritage and tour precision engineering.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Royal Fairway Heritage:</strong> Founded with a dedication to authentic championship golf</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">About Us</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <div style="background: linear-gradient(135deg, #071910 0%, #153926 100%); color: #ffffff; padding: 70px 0; border-bottom: 1px solid var(--border-line); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <span class="eyebrow" style="color: var(--color-gold);">THE CLUBHOUSE ETHOS</span>
+      <h1 style="color: #ffffff; margin: 10px 0 16px; font-size: clamp(34px, 4.5vw, 50px);">Born from the Spirit of the Game</h1>
+      <p style="color: #cadfd4; font-size: 17px; line-height: 1.7;">
+        Inspired by the timeless golf heritage of the Home of Golf in St Andrews and engineered with modern tour precision. Royal Fairway was founded to elevate golf retail and custom fitting across India.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <!-- Story Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 60px;">
+      <div>
+        <span class="eyebrow" style="color: var(--color-gold);">OUR HERITAGE</span>
+        <h2 style="font-size: 30px; margin: 8px 0 16px; color: var(--color-primary);">A New Benchmark in Indian Golf Commerce</h2>
+        <p style="font-size: 15px; line-height: 1.8; color: var(--color-text-muted); margin-bottom: 16px;">
+          For too long, golfers in India faced fragmented supply chains, uncertainty around authenticity, and delayed deliveries. We built Royal Fairway Golf Co. with a single conviction: golfers deserve an uncompromising, international-standard experience from unboxing to the 18th green.
+        </p>
+        <p style="font-size: 15px; line-height: 1.8; color: var(--color-text-muted);">
+          Every club in our collection is sourced directly from authorized manufacturers—Titleist, TaylorMade, Callaway, Ping, Mizuno, and Scotty Cameron. Each club is laser-etched with verified serial numbers and hand-delivered by our uniformed White-Glove delivery fleet.
+        </p>
+      </div>
+
+      <div>
+        <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=800&q=80" alt="Golf Course Heritage" style="width: 100%; height: 380px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+      </div>
+    </div>
+
+    <!-- 4 Foundational Pillars -->
+    <div style="margin-bottom: 60px;">
+      <h3 style="font-size: 24px; text-align: center; margin-bottom: 36px;">The Royal Fairway Commitments</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 32px; margin-bottom: 12px;">🛡</div>
+          <h4 style="font-size: 18px; margin-bottom: 8px;">100% Genuine Tour Gear</h4>
+          <p class="text-muted" style="font-size: 13.5px; line-height: 1.6;">Direct distributor warranties with verifiable head and shaft serial etchings on every single item.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 32px; margin-bottom: 12px;">🎯</div>
+          <h4 style="font-size: 18px; margin-bottom: 8px;">TrackMan 4 Custom Fitting</h4>
+          <p class="text-muted" style="font-size: 13.5px; line-height: 1.6;">PGA certified master fitters optimize launch angle, spin rate, and shaft flex in Gurugram &amp; Bengaluru.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 32px; margin-bottom: 12px;">🔄</div>
+          <h4 style="font-size: 18px; margin-bottom: 8px;">10-Point Pre-Owned Grading</h4>
+          <p class="text-muted" style="font-size: 13.5px; line-height: 1.6;">Inspired by Golf Garage's benchmark marketplace. Buy and trade pre-owned clubs with a 30-day play guarantee.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 32px; margin-bottom: 12px;">🚐</div>
+          <h4 style="font-size: 18px; margin-bottom: 8px;">Dedicated White-Glove Fleet</h4>
+          <p class="text-muted" style="font-size: 13.5px; line-height: 1.6;">Climate-controlled electric vans and uniformed couriers delivering to your residence or golf club locker.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fitting Studios Highlight -->
+    <div style="background: var(--color-bg-alt); border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+      <div>
+        <span class="eyebrow" style="color: var(--color-gold);">GURUGRAM &amp; DELHI NCR</span>
+        <h3 style="font-size: 20px; margin: 4px 0 8px;">Golf Course Road Fitting Centre</h3>
+        <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 12px;">
+          Located minutes from DLF Phase 5. Features high-speed camera swing capture, full Matrix shaft fitting matrix, and dedicated indoor putting studio.
+        </p>
+        <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">Open Tuesday – Sunday: 8:00 AM – 8:00 PM</span>
+      </div>
+
+      <div>
+        <span class="eyebrow" style="color: var(--color-gold);">BENGALURU</span>
+        <h3 style="font-size: 20px; margin: 4px 0 8px;">KGA Links Fitting Pavilion</h3>
+        <p class="text-muted" style="font-size: 14px; line-height: 1.6; margin-bottom: 12px;">
+          Adjacent to Karnataka Golf Association in Indiranagar. Specialized in custom lie angle bending, forged iron builds, and Vokey wedge bounce consultations.
+        </p>
+        <span style="font-size: 13px; font-weight: 700; color: var(--color-primary);">Open Tuesday – Sunday: 8:00 AM – 8:00 PM</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership and fitting center for premium global golf brands.</p>
+        </div>
+        <div class="footer-col">
+          <h6>About</h6>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+            <li><a href="membership.html">VIP Membership</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+    });
+  </script>
+</body>
+</html>
+

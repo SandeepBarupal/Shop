@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History — Royal Fairway Golf Co.</title>
+  <meta name="description" content="View past orders, track active White-Glove deliveries, and download GST tax invoices.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Tour Fleet Tracking:</strong> Uniformed drivers across Delhi NCR &amp; Bengaluru</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="account.html" class="nav-link">Account</a></li>
+          <li class="nav-item"><a href="orders.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Orders</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Breadcrumb -->
+  <div style="background: var(--color-bg-alt); padding: 16px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; gap: 8px; font-size: 13.5px; color: var(--color-text-muted);">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="account.html">Account</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 600;">My Orders</span>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 14px; border-bottom: 1px solid var(--border-line); padding-bottom: 16px;">
+      <div>
+        <h1 style="font-size: 28px; margin: 0 0 4px;">My Orders &amp; Dispatches</h1>
+        <span class="text-muted" id="orders-count-label">Loading orders...</span>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <select id="orders-filter" class="form-control" style="width: auto; font-size: 13.5px;" onchange="renderOrdersList()">
+          <option value="all">All Dispatches</option>
+          <option value="active">In Transit / Active</option>
+          <option value="completed">Delivered</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="orders-container" style="display: flex; flex-direction: column; gap: 24px;">
+      <!-- Populated via JS -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership for Titleist, TaylorMade, Callaway, Ping and Scotty Cameron.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Live Order Tracking</a></li>
+            <li><a href="shipping-policy.html">White-Glove Fleet Policy</a></li>
+            <li><a href="return-policy.html">7-Day Return Policy</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      renderOrdersList();
+    });
+
+    function renderOrdersList() {
+      const orders = Store.getOrders();
+      const filter = document.getElementById('orders-filter').value;
+      const container = document.getElementById('orders-container');
+      const countLabel = document.getElementById('orders-count-label');
+
+      let filtered = orders;
+      if (filter === 'active') {
+        filtered = orders.filter(o => o.orderStatus !== 'Delivered');
+      } else if (filter === 'completed') {
+        filtered = orders.filter(o => o.orderStatus === 'Delivered');
+      }
+
+      countLabel.textContent = `Showing ${filtered.length} order records`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 60px 20px; text-align: center;">
+            <div style="font-size: 40px; margin-bottom: 12px;">📦</div>
+            <h3 style="font-size: 18px; margin-bottom: 8px;">No orders found</h3>
+            <p class="text-muted" style="margin-bottom: 20px;">You haven't placed any orders in this category yet.</p>
+            <a href="products.html" class="btn btn-primary">Shop Tour Equipment</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(order => {
+        const dateStr = new Date(order.date).toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        });
+
+        const statusClass = order.orderStatus === 'Delivered' 
+          ? 'badge-mint' 
+          : order.orderStatus.includes('Delivery') || order.orderStatus.includes('Placed') 
+          ? 'badge-excellent' 
+          : 'badge-verygood';
+
+        return `
+          <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);">
+            <!-- Card Header -->
+            <div style="background: var(--color-bg-alt); padding: 18px 24px; border-bottom: 1px solid var(--border-line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <div style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px;">
+                <div>
+                  <span class="text-muted" style="display: block;">Order Reference</span>
+                  <strong style="color: var(--color-primary); font-size: 15px; font-family: monospace;">${order.orderNumber}</strong>
+                </div>
+                <div>
+                  <span class="text-muted" style="display: block;">Date Placed</span>
+                  <strong>${dateStr}</strong>
+                </div>
+                <div>
+                  <span class="text-muted" style="display: block;">Total Amount</span>
+                  <strong>₹${order.total.toLocaleString('en-IN')}</strong>
+                </div>
+                <div>
+                  <span class="text-muted" style="display: block;">Delivery Fleet</span>
+                  <span>${order.city} Uniformed Van</span>
+                </div>
+              </div>
+
+              <div>
+                <span class="badge ${statusClass}" style="font-size: 12px; padding: 6px 12px;">${order.orderStatus}</span>
+              </div>
+            </div>
+
+            <!-- Card Body: Items -->
+            <div style="padding: 24px;">
+              <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px;">
+                ${(order.items || []).map(it => `
+                  <div style="display: flex; gap: 16px; align-items: center;">
+                    <img src="${it.image}" alt="${it.name}" style="width: 64px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-line);">
+                    <div style="flex: 1;">
+                      <h4 style="font-size: 15px; margin: 0 0 4px;">
+                        <a href="product-detail.html?id=${it.id}" style="color: var(--color-primary);">${it.name}</a>
+                      </h4>
+                      <div style="font-size: 13px; color: var(--color-text-muted);">
+                        Qty: ${it.quantity} • ₹${it.price.toLocaleString('en-IN')} each
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Card Footer Actions -->
+              <div style="border-top: 1px solid var(--border-line); padding-top: 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <div style="font-size: 13px; color: var(--color-text-muted);">
+                  📍 Destination: <strong>${order.address}, ${order.city}</strong>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                  <a href="order-tracking.html?order=${order.orderNumber}" class="btn btn-gold btn-sm">Track White-Glove Van →</a>
+                  <button class="btn btn-outline btn-sm" onclick="window.print()">Download Invoice</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>
+

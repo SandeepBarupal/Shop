@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade-In Requests — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Pre-Owned Trade-In Requests</h1>
+          <p class="admin-page-subtitle">Inspect online valuation inquiries, schedule doorstep club pickups, and issue clubhouse store credit.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-gold" onclick="alert('Exported pending trade-in appraisals to PDF')">Export Appraisal Manifest</button>
+      </div>
+
+      <div class="admin-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Inquiry Ref</th>
+              <th>Member</th>
+              <th>Trade-In Equipment</th>
+              <th>Condition Grade</th>
+              <th>Valuation (₹)</th>
+              <th>Pickup Address</th>
+              <th>Status</th>
+              <th>Appraisal Action</th>
+            </tr>
+          </thead>
+          <tbody id="tradeins-tbody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    const MOCK_TRADEINS = [
+      {
+        refNumber: 'TRD-4821',
+        name: 'Major General Ranvijay Singh',
+        phone: '+91 98100 23456',
+        item: 'TaylorMade Stealth 2 Plus Driver (9.0°)',
+        condition: '9/10 Excellent',
+        value: 19500,
+        address: 'Villa 14, The Magnolias, Gurugram',
+        status: 'Under Review'
+      },
+      {
+        refNumber: 'TRD-3914',
+        name: 'Dr. Siddharth Nambiar',
+        phone: '+91 99801 55432',
+        item: 'Titleist T100 Forged Iron Set (4-PW)',
+        condition: '8/10 Very Good',
+        value: 48000,
+        address: 'Indiranagar 100ft Rd, Bengaluru',
+        status: 'Pickup Scheduled'
+      },
+      {
+        refNumber: 'TRD-2877',
+        name: 'Col. Alok Sharma (Retd.)',
+        phone: '+91 98101 88421',
+        item: 'Scotty Cameron Special Select Fastback',
+        condition: '10/10 Mint',
+        value: 24500,
+        address: 'Golf Links, New Delhi',
+        status: 'Credit Issued'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('tradeins');
+      Admin.renderTopbar();
+      renderTradeIns();
+    });
+
+    function renderTradeIns() {
+      const stored = Store.getTradeIns();
+      const all = stored.length ? [...stored, ...MOCK_TRADEINS] : MOCK_TRADEINS;
+
+      const tbody = document.getElementById('tradeins-tbody');
+      tbody.innerHTML = all.map(t => `
+        <tr>
+          <td><strong style="color: var(--admin-primary); font-family: monospace;">${t.refNumber || 'TRD-8821'}</strong></td>
+          <td>
+            <strong>${t.name || t.fullName || 'Clubhouse Member'}</strong><br>
+            <span style="font-size: 11.5px; color: var(--admin-text-muted);">${t.phone || ''}</span>
+          </td>
+          <td>
+            <strong>${t.item || (t.brand + ' ' + t.category)}</strong>
+          </td>
+          <td>
+            <span class="admin-badge badge-gold">${t.condition || '9/10 Excellent'}</span>
+          </td>
+          <td>
+            <strong style="font-size: 15px; color: #166534;">₹${(t.value || t.estimatedValue || 18500).toLocaleString('en-IN')}</strong>
+          </td>
+          <td style="max-width: 180px; font-size: 12.5px;">
+            ${t.address || t.city || 'Gurugram Central'}
+          </td>
+          <td>
+            <span class="admin-badge ${t.status === 'Credit Issued' ? 'badge-success' : 'badge-warning'}">
+              ${t.status || 'Under Review'}
+            </span>
+          </td>
+          <td>
+            <div style="display: flex; gap: 6px;">
+              <button class="admin-btn admin-btn-primary admin-btn-sm" onclick="alert('Appraisal approved! Fairway EV van scheduled for doorstep club pickup.')">Approve</button>
+              <button class="admin-btn admin-btn-gold admin-btn-sm" onclick="alert('Issued ₹${t.value || 18500} Store Credit Voucher to player account!')">Issue Voucher</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+  </script>
+</body>
+</html>
+

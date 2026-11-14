@@ -1,0 +1,333 @@
+/* ==========================================================================
+   ROYAL FAIRWAY GOLF CO. — BASE STYLES & FOUNDATIONS
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text-main);
+  outline: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(32px, 4.5vw, 54px); }
+h2 { font-size: clamp(26px, 3.2vw, 40px); }
+h3 { font-size: clamp(20px, 2.2vw, 28px); }
+h4 { font-size: 20px; font-weight: 600; }
+h5 { font-size: 16px; font-weight: 600; }
+h6 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+p {
+  margin-bottom: 1rem;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+}
+
+.text-muted { color: var(--color-text-muted); }
+.text-gold { color: var(--color-gold); }
+.text-green { color: var(--color-primary); }
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & GRIDS
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.container-sm {
+  max-width: 960px;
+}
+
+.section-padding {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border-line);
+  padding-bottom: 18px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  transition: all 0.22s ease-in-out;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-card);
+  color: var(--color-primary);
+  border: 1px solid var(--border-line);
+}
+.btn-secondary:hover {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-primary);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: #ffffff;
+  border: 1px solid var(--color-gold);
+}
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-dark {
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
+  border: 1px solid var(--color-bg-dark);
+}
+.btn-dark:hover {
+  background-color: #1a2920;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn:disabled, .btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   FORM CONTROLS
+   ========================================================================== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-main);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(12, 35, 23, 0.1);
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23131b16' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   BADGES & CONDITION TAGS
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 9px;
+  border-radius: var(--radius-xs);
+  line-height: 1;
+}
+
+.badge-new { background: var(--color-primary); color: #ffffff; }
+.badge-tour { background: var(--color-gold); color: #ffffff; }
+.badge-sale { background: #b91c1c; color: #ffffff; }
+.badge-bestseller { background: #0369a1; color: #ffffff; }
+
+/* Golf Garage Condition Grading Badges */
+.badge-mint { background: var(--condition-mint); color: #ffffff; }
+.badge-excellent { background: var(--condition-excellent); color: #ffffff; }
+.badge-verygood { background: var(--condition-very-good); color: #ffffff; }
+.badge-good { background: var(--condition-good); color: #ffffff; }
+
+/* ==========================================================================
+   TOAST NOTIFICATION CONTAINER
+   ========================================================================== */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 380px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xl);
+  font-size: 13.5px;
+  border-left: 4px solid var(--color-gold);
+  animation: slideInUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.toast-success { border-left-color: var(--color-success); }
+.toast-info { border-left-color: var(--color-info); }
+.toast-error { border-left-color: var(--color-danger); }
+

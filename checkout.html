@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Secure checkout with dedicated White-Glove delivery to your residence or golf club locker.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: var(--color-bg-alt);">
+
+  <!-- Header Clean Checkout Variant -->
+  <header style="background: #ffffff; border-bottom: 1px solid var(--border-line); padding: 20px 0;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <!-- Progress Stepper -->
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 13.5px;">
+        <span style="font-weight: 700; color: var(--color-primary);">1. Delivery Details</span>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="color: var(--color-text-muted);">2. Payment</span>
+        <span style="opacity: 0.4;">➔</span>
+        <span style="color: var(--color-text-muted);">3. Confirmation</span>
+      </div>
+
+      <div style="font-size: 13px; color: var(--color-text-muted); display: flex; align-items: center; gap: 6px;">
+        <span>🔒</span>
+        <span>256-Bit SSL Encrypted</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 40px 0 80px;">
+    <div style="display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: start;">
+      
+      <!-- Checkout Form -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+        <form id="checkout-form" onsubmit="handleProceedToPayment(event)">
+          
+          <!-- Section 1: Customer Contact -->
+          <div style="margin-bottom: 32px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">
+              <span style="width: 28px; height: 28px; background: var(--color-primary); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">1</span>
+              <h3 style="font-size: 18px; margin: 0;">Contact Information</h3>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div>
+                <label class="form-label" for="cust-name">Full Name *</label>
+                <input type="text" id="cust-name" class="form-control" placeholder="e.g. Major General Ranvijay Singh" required value="Major General Ranvijay Singh">
+              </div>
+
+              <div>
+                <label class="form-label" for="cust-phone">Mobile Phone (for Delivery Driver WhatsApp) *</label>
+                <input type="tel" id="cust-phone" class="form-control" placeholder="+91 98100 23456" required value="+91 98100 23456">
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="cust-email">Email Address (for Digital Invoice &amp; Serial Guarantee) *</label>
+              <input type="email" id="cust-email" class="form-control" placeholder="ranvijay.singh@example.com" required value="ranvijay.singh@example.com">
+            </div>
+          </div>
+
+          <!-- Section 2: Delivery Location -->
+          <div style="margin-bottom: 32px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">
+              <span style="width: 28px; height: 28px; background: var(--color-primary); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">2</span>
+              <h3 style="font-size: 18px; margin: 0;">White-Glove Delivery Address</h3>
+            </div>
+
+            <!-- Destination Type Selector -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px;">
+              <label style="border: 2px solid var(--color-primary); background: var(--color-bg-alt); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer;">
+                <input type="radio" name="addr_type" value="Residence" checked style="display: none;">
+                <div style="font-size: 20px; margin-bottom: 4px;">🏡</div>
+                <strong style="font-size: 12.5px;">Residence</strong>
+              </label>
+
+              <label style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer;">
+                <input type="radio" name="addr_type" value="Golf Club" style="display: none;">
+                <div style="font-size: 20px; margin-bottom: 4px;">⛳</div>
+                <strong style="font-size: 12.5px;">Golf Club Locker</strong>
+              </label>
+
+              <label style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 12px; text-align: center; cursor: pointer;">
+                <input type="radio" name="addr_type" value="Corporate" style="display: none;">
+                <div style="font-size: 20px; margin-bottom: 4px;">🏢</div>
+                <strong style="font-size: 12.5px;">Corporate Office</strong>
+              </label>
+            </div>
+
+            <div style="margin-bottom: 16px;">
+              <label class="form-label" for="cust-address">Street Address / Villa / Club Pavilion *</label>
+              <input type="text" id="cust-address" class="form-control" placeholder="e.g. Villa 14, The Magnolias, Golf Course Road" required value="Villa 14, The Magnolias, Golf Course Road">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+              <div>
+                <label class="form-label" for="cust-city">City *</label>
+                <select id="cust-city" class="form-control" required>
+                  <option value="Gurugram" selected>Gurugram (NCR)</option>
+                  <option value="New Delhi">New Delhi</option>
+                  <option value="Noida">Noida (NCR)</option>
+                  <option value="Bengaluru">Bengaluru</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Chennai">Chennai</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="form-label" for="cust-state">State *</label>
+                <input type="text" id="cust-state" class="form-control" required value="Haryana">
+              </div>
+
+              <div>
+                <label class="form-label" for="cust-pincode">Pincode *</label>
+                <input type="text" id="cust-pincode" class="form-control" maxlength="6" pattern="[0-9]{6}" required value="122002">
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="cust-notes">Delivery &amp; Fitting Instructions (Optional)</label>
+              <input type="text" id="cust-notes" class="form-control" placeholder="e.g. Leave with security desk or caddie master at clubhouse" value="Please hand deliver to security reception or golf cart bay.">
+            </div>
+          </div>
+
+          <!-- Section 3: Delivery Service Selection -->
+          <div style="margin-bottom: 32px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">
+              <span style="width: 28px; height: 28px; background: var(--color-primary); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;">3</span>
+              <h3 style="font-size: 18px; margin: 0;">White-Glove Fleet Options</h3>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <label style="border: 2px solid var(--color-primary); background: var(--color-bg-alt); border-radius: var(--radius-md); padding: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <input type="radio" name="shipping_speed" value="White-Glove Fleet" checked>
+                  <div>
+                    <strong style="font-size: 14px; display: block; color: var(--color-primary);">Royal Fairway Uniformed Fleet (EV Van)</strong>
+                    <span class="text-muted" style="font-size: 12.5px;">Next-Day Hand-Delivery with Inspection Case</span>
+                  </div>
+                </div>
+                <span style="font-weight: 800; color: #166534; font-size: 13.5px;">FREE</span>
+              </label>
+
+              <label style="border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <input type="radio" name="shipping_speed" value="Doorstep Fitting Van">
+                  <div>
+                    <strong style="font-size: 14px; display: block;">Mobile Fitting Van with PGA Pro</strong>
+                    <span class="text-muted" style="font-size: 12.5px;">TrackMan loft &amp; lie check on your front lawn / club range</span>
+                  </div>
+                </div>
+                <span style="font-weight: 700; color: var(--color-gold); font-size: 13.5px;">+₹1,500</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">
+            Continue to Payment Gateway →
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Summary Card -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; position: sticky; top: 30px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 18px; margin-bottom: 16px; border-bottom: 1px solid var(--border-line); padding-bottom: 10px;">In Your Bag</h3>
+
+        <div id="checkout-items-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;">
+          <!-- Injected via JS -->
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; border-top: 1px solid var(--border-line); padding-top: 16px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">Subtotal:</span>
+            <span id="co-subtotal">₹0</span>
+          </div>
+
+          <div id="co-discount-row" style="display: flex; justify-content: space-between; color: #166534; display: none;">
+            <span>Clubhouse Promo:</span>
+            <span id="co-discount">-₹0</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">White-Glove Fleet:</span>
+            <span style="color: #166534; font-weight: 600;">FREE</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 19px; font-weight: 800; border-top: 1px solid var(--border-line); padding-top: 12px;">
+            <span>Total Payable:</span>
+            <span id="co-total" style="color: var(--color-primary);">₹0</span>
+          </div>
+        </div>
+
+        <div style="background: var(--color-bg-alt); padding: 14px; border-radius: var(--radius-md); font-size: 12px; color: var(--color-text-muted); line-height: 1.5;">
+          🛡 <strong>Royal Fairway Authenticity Guarantee:</strong> In-house fleet inspection at delivery. 7-day hassle-free returns.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+
+      // Ensure cart has items. If empty, load sample tour equipment for seamless demo
+      let cart = Store.getCart();
+      if (cart.length === 0) {
+        const prod = Store.getProducts()[0];
+        if (prod) Store.addToCart(prod, 1);
+        cart = Store.getCart();
+      }
+
+      const totals = Store.getCartTotals();
+      const itemsContainer = document.getElementById('checkout-items-list');
+      
+      itemsContainer.innerHTML = cart.map(it => `
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <img src="${it.product.image}" style="width: 52px; height: 52px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-line);">
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${it.product.name}</div>
+            <div style="font-size: 12px; color: var(--color-text-muted);">Qty: ${it.quantity}</div>
+          </div>
+          <div style="font-size: 13.5px; font-weight: 700;">₹${(it.product.price * it.quantity).toLocaleString('en-IN')}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('co-subtotal').textContent = `₹${totals.subtotal.toLocaleString('en-IN')}`;
+      if (totals.discount > 0) {
+        document.getElementById('co-discount-row').style.display = 'flex';
+        document.getElementById('co-discount').textContent = `-₹${totals.discount.toLocaleString('en-IN')}`;
+      }
+      document.getElementById('co-total').textContent = `₹${totals.total.toLocaleString('en-IN')}`;
+    });
+
+    function handleProceedToPayment(e) {
+      e.preventDefault();
+      const shippingInfo = {
+        customerName: document.getElementById('cust-name').value,
+        customerPhone: document.getElementById('cust-phone').value,
+        customerEmail: document.getElementById('cust-email').value,
+        address: document.getElementById('cust-address').value,
+        city: document.getElementById('cust-city').value,
+        state: document.getElementById('cust-state').value,
+        pincode: document.getElementById('cust-pincode').value,
+        notes: document.getElementById('cust-notes').value,
+      };
+
+      sessionStorage.setItem('rfg_checkout_info', JSON.stringify(shippingInfo));
+      window.location.href = 'payment.html';
+    }
+  </script>
+</body>
+</html>
+

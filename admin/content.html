@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Content CMS — Royal Fairway Admin</title>
+  
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside id="admin-sidebar" class="admin-sidebar"></aside>
+
+  <div class="admin-main">
+    <header id="admin-topbar" class="admin-topbar"></header>
+
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Website Content &amp; Banner CMS</h1>
+          <p class="admin-page-subtitle">Configure homepage hero banners, top announcements, and promotional copy.</p>
+        </div>
+
+        <button class="admin-btn admin-btn-primary" onclick="alert('Content CMS published to live storefront!')">Publish Changes to Store</button>
+      </div>
+
+      <!-- CMS Forms -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;">
+        
+        <!-- Top Announcement Bar -->
+        <div class="admin-card" style="padding: 28px;">
+          <h3 style="font-size: 17px; margin-bottom: 6px;">Top Announcement Bar</h3>
+          <p class="text-muted" style="font-size: 13px; margin-bottom: 20px;">Displays at the very top of all 38 store pages.</p>
+
+          <form onsubmit="event.preventDefault(); alert('Top announcement bar updated!');">
+            <div class="admin-form-group">
+              <label class="admin-label">Announcement Highlight Text</label>
+              <input type="text" class="admin-input" value="Royal Fairway White-Glove Delivery: In-house uniformed fleet across Delhi NCR & Bengaluru">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Promo Pill Code</label>
+              <input type="text" class="admin-input" value="CODE: GOLF10 (10% Instant off for clubhouse members)">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Display Status</label>
+              <select class="admin-select">
+                <option selected>Active (Visible to All Visitors)</option>
+                <option>Disabled</option>
+              </select>
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-primary">Save Announcement</button>
+          </form>
+        </div>
+
+        <!-- Homepage Hero Banner -->
+        <div class="admin-card" style="padding: 28px;">
+          <h3 style="font-size: 17px; margin-bottom: 6px;">Homepage Hero Slider Banner</h3>
+          <p class="text-muted" style="font-size: 13px; margin-bottom: 20px;">Controls main visual above the fold on the homepage.</p>
+
+          <form onsubmit="event.preventDefault(); alert('Hero banner configuration saved!');">
+            <div class="admin-form-group">
+              <label class="admin-label">Eyebrow Tagline</label>
+              <input type="text" class="admin-input" value="CHAMPIONSHIP TOUR STANDARDS">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Main Headline</label>
+              <input type="text" class="admin-input" value="Play with prestige.">
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Sub-headline Description</label>
+              <textarea class="admin-textarea" rows="3">Championship drivers, hand-milled Scotty putters, tour urethane balls, and certified pre-owned golf equipment. Delivered via our dedicated white-glove fleet across India.</textarea>
+            </div>
+
+            <div class="admin-form-group">
+              <label class="admin-label">Background Lifestyle Image URL</label>
+              <input type="url" class="admin-input" value="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=2000&q=85">
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-primary">Save Hero Banner</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Live Preview Container -->
+      <div class="admin-card" style="padding: 24px;">
+        <h3 style="font-size: 16px; margin-bottom: 12px;">Storefront Header Live Preview</h3>
+        <div style="background: var(--admin-primary); color: #ffffff; padding: 12px 20px; border-radius: 6px; font-size: 13px; display: flex; justify-content: space-between;">
+          <span>⛳ <strong>Royal Fairway White-Glove Delivery:</strong> In-house uniformed fleet across Delhi NCR &amp; Bengaluru</span>
+          <span style="background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 12px;">CODE: GOLF10</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Admin.renderSidebar('content');
+      Admin.renderTopbar();
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Golf Clubs & Iron Sets — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Shop verified pre-owned drivers, forged iron sets, Vokey wedges and Scotty Cameron putters.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Tour Used Club Desk:</strong> Every club is shaft-tested, cleaned, and re-gripped where necessary</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search used drivers, iron sets, putters..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Certified Pre-Owned</a></li>
+          <li class="nav-item"><a href="used-clubs.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Used Clubs</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #0d2217 0%, #1c4530 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--color-gold);">TOUR QUALITY AT FRACTION OF PRICE</span>
+      <h1 style="color: #ffffff; margin: 8px 0 12px;">Used Golf Clubs &amp; Iron Sets</h1>
+      <p style="color: #cadfd4; font-size: 16px; max-width: 650px; line-height: 1.6;">
+        Every used club is inspected for loft, lie angle, groove sharpness, and shaft integrity by certified clubmakers. Includes headcover and 30-day playability guarantee.
+      </p>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <h2 style="font-size: 22px;">Used Golf Clubs Selection</h2>
+        <span class="text-muted" id="used-count" style="font-size: 13px;">Showing clubs</span>
+      </div>
+      <a href="trade-in.html" class="btn btn-gold btn-sm">Trade-In Your Current Clubs →</a>
+    </div>
+
+    <div id="used-clubs-grid" class="products-grid">
+      <!-- Injected via JS -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's leading pre-owned golf equipment authority with comprehensive inspection protocols.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="pre-owned.html">Pre-Owned Gear</a></li>
+            <li><a href="trade-in.html">Trade-In Program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Delivery</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+
+      const all = Store.getProducts();
+      // Filter for golf clubs that are pre-owned or clubs category
+      const usedClubs = all.filter(p => (p.category === 'clubs' || p.category === 'drivers' || p.category === 'irons' || p.category === 'putters') && p.condition && p.condition !== 'New');
+
+      const displayList = usedClubs.length > 0 ? usedClubs : all.filter(p => p.condition && p.condition !== 'New');
+      document.getElementById('used-count').textContent = `Showing ${displayList.length} verified golf clubs`;
+      
+      const grid = document.getElementById('used-clubs-grid');
+      if (grid) {
+        grid.innerHTML = displayList.map(p => UI.renderProductCard(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>
+

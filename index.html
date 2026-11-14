@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Fairway Golf Co. — Championship Equipment, Luxury Apparel & Certified Pre-Owned Golf</title>
+  <meta name="description" content="India's premier golf commerce destination inspired by St Andrews, Golfoy, Golf Mart India and Golf Garage. White-Glove own delivery across Delhi NCR & Bengaluru.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. ANNOUNCEMENT BAR
+       ======================================================================== -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <div class="announcement-item">
+          <span>⛳</span>
+          <span><strong>Royal Fairway White-Glove Delivery:</strong> In-house uniformed fleet across Delhi NCR &amp; Bengaluru</span>
+        </div>
+        <div class="announcement-item">
+          <span class="announcement-pill">CODE: GOLF10</span>
+          <span>10% Instant off for clubhouse members</span>
+        </div>
+      </div>
+
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+        <span style="opacity: 0.6;">|</span>
+        <a href="admin/index.html" class="announcement-pill" style="background: rgba(255,255,255,0.15); color: #ffffff;">
+          ⚙️ Admin Portal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2, 3, 4. SITE HEADER, LOGO, SEARCH BAR, MEGA MENU
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-main">
+      <!-- Brand Crest & Logo -->
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <!-- 4. Global Search Bar with Live Auto-Suggest -->
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group" onsubmit="if(!document.getElementById('global-search-input').value.trim()) return false;">
+          <span class="search-icon-left">🔍</span>
+          <input
+            type="text"
+            id="global-search-input"
+            name="q"
+            class="search-input-field"
+            placeholder="Search drivers, irons, Scotty putters, Pro V1, shoes..."
+            autocomplete="off"
+          >
+          <button type="submit" style="position: absolute; right: 12px; font-size: 13px; font-weight: 700; color: var(--color-primary);">Search</button>
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+
+        <a href="account.html" class="header-action-btn" title="My Account">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+
+        <a href="admin/index.html" class="admin-header-pill" title="Open Management Suite">
+          <span>Admin Suite</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Mega Navigation Menu -->
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link" style="color: var(--color-primary); font-weight: 700;">Home</a>
+          </li>
+
+          <!-- Mega Menu: Golf Clubs -->
+          <li class="nav-item has-mega">
+            <a href="category.html?cat=clubs" class="nav-link">
+              <span>Golf Clubs</span>
+              <span style="font-size: 9px;">▼</span>
+            </a>
+            <div class="mega-dropdown">
+              <div class="container mega-grid">
+                <div class="mega-column">
+                  <h4>Woods &amp; Drivers</h4>
+                  <ul>
+                    <li><a href="category.html?cat=drivers">Tour Drivers</a></li>
+                    <li><a href="category.html?cat=clubs&type=fairway">Fairway Woods</a></li>
+                    <li><a href="category.html?cat=clubs&type=hybrids">Rescue Hybrids</a></li>
+                    <li><a href="products.html?brand=TaylorMade">TaylorMade Qi10 Series</a></li>
+                    <li><a href="products.html?brand=Titleist">Titleist TSR Series</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h4>Irons &amp; Wedges</h4>
+                  <ul>
+                    <li><a href="category.html?cat=irons">Forged Players Irons</a></li>
+                    <li><a href="category.html?cat=irons&sub=game-improvement">Cavity Game Improvement</a></li>
+                    <li><a href="category.html?cat=clubs&type=wedges">Vokey SM9 / SM10 Wedges</a></li>
+                    <li><a href="products.html?brand=Mizuno">Mizuno Grain Flow Forged</a></li>
+                    <li><a href="category.html?cat=clubs&type=packages">Complete Package Sets</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h4>Putters &amp; Precision</h4>
+                  <ul>
+                    <li><a href="category.html?cat=putters">Scotty Cameron Milled</a></li>
+                    <li><a href="category.html?cat=putters&type=mallet">High-MOI Mallets</a></li>
+                    <li><a href="category.html?cat=putters&type=blade">Classic Tour Blades</a></li>
+                    <li><a href="category.html?cat=putters&brand=Callaway">Odyssey Ai-One Series</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-column">
+                  <h4>Club Fitting</h4>
+                  <ul>
+                    <li><a href="contact.html">Gurugram Fitting Studio</a></li>
+                    <li><a href="contact.html">Bengaluru Links Studio</a></li>
+                    <li><a href="trade-in.html">Trade-In Valuation Tool</a></li>
+                    <li><a href="used-clubs.html">Certified Used Clubs</a></li>
+                  </ul>
+                </div>
+
+                <div class="mega-banner-card" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=600&q=80');">
+                  <div class="mega-banner-overlay"></div>
+                  <div class="mega-banner-content">
+                    <span class="eyebrow" style="color: var(--color-gold);">NEW TOUR RELEASES</span>
+                    <h5 style="color: #ffffff; margin-bottom: 6px;">TaylorMade Qi10 10K MOI</h5>
+                    <a href="product-detail.html?id=drv-01" class="btn btn-gold btn-sm">Explore Driver</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Golf Balls -->
+          <li class="nav-item">
+            <a href="category.html?cat=balls" class="nav-link">Golf Balls</a>
+          </li>
+
+          <!-- Golf Bags -->
+          <li class="nav-item">
+            <a href="category.html?cat=bags" class="nav-link">Bags</a>
+          </li>
+
+          <!-- Golf Shoes -->
+          <li class="nav-item">
+            <a href="category.html?cat=shoes" class="nav-link">Shoes</a>
+          </li>
+
+          <!-- Apparel -->
+          <li class="nav-item">
+            <a href="category.html?cat=apparel" class="nav-link">Apparel</a>
+          </li>
+
+          <!-- Tech & GPS -->
+          <li class="nav-item">
+            <a href="category.html?cat=tech" class="nav-link">Technology &amp; GPS</a>
+          </li>
+
+          <!-- Special: Pre-Owned (Golf Garage inspiration) -->
+          <li class="nav-item">
+            <a href="pre-owned.html" class="nav-link nav-link-accent">
+              <span>Certified Pre-Owned</span>
+              <span class="nav-badge-pill">SAVE 40%</span>
+            </a>
+          </li>
+
+          <!-- Special: Trade-In -->
+          <li class="nav-item">
+            <a href="trade-in.html" class="nav-link">Trade-In</a>
+          </li>
+
+          <!-- Brands Directory -->
+          <li class="nav-item">
+            <a href="brands.html" class="nav-link">Brands</a>
+          </li>
+
+          <!-- Sale -->
+          <li class="nav-item" style="margin-left: auto;">
+            <a href="sale.html" class="nav-link" style="color: #dc2626;">Sale &amp; Offers</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         5. HERO BANNER
+         ======================================================================== -->
+    <section class="hero-slider-section" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=2000&q=85');">
+      <div class="hero-slider-overlay"></div>
+      <div class="container">
+        <div class="hero-content-box">
+          <span class="eyebrow">CHAMPIONSHIP TOUR STANDARDS</span>
+          <h1 class="hero-title-main">
+            Play with <br>
+            <em>prestige.</em>
+          </h1>
+          <p class="hero-desc-text">
+            Championship drivers, hand-milled Scotty putters, tour urethane balls, and certified pre-owned golf equipment. Delivered via our dedicated white-glove fleet across India.
+          </p>
+
+          <div class="hero-btn-group">
+            <a href="products.html" class="btn btn-primary btn-lg">
+              <span>Explore Tour Gear</span>
+              <span>→</span>
+            </a>
+            <a href="trade-in.html" class="btn btn-secondary btn-lg">
+              <span>Calculate Club Trade-In</span>
+            </a>
+            <a href="pre-owned.html" class="btn btn-gold btn-lg">
+              <span>Shop Certified Pre-Owned</span>
+            </a>
+          </div>
+
+          <div class="hero-fleet-banner">
+            <span style="font-size: 16px;">🚚</span>
+            <span>
+              <strong>White-Glove In-House Delivery:</strong> Hand-delivered in climate-managed fleet vans across Delhi NCR &amp; Bengaluru.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. SHOP BY CATEGORY (12 CATEGORIES)
+         ======================================================================== -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">THE 12 DISCIPLINES</span>
+          <h2 class="section-title">Shop by Category</h2>
+        </div>
+        <a href="categories.html" class="btn btn-secondary btn-sm">View Category Directory →</a>
+      </div>
+
+      <div class="category-grid-12" id="home-category-grid">
+        <!-- Rendered dynamically from GOLF_DATABASE.categories -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. FEATURED BRANDS RIBBON
+         ======================================================================== -->
+    <section class="container" style="margin-bottom: 60px;">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span class="eyebrow">AUTHORIZED TOUR DISTRIBUTOR</span>
+        <h3 style="font-size: 24px;">The World&apos;s Finest Equipment Brands</h3>
+      </div>
+
+      <div class="brands-row-ribbon">
+        <a href="products.html?brand=Titleist" class="brand-pill-item">🏆 TITLEIST</a>
+        <a href="products.html?brand=Callaway" class="brand-pill-item">⚡ CALLAWAY</a>
+        <a href="products.html?brand=TaylorMade" class="brand-pill-item">🚀 TAYLORMADE</a>
+        <a href="products.html?brand=Ping" class="brand-pill-item">🎯 PING</a>
+        <a href="products.html?brand=Mizuno" class="brand-pill-item">⚔️ MIZUNO</a>
+        <a href="products.html?brand=FootJoy" class="brand-pill-item">👞 FOOTJOY</a>
+        <a href="products.html?brand=Scotty%20Cameron" class="brand-pill-item">👑 SCOTTY CAMERON</a>
+        <a href="products.html?brand=Bushnell" class="brand-pill-item">🔭 BUSHNELL</a>
+        <a href="products.html?brand=Vessel" class="brand-pill-item">🎒 VESSEL</a>
+        <a href="products.html?brand=Garmin" class="brand-pill-item">⌚ GARMIN</a>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         8. BEST SELLING PRODUCTS
+         ======================================================================== -->
+    <section class="section-padding" style="background-color: var(--color-bg-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">POPULAR ON THE FAIRWAYS</span>
+            <h2 class="section-title">Best Selling Golf Gear</h2>
+          </div>
+          <a href="best-sellers.html" class="btn btn-secondary btn-sm">Explore Best Sellers →</a>
+        </div>
+
+        <div class="products-grid-4" id="home-bestsellers-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         9. NEW ARRIVALS
+         ======================================================================== -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">2026 TOUR DROPS</span>
+          <h2 class="section-title">Latest Equipment &amp; Apparel</h2>
+        </div>
+        <a href="new-arrivals.html" class="btn btn-secondary btn-sm">View All New Arrivals →</a>
+      </div>
+
+      <div class="products-grid-4" id="home-newarrivals-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         10. PREMIUM GOLF EQUIPMENT (CLUBS, DRIVERS, IRONS)
+         ======================================================================== -->
+    <section class="section-padding" style="background-color: #ffffff; border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">TOUR SPECIFICATION</span>
+            <h2 class="section-title">Championship Golf Clubs</h2>
+          </div>
+          <a href="category.html?cat=clubs" class="btn btn-secondary btn-sm">Shop All Clubs →</a>
+        </div>
+
+        <div class="products-grid-4" id="home-clubs-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         11. GOLF APPAREL & FOOTWEAR COLLECTION
+         ======================================================================== -->
+    <section class="section-padding container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">HERITAGE STYLING</span>
+          <h2 class="section-title">Performance Apparel &amp; Footwear</h2>
+        </div>
+        <a href="category.html?cat=apparel" class="btn btn-secondary btn-sm">View Collection →</a>
+      </div>
+
+      <div class="products-grid-4" id="home-apparel-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         12. PRE-OWNED GOLF EQUIPMENT (GOLF GARAGE INSPIRATION)
+         ======================================================================== -->
+    <section class="container" style="margin-bottom: 70px;">
+      <div class="preowned-banner-box">
+        <div>
+          <span class="eyebrow" style="color: var(--color-gold);">CERTIFIED PRE-OWNED MARKETPLACE</span>
+          <h2 style="color: #ffffff; font-size: 36px; margin: 10px 0 16px;">
+            Tour Performance. <br>
+            <em>Fraction of the Cost.</em>
+          </h2>
+          <p style="color: #d8e5dd; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+            Every pre-owned driver, irons set, wedge and putter is inspected on our Mitchell digital bending gauge, verified against manufacturer serials, and graded on an uncompromising 10-point scale.
+          </p>
+
+          <div class="condition-pill-row">
+            <div class="condition-guide-item">
+              <span class="badge badge-mint">10/10 MINT</span>
+              <span>Unhit / Plastic Wrap Intact</span>
+            </div>
+            <div class="condition-guide-item">
+              <span class="badge badge-excellent">9/10 EXCELLENT</span>
+              <span>Minor Floor / Shop Wear Only</span>
+            </div>
+            <div class="condition-guide-item">
+              <span class="badge badge-verygood">8/10 VERY GOOD</span>
+              <span>Clean Crown, Normal Play</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; margin-top: 24px;">
+            <a href="pre-owned.html" class="btn btn-gold btn-lg">Browse Pre-Owned Inventory</a>
+            <a href="trade-in.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: #ffffff;">Trade-In Your Gear</a>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.06); padding: 32px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.15);">
+          <h4 style="color: #ffffff; margin-bottom: 14px;">The Royal Fairway Certified Promise</h4>
+          <ul style="display: flex; flex-direction: column; gap: 12px; color: #cbd5e1; font-size: 13.5px;">
+            <li>✓ 100% Genuine Serial Verification Guarantee</li>
+            <li>✓ 7-Day Play Guarantee on All Certified Pre-Owned Clubs</li>
+            <li>✓ Factory Headcover &amp; Adjustment Wrench Included</li>
+            <li>✓ Guaranteed Buy-Back &amp; Trade-In Value for 12 Months</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pre-Owned Products Grid -->
+      <div class="products-grid-4" id="home-preowned-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         13. SPECIAL OFFERS & BUNDLE DEALS
+         ======================================================================== -->
+    <section class="section-padding" style="background-color: var(--color-bg-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">MEMBER EXCLUSIVES</span>
+            <h2 class="section-title">Special Offers &amp; Clearances</h2>
+          </div>
+          <a href="sale.html" class="btn btn-secondary btn-sm">Shop All Offers →</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <div style="background: #ffffff; padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <span class="badge badge-sale" style="margin-bottom: 12px;">BALL BUNDLE</span>
+            <h3 style="font-size: 22px; margin-bottom: 8px;">Buy 3 Dozen Titleist Pro V1, Get Custom Tour Cap Free</h3>
+            <p class="text-muted" style="font-size: 14px; margin-bottom: 20px;">Stock up for the championship season with India&apos;s #1 ball.</p>
+            <a href="category.html?cat=balls" class="btn btn-primary btn-sm">Shop Pro V1 Bundle →</a>
+          </div>
+
+          <div style="background: #ffffff; padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <span class="badge badge-tour" style="margin-bottom: 12px;">FITTING BONUS</span>
+            <h3 style="font-size: 22px; margin-bottom: 8px;">Complimentary Studio Fitting with Any Qi10 Driver</h3>
+            <p class="text-muted" style="font-size: 14px; margin-bottom: 20px;">TrackMan 4 launch monitor shaft optimization at our Gurugram hub.</p>
+            <a href="contact.html" class="btn btn-primary btn-sm">Book Studio Session →</a>
+          </div>
+
+          <div style="background: #ffffff; padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <span class="badge badge-mint" style="margin-bottom: 12px;">TRADE-IN BONUS</span>
+            <h3 style="font-size: 22px; margin-bottom: 8px;">Extra ₹2,500 Store Credit on Any Driver Trade-In</h3>
+            <p class="text-muted" style="font-size: 14px; margin-bottom: 20px;">Upgrade your 2021-2023 driver to current-gen carbonwood tech.</p>
+            <a href="trade-in.html" class="btn btn-gold btn-sm">Check Trade-In Value →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         14. TRADE-IN PROMOTION & INTERACTIVE VALUATION WIDGET
+         ======================================================================== -->
+    <section class="section-padding container">
+      <div class="tradein-feature-card">
+        <div>
+          <span class="eyebrow">INSTANT CLUB VALUATION</span>
+          <h2 style="font-size: 34px; margin: 8px 0 16px;">
+            Upgrade Your Bag. <br>
+            <em>Trade-In For Immediate Credit.</em>
+          </h2>
+          <p class="text-muted" style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+            Don&apos;t let your previous clubs gather dust in the garage. Our proprietary valuation engine calculates true market value based on condition, shaft, and grip. Apply credit immediately toward any new or pre-owned purchase.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <div style="display: flex; gap: 10px; align-items: center; font-size: 14px;">
+              <span style="color: var(--color-primary); font-weight: 700;">1.</span>
+              <span>Select your current equipment brand and model</span>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center; font-size: 14px;">
+              <span style="color: var(--color-primary); font-weight: 700;">2.</span>
+              <span>Get instant transparent estimated valuation in Indian Rupees (₹)</span>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center; font-size: 14px;">
+              <span style="color: var(--color-primary); font-weight: 700;">3.</span>
+              <span>Our own delivery executive collects your old club while handing over your new gear</span>
+            </div>
+          </div>
+
+          <a href="trade-in.html" class="btn btn-primary btn-lg">Open Full Trade-In Portal →</a>
+        </div>
+
+        <!-- Quick Trade-In Calculator Widget -->
+        <div class="tradein-calc-widget">
+          <h4 style="margin-bottom: 16px;">Quick Trade-In Estimator</h4>
+          <form id="quick-tradein-form" onsubmit="handleQuickTradeCalc(event)">
+            <div class="form-group">
+              <label class="form-label">Club Brand:</label>
+              <select id="quick-brand-select" class="form-control">
+                <option value="TaylorMade">TaylorMade</option>
+                <option value="Titleist">Titleist</option>
+                <option value="Callaway">Callaway</option>
+                <option value="Ping">Ping</option>
+                <option value="Mizuno">Mizuno</option>
+                <option value="Scotty Cameron">Scotty Cameron</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Equipment Category:</label>
+              <select id="quick-club-select" class="form-control">
+                <option value="0">Driver (Current Gen 2024-2026)</option>
+                <option value="1">Driver (Previous Gen 2021-2023)</option>
+                <option value="2">Irons Set (Forged 4-PW)</option>
+                <option value="3">Irons Set (Cavity 5-PW)</option>
+                <option value="4">Putter (Milled Scotty / Bettinardi)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Condition Rating:</label>
+              <select id="quick-cond-select" class="form-control">
+                <option value="10/10 Mint">10/10 Mint (Like New / Plastic)</option>
+                <option value="9/10 Excellent" selected>9/10 Excellent (Minor Wear)</option>
+                <option value="8/10 Very Good">8/10 Very Good (Normal Round Play)</option>
+                <option value="7/10 Good">7/10 Good (Cosmetic Marks)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-gold btn-block">Calculate Valuation</button>
+          </form>
+
+          <div id="quick-calc-result" class="calc-estimate-result" style="display: none;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted);">
+              ESTIMATED STORE CREDIT:
+            </span>
+            <div id="quick-calc-val" style="font-size: 28px; font-weight: 800; color: var(--color-primary); margin: 4px 0;">
+              ₹24,000
+            </div>
+            <a href="trade-in.html" class="btn btn-primary btn-sm btn-block" style="margin-top: 10px;">
+              Submit for Trade-In →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         15. GOLF LIFESTYLE BANNER
+         ======================================================================== -->
+    <section class="container">
+      <div class="lifestyle-banner" style="background-image: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=2000&q=85');">
+        <div class="lifestyle-overlay"></div>
+        <div class="lifestyle-content">
+          <span class="eyebrow" style="color: var(--color-gold);">THE SPIRIT OF THE GAME</span>
+          <h2 style="font-size: 40px; color: #ffffff; margin: 10px 0 16px; font-weight: 400;">
+            Where Heritage <br>
+            <em>Meets Precision.</em>
+          </h2>
+          <p style="color: #e2ece6; font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+            Whether competing at the DLF Tournament Course, enjoying an early tee time at Delhi Golf Club, or walking the scenic fairways of KGA Bengaluru, we equip your passion with verified authenticity.
+          </p>
+          <a href="about.html" class="btn btn-gold btn-lg">Learn Our Philosophy →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         16. CUSTOMER REVIEWS
+         ======================================================================== -->
+    <section class="section-padding" style="background-color: #ffffff; border-top: 1px solid var(--border-line);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 48px;">
+          <span class="eyebrow">PLAYER TESTIMONIALS</span>
+          <h2 class="section-title">Played on India&apos;s Championship Courses</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+          <div style="background: var(--color-bg-body); padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <div style="color: var(--color-gold); font-size: 16px; margin-bottom: 12px;">★★★★★</div>
+            <p style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+              &ldquo;The white-glove own delivery directly to the Caddy Master locker at DLF Golf Club made my Qi10 driver purchase completely effortless. Authentic club with factory serial card.&rdquo;
+            </p>
+            <strong>Vikramaditya Sharma</strong>
+            <span style="display: block; font-size: 12px; color: var(--color-text-muted);">Member, DLF Golf &amp; Country Club, Gurugram</span>
+          </div>
+
+          <div style="background: var(--color-bg-body); padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <div style="color: var(--color-gold); font-size: 16px; margin-bottom: 12px;">★★★★★</div>
+            <p style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+              &ldquo;Traded in my Callaway Rogue driver for an Odyssey Ai-One milled putter. The Trade-In valuation was instant and the credit was applied seamlessly at checkout. Outstanding platform.&rdquo;
+            </p>
+            <strong>Capt. Arjun Mehta</strong>
+            <span style="display: block; font-size: 12px; color: var(--color-text-muted);">Handicap 5.2, Delhi Golf Club</span>
+          </div>
+
+          <div style="background: var(--color-bg-body); padding: 32px; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            <div style="color: var(--color-gold); font-size: 16px; margin-bottom: 12px;">★★★★★</div>
+            <p style="font-style: italic; font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+              &ldquo;Ordered Titleist Pro V1 dozens and FootJoy Carbon shoes. The delivery driver waited while I tried the shoe fit. Unbelievable level of luxury service for golfers in India.&rdquo;
+            </p>
+            <strong>Dr. Siddharth Rao</strong>
+            <span style="display: block; font-size: 12px; color: var(--color-text-muted);">Member, Karnataka Golf Association (KGA)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         17. NEWSLETTER SUBSCRIPTION
+         ======================================================================== -->
+    <section class="section-padding container" style="text-align: center; max-width: 820px;">
+      <span class="eyebrow">THE 19TH HOLE CLUB</span>
+      <h2 style="font-size: 36px; margin: 8px 0 14px;">Join the Royal Clubhouse</h2>
+      <p class="text-muted" style="font-size: 16px; margin-bottom: 32px;">
+        Gain private access to limited-edition tour drops, tournament invitations, and receive <strong>10% instant off</strong> your next order with voucher code <strong>GOLF10</strong>.
+      </p>
+
+      <form onsubmit="event.preventDefault(); Store.showToast('Welcome to The Royal Fairway Club! Voucher GOLF10 applied.');" style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto;">
+        <input
+          type="email"
+          required
+          placeholder="Enter your email address"
+          class="form-control"
+          style="flex: 1; padding: 14px 18px;"
+        >
+        <button type="submit" class="btn btn-primary btn-lg">Join Club</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       18. PROFESSIONAL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <!-- USP Ribbon -->
+    <div class="footer-usp-ribbon">
+      <div class="container footer-usp-grid">
+        <div class="footer-usp-card">
+          <div class="footer-usp-icon" style="font-size: 26px;">🚚</div>
+          <div>
+            <h5>White-Glove Own-Delivery</h5>
+            <p>Uniformed fleet vans serving Delhi NCR &amp; Bengaluru hubs. Same-day &amp; scheduled clubhouse drops.</p>
+          </div>
+        </div>
+
+        <div class="footer-usp-card">
+          <div class="footer-usp-icon" style="font-size: 26px;">🛡️</div>
+          <div>
+            <h5>100% Genuine Tour Guarantee</h5>
+            <p>Direct authorized manufacturer inventory with verifiable serial numbers. Zero counterfeit tolerance.</p>
+          </div>
+        </div>
+
+        <div class="footer-usp-card">
+          <div class="footer-usp-icon" style="font-size: 26px;">⚖️</div>
+          <div>
+            <h5>Certified Trade-In Program</h5>
+            <p>Trade old clubs for immediate store credit. 10-point transparent condition grading system.</p>
+          </div>
+        </div>
+
+        <div class="footer-usp-card">
+          <div class="footer-usp-icon" style="font-size: 26px;">⛳</div>
+          <div>
+            <h5>Custom Fitting Advisory</h5>
+            <p>PGA-certified fitting specialists available via phone, WhatsApp and studio appointments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Links Columns -->
+    <div class="footer-main-links">
+      <div class="container footer-links-grid">
+        <!-- Brand Col -->
+        <div>
+          <h4 class="footer-brand-title">ROYAL FAIRWAY</h4>
+          <p class="footer-brand-desc">
+            India&apos;s premier single-vendor destination for championship golf equipment, luxury tour apparel, handcrafted bags, and certified pre-owned golf gear.
+          </p>
+          <div class="footer-hubs-box">
+            <span class="footer-hub-item">📍 Gurugram Fulfillment Hub (Golf Course Road)</span>
+            <span class="footer-hub-item">📍 Bengaluru Links Depot (Embassy GolfLinks)</span>
+          </div>
+        </div>
+
+        <!-- Equipment Col -->
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=drivers">Tour Drivers</a></li>
+            <li><a href="category.html?cat=irons">Forged Irons</a></li>
+            <li><a href="category.html?cat=putters">Scotty Putters</a></li>
+            <li><a href="category.html?cat=balls">Pro V1 Balls</a></li>
+            <li><a href="category.html?cat=bags">Luxury Bags</a></li>
+            <li><a href="category.html?cat=shoes">Waterproof Shoes</a></li>
+            <li><a href="category.html?cat=tech">Bushnell Rangefinders</a></li>
+          </ul>
+        </div>
+
+        <!-- Special Programs -->
+        <div class="footer-col">
+          <h6>Special Programs</h6>
+          <ul>
+            <li><a href="pre-owned.html">Certified Pre-Owned</a></li>
+            <li><a href="used-clubs.html">Used Golf Clubs</a></li>
+            <li><a href="trade-in.html">Trade-In Calculator</a></li>
+            <li><a href="membership.html">Clubhouse Membership</a></li>
+            <li><a href="gift-cards.html">Golf Gift Cards</a></li>
+            <li><a href="clearance.html">Clearance Store</a></li>
+            <li><a href="brands.html">Brand Directory</a></li>
+          </ul>
+        </div>
+
+        <!-- Concierge & Care -->
+        <div class="footer-col">
+          <h6>Concierge &amp; Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Live Order Tracking</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="orders.html">Order History</a></li>
+            <li><a href="shipping-policy.html">White-Glove Delivery Policy</a></li>
+            <li><a href="return-policy.html">7-Day Return Policy</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Operations & Staff -->
+        <div class="footer-col">
+          <h6>Management</h6>
+          <ul>
+            <li><a href="admin/index.html">Admin Dashboard</a></li>
+            <li><a href="admin/products.html">Product Management</a></li>
+            <li><a href="admin/orders.html">Orders &amp; Fleet Dispatch</a></li>
+            <li><a href="admin/trade-ins.html">Trade-In Reviews</a></li>
+            <li><a href="admin/coupons.html">Voucher Promotions</a></li>
+            <li><a href="admin/settings.html">Store Configuration</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar with Payment Chips -->
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited. All rights reserved. GST Registered.</p>
+        <div class="payment-badges-row">
+          <span class="payment-badge-chip">UPI (GPay / PhonePe / Paytm)</span>
+          <span class="payment-badge-chip">RuPay</span>
+          <span class="payment-badge-chip">Visa / Mastercard</span>
+          <span class="payment-badge-chip">Net Banking</span>
+          <span class="payment-badge-chip">Cash on Delivery (COD)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Out Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer-overlay" onclick="UI.toggleCartDrawer(false)">
+    <div class="cart-drawer-panel" onclick="event.stopPropagation()">
+      <div class="drawer-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">👜</span>
+          <strong style="font-size: 17px;">Your Golf Bag</strong>
+        </div>
+        <button onclick="UI.toggleCartDrawer(false)" style="font-size: 20px; color: var(--color-text-muted);">✕</button>
+      </div>
+
+      <div class="free-shipping-goal">
+        <div id="cart-drawer-shipping-text" style="font-size: 12.5px; color: #785a1a;">
+          Add items for <strong>Free White-Glove Delivery</strong>
+        </div>
+        <div class="free-shipping-track">
+          <div id="cart-drawer-shipping-fill" class="free-shipping-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div id="cart-drawer-items" class="drawer-items-list">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div id="cart-drawer-footer" class="drawer-footer">
+        <!-- Coupon Form -->
+        <form onsubmit="event.preventDefault(); Store.applyCoupon(document.getElementById('drawer-coupon-input').value); document.getElementById('drawer-coupon-input').value='';" style="display: flex; gap: 8px; margin-bottom: 14px;">
+          <input type="text" id="drawer-coupon-input" placeholder="Coupon code (e.g. GOLF10)" class="form-control" style="text-transform: uppercase;">
+          <button type="submit" class="btn btn-secondary btn-sm">Apply</button>
+        </form>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">Subtotal:</span>
+            <span id="cart-drawer-subtotal">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; color: var(--color-success); display: none;">
+            <span>Coupon Discount:</span>
+            <span id="cart-drawer-discount">-₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span class="text-muted">White-Glove Fleet Delivery:</span>
+            <span id="cart-drawer-shipping">FREE</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 800; border-top: 1px solid var(--border-line); padding-top: 10px;">
+            <span>Total:</span>
+            <span id="cart-drawer-total">₹0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout →</a>
+          <a href="cart.html" class="btn btn-secondary btn-block">View Full Bag</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    // Populate Homepage sections from GOLF_DATABASE
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Categories Grid (12 items)
+      const catGrid = document.getElementById('home-category-grid');
+      if (catGrid) {
+        catGrid.innerHTML = GOLF_DATABASE.categories.map(c => `
+          <a href="category.html?cat=${c.id}" class="cat-tile-card">
+            <img src="${c.image}" class="cat-tile-img" alt="${c.name}">
+            <div class="cat-tile-content">
+              <h4 class="cat-tile-title">${c.name}</h4>
+              <span class="cat-tile-count">${c.count} Items Available</span>
+            </div>
+          </a>
+        `).join('');
+      }
+
+      // 2. Best Sellers
+      const bsGrid = document.getElementById('home-bestsellers-grid');
+      if (bsGrid) {
+        const bestsellers = GOLF_DATABASE.products.filter(p => p.bestseller).slice(0, 4);
+        bsGrid.innerHTML = bestsellers.map(p => UI.renderProductCard(p)).join('');
+      }
+
+      // 3. New Arrivals
+      const naGrid = document.getElementById('home-newarrivals-grid');
+      if (naGrid) {
+        const newArrivals = GOLF_DATABASE.products.slice(0, 4);
+        naGrid.innerHTML = newArrivals.map(p => UI.renderProductCard(p)).join('');
+      }
+
+      // 4. Clubs Section
+      const clubsGrid = document.getElementById('home-clubs-grid');
+      if (clubsGrid) {
+        const clubs = GOLF_DATABASE.products.filter(p => ['drivers', 'irons', 'putters', 'clubs'].includes(p.category)).slice(0, 4);
+        clubsGrid.innerHTML = clubs.map(p => UI.renderProductCard(p)).join('');
+      }
+
+      // 5. Apparel Section
+      const appGrid = document.getElementById('home-apparel-grid');
+      if (appGrid) {
+        const apparel = GOLF_DATABASE.products.filter(p => ['apparel', 'shoes', 'gloves', 'accessories'].includes(p.category)).slice(0, 4);
+        appGrid.innerHTML = apparel.map(p => UI.renderProductCard(p)).join('');
+      }
+
+      // 6. Pre-Owned Section
+      const poGrid = document.getElementById('home-preowned-grid');
+      if (poGrid) {
+        const preowned = GOLF_DATABASE.products.filter(p => p.condition && p.condition !== 'New').slice(0, 4);
+        poGrid.innerHTML = preowned.map(p => UI.renderProductCard(p)).join('');
+      }
+    });
+
+    // Quick Trade-In Calculator handler
+    function handleQuickTradeCalc(e) {
+      e.preventDefault();
+      const clubIdx = Number(document.getElementById('quick-club-select').value);
+      const cond = document.getElementById('quick-cond-select').value;
+      const base = GOLF_DATABASE.tradeInValuationMatrix.clubTypes[clubIdx].baseValue;
+      const mult = GOLF_DATABASE.tradeInValuationMatrix.conditionMultipliers[cond] || 1;
+      const val = Math.round(base * mult);
+
+      document.getElementById('quick-calc-val').textContent = `₹${val.toLocaleString('en-IN')}`;
+      document.getElementById('quick-calc-result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+

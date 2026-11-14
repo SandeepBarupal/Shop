@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certified Pre-Owned Golf Equipment — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Shop certified pre-owned tour drivers, iron sets and Scotty putters with 10-point condition grading and 30-day play guarantee.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Certified Pre-Owned:</strong> 10-point inspection, verifiable serial numbers, and 30-day play guarantee</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search pre-owned drivers, irons, putters..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent" style="color: var(--color-primary); font-weight: 700;">Certified Pre-Owned</a></li>
+          <li class="nav-item"><a href="used-clubs.html" class="nav-link">Used Clubs</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In Calculator</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <div style="background: linear-gradient(135deg, #091f14 0%, #153b26 100%); color: #ffffff; padding: 50px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+      <div>
+        <span class="eyebrow" style="color: var(--color-gold);">10-POINT INSPECTED GOLF GEAR</span>
+        <h1 style="color: #ffffff; margin: 8px 0 12px; font-size: clamp(30px, 4vw, 44px);">Certified Pre-Owned Marketplace</h1>
+        <p style="color: #cadfd4; font-size: 16px; max-width: 650px; line-height: 1.6;">
+          Inspired by Golf Garage's benchmark grading system. Play championship tour equipment from TaylorMade, Titleist, Callaway and Ping at up to 50% off retail, with 100% authenticity guaranteed.
+        </p>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); padding: 24px; border-radius: var(--radius-lg); text-align: center; min-width: 260px;">
+        <span style="font-size: 30px;">🔄</span>
+        <h4 style="color: #ffffff; font-size: 18px; margin: 8px 0 4px;">Have Old Clubs?</h4>
+        <p style="color: #cadfd4; font-size: 13px; margin-bottom: 14px;">Instant online valuation &amp; free doorstep pickup.</p>
+        <a href="trade-in.html" class="btn btn-gold btn-block">Value Your Clubs Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Condition Grading Guide (Golf Garage inspired) -->
+  <div style="background: var(--color-bg-alt); border-bottom: 1px solid var(--border-line); padding: 36px 0;">
+    <div class="container">
+      <h3 style="font-size: 18px; text-align: center; margin-bottom: 24px;">Royal Fairway 10-Point Condition Grading System</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-line); padding: 20px; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #166534; font-size: 15px;">10/10 Mint (Like New)</strong>
+            <span class="badge badge-mint">Mint</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">Pristine condition. Flawless crown, face, and sole with zero scratches or ball marks. Many are pro shop display clubs.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); padding: 20px; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #1e40af; font-size: 15px;">9/10 Excellent</strong>
+            <span class="badge badge-excellent">Excellent</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">Lightly played for a few rounds. Clean crown and topline, faint hairline brush marks on the sole only.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); padding: 20px; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #854d0e; font-size: 15px;">8/10 Very Good</strong>
+            <span class="badge badge-verygood">Very Good</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">Normal play wear. Face grooves are sharp and crisp. Minor cosmetic scratches on sole, structurally 100% sound.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-line); padding: 20px; border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="color: #4b5563; font-size: 15px;">7/10 Good</strong>
+            <span class="badge" style="background: #f3f4f6; color: #374151;">Good</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; line-height: 1.5;">Bag chatter or finish wear, but full tour playability. Maximum value for budget-conscious golfers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+      <div>
+        <h2 style="font-size: 22px;">Available Pre-Owned Tour Gear</h2>
+        <span class="text-muted" id="preowned-count" style="font-size: 13px;">Showing certified inventory</span>
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <label for="condition-filter-select" style="font-size: 13px; color: var(--color-text-muted);">Grade:</label>
+        <select id="condition-filter-select" class="form-control" style="width: auto; font-size: 13.5px;" onchange="filterPreOwned()">
+          <option value="all">All Grades</option>
+          <option value="Mint">10/10 Mint</option>
+          <option value="Excellent">9/10 Excellent</option>
+          <option value="Very Good">8/10 Very Good</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="preowned-grid" class="products-grid">
+      <!-- Injected via JS -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's trusted marketplace for certified pre-owned golf equipment with genuine inspection guarantee.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Special Shopping</h6>
+          <ul>
+            <li><a href="pre-owned.html">Pre-Owned Marketplace</a></li>
+            <li><a href="used-clubs.html">Used Golf Clubs</a></li>
+            <li><a href="trade-in.html">Trade-In Valuation Tool</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Delivery</a></li>
+            <li><a href="return-policy.html">30-Day Play Guarantee</a></li>
+            <li><a href="contact.html">Fitting Studios</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      filterPreOwned();
+    });
+
+    function filterPreOwned() {
+      const selectedGrade = document.getElementById('condition-filter-select').value;
+      const all = Store.getProducts();
+
+      // Filter pre-owned items (items with condition other than New)
+      let list = all.filter(p => p.condition && p.condition !== 'New');
+
+      if (selectedGrade !== 'all') {
+        list = list.filter(p => p.condition.toLowerCase().includes(selectedGrade.toLowerCase()));
+      }
+
+      document.getElementById('preowned-count').textContent = `Showing ${list.length} certified clubs & gear`;
+      const grid = document.getElementById('preowned-grid');
+      if (grid) {
+        grid.innerHTML = list.map(p => UI.renderProductCard(p)).join('');
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Golf Bag — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Review your golf clubs, tour balls, shoes and accessories before White-Glove doorstep delivery.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Complimentary White-Glove Delivery:</strong> On orders above ₹4,999 across Delhi NCR &amp; Bengaluru</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search golf gear, balls, shoes..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="header-action-btn" title="Shopping Bag" style="color: var(--color-primary); font-weight: 700;">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </a>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Breadcrumb -->
+  <div style="background: var(--color-bg-alt); padding: 16px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; gap: 8px; font-size: 13.5px; color: var(--color-text-muted);">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 600;">Shopping Bag</span>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div id="cart-content-wrapper">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; border-bottom: 1px solid var(--border-line); padding-bottom: 12px;">
+        <h1 style="font-size: 28px; margin: 0;">Your Golf Bag</h1>
+        <span class="text-muted" id="cart-item-count-label">0 Items</span>
+      </div>
+
+      <!-- Free White-Glove Delivery Tracker -->
+      <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-md); padding: 18px 24px; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <div id="cart-shipping-text" style="font-size: 14px; color: #785a1a;">
+            Add items to unlock <strong>Free White-Glove Delivery</strong>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: var(--color-primary);">Min. ₹4,999</span>
+        </div>
+        <div class="free-shipping-track" style="height: 8px;">
+          <div id="cart-shipping-fill" class="free-shipping-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Grid (Items + Summary) -->
+      <div style="display: grid; grid-template-columns: 1fr 380px; gap: 36px; align-items: start;">
+        
+        <!-- Cart Items List -->
+        <div id="cart-items-container" style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); overflow: hidden;">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Order Summary Card -->
+        <div style="background: #ffffff; border: 1px solid var(--border-line); border-radius: var(--radius-lg); padding: 28px; position: sticky; top: 100px; box-shadow: var(--shadow-sm);">
+          <h3 style="font-size: 19px; margin-bottom: 20px; border-bottom: 1px solid var(--border-line); padding-bottom: 12px;">Order Summary</h3>
+
+          <!-- Coupon Input -->
+          <form onsubmit="handleApplyCoupon(event)" style="margin-bottom: 20px;">
+            <label style="display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; color: var(--color-text-muted);">Have a Promo Code?</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="cart-coupon-input" placeholder="e.g. GOLF10" class="form-control" style="text-transform: uppercase; font-size: 13.5px;">
+              <button type="submit" class="btn btn-secondary btn-sm">Apply</button>
+            </div>
+            <div style="font-size: 11.5px; color: var(--color-text-muted); margin-top: 6px;">Try <strong>GOLF10</strong> for 10% off, or <strong>FAIRWAY500</strong> for ₹500 off.</div>
+          </form>
+
+          <!-- Calculations -->
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between;">
+              <span class="text-muted">Subtotal:</span>
+              <span id="summary-subtotal" style="font-weight: 600;">₹0</span>
+            </div>
+
+            <div id="summary-discount-row" style="display: flex; justify-content: space-between; color: #166534; display: none;">
+              <span>Clubhouse Discount:</span>
+              <span id="summary-discount" style="font-weight: 700;">-₹0</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <span class="text-muted">White-Glove Fleet Delivery:</span>
+              <span id="summary-shipping" style="color: #166534; font-weight: 600;">FREE</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-muted);">
+              <span>GST &amp; Luxury Surcharge:</span>
+              <span>Included in Price (18%)</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; border-top: 2px solid var(--border-line); padding-top: 16px; margin-top: 4px;">
+              <span>Grand Total:</span>
+              <span id="summary-total" style="color: var(--color-primary);">₹0</span>
+            </div>
+          </div>
+
+          <a href="checkout.html" class="btn btn-primary btn-block btn-lg" style="margin-bottom: 12px;">
+            Proceed to Checkout →
+          </a>
+
+          <a href="products.html" class="btn btn-outline btn-block btn-sm">
+            Continue Shopping
+          </a>
+
+          <!-- Trust Badges -->
+          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-line); display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: var(--color-text-muted);">
+            <div>✓ Hand-delivered by Royal Fairway Uniformed Fleet</div>
+            <div>✓ 100% Genuine Tour Equipment Guarantee</div>
+            <div>✓ 7-Day Hassle-Free Returns &amp; On-Spot Fitting</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Empty Bag State -->
+    <div id="cart-empty-state" style="display: none; text-align: center; padding: 80px 20px; background: #ffffff; border-radius: var(--radius-lg); border: 1px solid var(--border-line);">
+      <div style="font-size: 56px; margin-bottom: 16px;">👜</div>
+      <h2 style="font-size: 26px; margin-bottom: 10px;">Your Golf Bag is Empty</h2>
+      <p class="text-muted" style="max-width: 480px; margin: 0 auto 28px; font-size: 15px; line-height: 1.6;">
+        Explore our curated selection of 2026 tour drivers, player iron sets, Scotty Cameron putters, and luxury golf apparel.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <a href="products.html" class="btn btn-primary btn-lg">Explore Tour Equipment</a>
+        <a href="trade-in.html" class="btn btn-secondary btn-lg">Trade-In Old Clubs</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">India's authorized golf equipment destination with custom fitting and White-Glove delivery.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="category.html?cat=balls">Golf Balls</a></li>
+            <li><a href="category.html?cat=shoes">Golf Shoes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      renderCartPage();
+    });
+
+    function renderCartPage() {
+      const cart = Store.getCart();
+      const totals = Store.getCartTotals();
+
+      const wrapper = document.getElementById('cart-content-wrapper');
+      const emptyState = document.getElementById('cart-empty-state');
+      const countLabel = document.getElementById('cart-item-count-label');
+
+      if (cart.length === 0) {
+        wrapper.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      wrapper.style.display = 'block';
+      emptyState.style.display = 'none';
+      countLabel.textContent = `${cart.reduce((s, it) => s + it.quantity, 0)} Items`;
+
+      // Free shipping bar
+      const remaining = Math.max(0, 4999 - (totals.subtotal - totals.discount));
+      const pct = Math.min(100, Math.round(((totals.subtotal - totals.discount) / 4999) * 100));
+      document.getElementById('cart-shipping-fill').style.width = `${pct}%`;
+      const shipText = document.getElementById('cart-shipping-text');
+      if (remaining === 0) {
+        shipText.innerHTML = '<strong style="color: #166534;">✓ Qualified for Free White-Glove Own-Delivery</strong> across Delhi NCR &amp; Bengaluru';
+      } else {
+        shipText.innerHTML = `Add <strong>₹${remaining.toLocaleString('en-IN')}</strong> more for <strong>Free White-Glove Own-Delivery</strong>`;
+      }
+
+      // Render cart items
+      const container = document.getElementById('cart-items-container');
+      container.innerHTML = cart.map(item => {
+        const prod = item.product;
+        const optionsList = Object.entries(item.options || {})
+          .map(([k, v]) => `<span style="font-size: 12px; background: var(--color-bg-alt); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-line);">${k}: ${v}</span>`)
+          .join(' ');
+
+        return `
+          <div style="display: grid; grid-template-columns: 100px 1fr auto; gap: 20px; padding: 24px; border-bottom: 1px solid var(--border-line); align-items: center;">
+            <a href="product-detail.html?id=${prod.id}">
+              <img src="${prod.image}" alt="${prod.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-line);">
+            </a>
+
+            <div>
+              <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-gold); font-weight: 700;">${prod.brand}</span>
+              <h4 style="font-size: 16px; margin: 4px 0 8px;">
+                <a href="product-detail.html?id=${prod.id}" style="color: var(--color-primary);">${prod.name}</a>
+              </h4>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+                ${optionsList}
+              </div>
+              <div style="font-size: 16px; font-weight: 800; color: var(--color-primary);">
+                ₹${prod.price.toLocaleString('en-IN')}
+                ${prod.mrp > prod.price ? `<span style="font-size: 13px; font-weight: 400; text-decoration: line-through; color: var(--color-text-muted); margin-left: 6px;">₹${prod.mrp.toLocaleString('en-IN')}</span>` : ''}
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 14px;">
+              <div style="display: flex; align-items: center; border: 1px solid var(--border-line); border-radius: var(--radius-sm); overflow: hidden;">
+                <button onclick="changeQty('${prod.id}', ${JSON.stringify(item.options || {}).replace(/"/g, '&quot;')}, ${item.quantity - 1})" style="padding: 6px 12px; background: var(--color-bg-alt); font-weight: 700;">-</button>
+                <span style="padding: 6px 14px; font-weight: 700; font-size: 14px;">${item.quantity}</span>
+                <button onclick="changeQty('${prod.id}', ${JSON.stringify(item.options || {}).replace(/"/g, '&quot;')}, ${item.quantity + 1})" style="padding: 6px 12px; background: var(--color-bg-alt); font-weight: 700;">+</button>
+              </div>
+
+              <button onclick="removeItem('${prod.id}', ${JSON.stringify(item.options || {}).replace(/"/g, '&quot;')})" style="color: #dc2626; font-size: 12.5px; text-decoration: underline;">
+                Remove
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Update Summary Values
+      document.getElementById('summary-subtotal').textContent = `₹${totals.subtotal.toLocaleString('en-IN')}`;
+      const discRow = document.getElementById('summary-discount-row');
+      if (totals.discount > 0) {
+        discRow.style.display = 'flex';
+        document.getElementById('summary-discount').textContent = `-₹${totals.discount.toLocaleString('en-IN')}`;
+      } else {
+        discRow.style.display = 'none';
+      }
+
+      document.getElementById('summary-shipping').textContent = totals.shipping === 0 ? 'FREE' : `₹${totals.shipping.toLocaleString('en-IN')}`;
+      document.getElementById('summary-total').textContent = `₹${totals.total.toLocaleString('en-IN')}`;
+    }
+
+    function changeQty(id, options, newQty) {
+      Store.updateCartQuantity(id, newQty, options);
+      renderCartPage();
+    }
+
+    function removeItem(id, options) {
+      Store.removeFromCart(id, options);
+      renderCartPage();
+    }
+
+    function handleApplyCoupon(e) {
+      e.preventDefault();
+      const code = document.getElementById('cart-coupon-input').value.trim();
+      if (!code) return;
+      Store.applyCoupon(code);
+      renderCartPage();
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+/* ==========================================================================
+   ROYAL FAIRWAY GOLF CO. — RESPONSIVE ADAPTATIONS
+   ========================================================================== */
+
+/* Tablet & Smaller Desktops (<= 1200px) */
+@media (max-width: 1200px) {
+  .footer-links-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .preowned-banner-box,
+  .tradein-feature-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablets (<= 992px) */
+@media (max-width: 992px) {
+  .header-navigation {
+    display: none; /* Replaced by mobile menu */
+  }
+  .header-search {
+    display: none;
+  }
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+  .filter-sidebar {
+    display: none;
+  }
+  .filter-sidebar.mobile-open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+    overflow-y: auto;
+    border-radius: 0;
+  }
+  .pdp-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .pdp-gallery-wrap {
+    position: static;
+  }
+  .admin-shell-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar-nav {
+    width: 100%;
+  }
+  .footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .announcement-highlights {
+    display: none;
+  }
+  .announcement-inner {
+    justify-content: center;
+    text-align: center;
+  }
+  .header-main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 16px;
+  }
+  .brand-crest {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  .brand-title {
+    font-size: 17px;
+  }
+  .brand-subtitle {
+    font-size: 8px;
+  }
+  .hero-slider-section {
+    min-height: 70vh;
+    padding: 50px 0;
+  }
+  .hero-title-main {
+    font-size: 38px;
+  }
+  .hero-desc-text {
+    font-size: 15px;
+  }
+  .products-grid-4 {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .product-card-body {
+    padding: 12px;
+  }
+  .product-card-title {
+    font-size: 13.5px;
+    height: 38px;
+  }
+  .price-current {
+    font-size: 16px;
+  }
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .compare-tray-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

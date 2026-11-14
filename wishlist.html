@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Wishlist — Royal Fairway Golf Co.</title>
+  <meta name="description" content="Saved golf clubs, forged iron sets, putters and apparel ready for your bag.">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-highlights">
+        <span>⛳ <strong>Wishlist Privileges:</strong> Save tour equipment and receive instant price drop &amp; stock alerts</span>
+      </div>
+      <div class="announcement-meta">
+        <a href="trade-in.html" class="announcement-link">Trade-In Your Clubs</a>
+        <a href="order-tracking.html" class="announcement-link">Track Delivery</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-crest">RF</div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">ROYAL FAIRWAY</span>
+          <span class="brand-subtitle">GOLF CO. • EST. 2026</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <form action="search.html" method="GET" class="search-input-group">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="global-search-input" name="q" class="search-input-field" placeholder="Search saved gear, clubs, balls..." autocomplete="off">
+        </form>
+        <div id="global-search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <div class="header-actions">
+        <button class="header-action-btn" onclick="UI.openCompareModal()" title="Compare Equipment">
+          <span style="font-size: 18px;">⚖</span>
+          <span>Compare</span>
+          <span class="header-badge-count js-compare-count">0</span>
+        </button>
+        <a href="wishlist.html" class="header-action-btn" title="Saved Wishlist" style="color: var(--color-primary); font-weight: 700;">
+          <span style="font-size: 18px;">♥</span>
+          <span>Wishlist</span>
+          <span class="header-badge-count js-wishlist-count">0</span>
+        </a>
+        <button class="header-action-btn" onclick="UI.toggleCartDrawer(true)" title="Shopping Bag">
+          <span style="font-size: 18px;">👜</span>
+          <span>Bag</span>
+          <span class="header-badge-count js-cart-count">0</span>
+        </button>
+        <a href="account.html" class="header-action-btn">
+          <span style="font-size: 18px;">👤</span>
+          <span>Account</span>
+        </a>
+        <a href="admin/index.html" class="admin-header-pill">Admin</a>
+      </div>
+    </div>
+
+    <nav class="header-navigation">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">All Products</a></li>
+          <li class="nav-item"><a href="category.html?cat=clubs" class="nav-link">Clubs</a></li>
+          <li class="nav-item"><a href="category.html?cat=balls" class="nav-link">Balls</a></li>
+          <li class="nav-item"><a href="category.html?cat=shoes" class="nav-link">Shoes</a></li>
+          <li class="nav-item"><a href="pre-owned.html" class="nav-link nav-link-accent">Pre-Owned</a></li>
+          <li class="nav-item"><a href="trade-in.html" class="nav-link">Trade-In</a></li>
+          <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+          <li class="nav-item" style="margin-left: auto;"><a href="sale.html" class="nav-link" style="color: #dc2626;">Sale</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Breadcrumb -->
+  <div style="background: var(--color-bg-alt); padding: 16px 0; border-bottom: 1px solid var(--border-line);">
+    <div class="container" style="display: flex; gap: 8px; font-size: 13.5px; color: var(--color-text-muted);">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 600;">Saved Wishlist</span>
+    </div>
+  </div>
+
+  <main class="container section-padding">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 14px; border-bottom: 1px solid var(--border-line); padding-bottom: 16px;">
+      <div>
+        <h1 style="font-size: 28px; margin: 0 0 4px;">Saved Golf Equipment</h1>
+        <span class="text-muted" id="wishlist-count-label">0 items saved</span>
+      </div>
+
+      <div id="wishlist-action-btns" style="display: flex; gap: 12px;">
+        <button class="btn btn-secondary btn-sm" onclick="moveAllToBag()">Move All to Bag</button>
+        <button class="btn btn-outline btn-sm" onclick="clearWishlist()">Clear Wishlist</button>
+      </div>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div id="wishlist-grid" class="products-grid">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="wishlist-empty" style="display: none; text-align: center; padding: 80px 20px; background: #ffffff; border-radius: var(--radius-lg); border: 1px solid var(--border-line);">
+      <div style="font-size: 50px; margin-bottom: 14px;">♥</div>
+      <h2 style="font-size: 24px; margin-bottom: 8px;">Your Wishlist is Empty</h2>
+      <p class="text-muted" style="max-width: 460px; margin: 0 auto 24px; font-size: 14px; line-height: 1.6;">
+        Explore our range of drivers, irons, putters, and tour golf balls. Click the heart icon on any product to save it here for later.
+      </p>
+      <a href="products.html" class="btn btn-primary btn-lg">Browse Golf Catalog</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-crest">RF</div>
+            <div class="brand-text-wrap">
+              <span class="brand-title" style="color: #ffffff;">ROYAL FAIRWAY</span>
+              <span class="brand-subtitle" style="color: var(--color-gold);">GOLF CO. • EST. 2026</span>
+            </div>
+          </div>
+          <p class="footer-about-text">Authorized dealership and fitting center for premium global golf brands.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Equipment</h6>
+          <ul>
+            <li><a href="category.html?cat=clubs">Golf Clubs</a></li>
+            <li><a href="category.html?cat=balls">Golf Balls</a></li>
+            <li><a href="category.html?cat=shoes">Golf Shoes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="order-tracking.html">Track Order</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Royal Fairway Golf Co. India Private Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Store.init();
+      Store.updateHeaderBadges();
+      Store.renderCartDrawer();
+      Store.renderCompareTray();
+      renderWishlistPage();
+    });
+
+    function renderWishlistPage() {
+      const items = Store.getWishlist();
+      const grid = document.getElementById('wishlist-grid');
+      const emptyBox = document.getElementById('wishlist-empty');
+      const countLabel = document.getElementById('wishlist-count-label');
+      const actionBtns = document.getElementById('wishlist-action-btns');
+
+      countLabel.textContent = `${items.length} items saved`;
+
+      if (items.length === 0) {
+        grid.style.display = 'none';
+        emptyBox.style.display = 'block';
+        if (actionBtns) actionBtns.style.display = 'none';
+      } else {
+        grid.style.display = 'grid';
+        emptyBox.style.display = 'none';
+        if (actionBtns) actionBtns.style.display = 'flex';
+        grid.innerHTML = items.map(p => UI.renderProductCard(p)).join('');
+      }
+    }
+
+    function moveAllToBag() {
+      const items = Store.getWishlist();
+      items.forEach(p => Store.addToCart(p, 1));
+      Store.showToast(`Moved ${items.length} items to your golf bag!`);
+      UI.toggleCartDrawer(true);
+    }
+
+    function clearWishlist() {
+      if (confirm('Are you sure you want to clear your saved wishlist?')) {
+        localStorage.setItem('rfg_wishlist', JSON.stringify([]));
+        Store.updateHeaderBadges();
+        renderWishlistPage();
+        Store.showToast('Wishlist cleared.', 'info');
+      }
+    }
+  </script>
+</body>
+</html>
+
